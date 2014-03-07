@@ -30,13 +30,29 @@ $ pod install
 $ open <YourApp>.xcworkspace
 ```
 
-4 - Import TATLayout in your prefix header or in any header in which you want it available:
+4 - Import TATLayout in your application's source code:
 ```objective-c
 #import <TATLayout/TATLayout.h>
 ```
 
 #### Adding TATLayout as a project into your Xcode workspace
+The best way to use TATLayout in your project is to set up an Xcode workspace that contains both your app project and the TATLayout project.
 
+1 - Clone the repository:
+```bash
+$ git clone https://github.com/cromandini/TATLayout.git
+```
+
+2 - Drag the TATLayout.xcodeproj file from OS X Finder directly into Xcode's Project Navigator. Xcode will prompt you about creating a workspace. Accept, and create the workspace file. Once the workspace has been created, you should also see TATLayout in the project navigator.
+
+3 - Select your application project to go to the project editor, then select your application target to go to the target editor. Select the "Build Phases" tab, expand the "Link Binary with libraries" section, and click the + button. Choose _libTATLayout.a_ and add it to the phase. Your application will now link against the library.
+
+4 - Select the "Build Settings" tab in your application target editor. Find the "Other Linker Flags" build setting and add the flag _-ObjC_ to this build setting’s value if it is not already present.
+
+5 - Import TATLayout in your application's source code:
+```objective-c
+#import <TATLayout/TATLayout.h>
+```
 
 #### Adding TATLayout binary into your Xcode project
 
