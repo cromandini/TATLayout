@@ -11,7 +11,7 @@ An expressive, simple yet poweful way for coding layout constraints in iOS.
 - Create a Layout Manager that supports constraints creation, installation, uninstallation and retrieval (for editing).
 
 ## Installation
-TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library.
+TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. The preferred way is using CocoaPods.
 
 #### Using TATLayout with CocoaPods
 1 - install CocoaPods if you have not already done so:
@@ -27,7 +27,7 @@ pod "TATLayout"
 3 - Install the dependencies and open the generated workspace:
 ```bash
 $ pod install
-$ open <YourApp>.xcworkspace
+$ open <YourAppName>.xcworkspace
 ```
 
 4 - Import TATLayout in your application's source code:
@@ -55,6 +55,23 @@ $ git clone https://github.com/cromandini/TATLayout.git
 ```
 
 #### Adding TATLayout binary into your Xcode project
+1 - Clone the repository:
+```bash
+$ git clone https://github.com/cromandini/TATLayout.git
+```
+
+2 - Open _TATLayout.xcworkspace_, select the _Framework_ scheme and build it. Building might take a while since it will compile i386 and arm architectures. When it finishes a finder window will open and show a folder containing _TATLayout.framework_.
+
+3 - In Finder, drag and drop or copy _TATLayout.framework_ to somewhere in your project folder.
+
+4 - Open your application project in Xcode, go to the project editor, then select your application target to go to the target editor. Select the "Build Phases" tab, expand the "Link Binary with libraries" section, and click the + button. Click "Add Other...", navigate to the place you copied _TATLayout.Framework_, select it and click "Open". Your application will now link against the library.
+
+5 - Select the "Build Settings" tab in your application target editor. Find the "Other Linker Flags" build setting and add the flag _-ObjC_ to this build setting’s value if it is not already present.
+
+6 - Import TATLayout in your application's source code:
+```objective-c
+#import <TATLayout/TATLayout.h>
+```
 
 ## Usage
 
