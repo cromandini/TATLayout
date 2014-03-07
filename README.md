@@ -24,14 +24,14 @@ $ sudo gem install cocoapods
 pod "TATLayout"
 ```
 
-3 - Install the dependencies and open the generated workspace:
+3 - Install the dependencies and open the generated workspace.
 ```bash
 $ pod install
 $ open <YourAppName>.xcworkspace
 ```
 
 #### Adding TATLayout as a project into your Xcode workspace:
-The best way to use TATLayout in your project is to set up an Xcode workspace that contains both your app project and the TATLayout project.
+Set up an Xcode workspace that contains both your app project and the TATLayout project.
 
 1 - Clone the repository:
 ```bash
