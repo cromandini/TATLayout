@@ -10,6 +10,9 @@ An expressive, simple yet poweful way for coding layout constraints in iOS.
 - Extend `UIView` with convenience methods for creating/installing constraints.
 - Create a Layout Manager that supports constraints creation, installation, uninstallation and retrieval (for editing).
 
+## Requirements
+iOS 6.0+
+
 ## Installation
 TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. The preferred way to get TATLayout is using CocoaPods.
 
@@ -21,6 +24,7 @@ $ sudo gem install cocoapods
 
 2 - In your project directory, create a Podfile if you still don't have one, and add TATLayout to it as a dependency.
 ```ruby
+platform :ios, "6.0"
 pod "TATLayout"
 ```
 
@@ -118,7 +122,7 @@ $ pod try TATLayout
 ```
 
 ## Unit Tests
-TATLayout is intensively tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
+TATLayout is intensively unit tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
 
 ```bash
 $ cd TATLayout
