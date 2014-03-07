@@ -27,15 +27,16 @@ pod "TATLayout"
 3 - Install the dependencies and open the generated workspace:
 ```bash
 $ pod install
-$ open YourApp.xcworkspace
+$ open <YourApp>.xcworkspace
 ```
 
-4 - Import TATLayout in your prefix header or where you need it:
+4 - Import TATLayout in your prefix header or in any header in which you want it available:
 ```objective-c
 #import <TATLayout/TATLayout.h>
 ```
 
 #### Adding TATLayout as a project into your Xcode workspace
+
 
 #### Adding TATLayout binary into your Xcode project
 
