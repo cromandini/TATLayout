@@ -33,7 +33,7 @@ $ open <YourAppName>.xcworkspace
 #### Adding TATLayout as a project into your Xcode workspace:
 Set up an Xcode workspace that contains both your app project and the TATLayout project.
 
-1 - Clone the repository:
+1 - Clone the repository.
 ```bash
 $ git clone https://github.com/cromandini/TATLayout.git
 ```
@@ -45,7 +45,7 @@ $ git clone https://github.com/cromandini/TATLayout.git
 4 - Under "Build Settings" tab in your application target, find the "Other Linker Flags" build setting and add the flag __-ObjC__ if it is not already present.
 
 #### Adding TATLayout binary into your Xcode project:
-1 - Clone the repository:
+1 - Clone the repository.
 ```bash
 $ git clone https://github.com/cromandini/TATLayout.git
 ```
@@ -112,21 +112,20 @@ c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerX == view
 ```
 
 ## Examples app
-Try out the included examples app by [downloading TATLayout](https://github.com/cromandini/TATLayout/archive/master.zip), cloning the repo or simply by using CocoaPods `try` command:
-
+Try out the examples app by selecting __TATLayoutExamples__ scheme. If you haven't cloned the project you can use CocoaPods `try` command:
 ```bash
 $ pod try TATLayout
 ```
 
 ## Unit Tests
-TATLayout is intensively unit tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
+TATLayout is intensively tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
 
 ```bash
 $ cd TATLayout
 $ pod install
 ```
 
-Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode and hit command+U.
+Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExamples__ scheme and hit command+U.
 
 ## Credits
 Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
