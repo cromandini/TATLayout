@@ -67,9 +67,11 @@ $ git clone https://github.com/cromandini/TATLayout.git
 #import <TATLayout/TATLayout.h>
 ```
 
-## Usage
+## Documentation
+Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org). Alternatively, you can build the documentation locally by building the __Documentation__ scheme.
 
-Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
+## Usage
+Check out the documentation for a comprehensive look at all of the APIs available in TATLayout.
 
 #### Creating constraints with equation format strings:
 
