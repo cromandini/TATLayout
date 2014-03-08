@@ -116,7 +116,7 @@ c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerX == view
 ```
 
 ## Examples app
-Try out the examples app by selecting __TATLayoutExamples__ scheme. If you haven't cloned the project you can use CocoaPods `try` command:
+Try out the examples app by opening __TATLayout.xcworkspace__ and running __TATLayoutExamples__ scheme. If you haven't cloned the project you can use CocoaPods `try` command:
 ```bash
 $ pod try TATLayout
 ```
