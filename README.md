@@ -14,58 +14,7 @@ An expressive, simple yet poweful way for coding layout constraints in iOS.
 iOS 6.0+
 
 ## Installation
-TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. The preferred way to get TATLayout is using CocoaPods.
-
-#### Using TATLayout with CocoaPods:
-1 - install CocoaPods if you have not already done so.
-```bash
-$ sudo gem install cocoapods
-```
-
-2 - In your project directory, create a Podfile if you still don't have one, and add TATLayout to it as a dependency.
-```ruby
-platform :ios, "6.0"
-pod "TATLayout"
-```
-
-3 - Install the dependencies and open the generated workspace.
-```bash
-$ pod install
-$ open <YourAppName>.xcworkspace
-```
-
-#### Adding TATLayout as a project into your Xcode workspace:
-Set up an Xcode workspace that contains both your app project and the TATLayout project.
-
-1 - Clone the repository.
-```bash
-$ git clone https://github.com/cromandini/TATLayout.git
-```
-
-2 - Drag the __TATLayout.xcodeproj__ file from OS X Finder directly into Xcode's Project Navigator. Xcode will prompt you about creating a workspace. Accept, and create the workspace file. Once the workspace has been created, you should also see TATLayout in the project navigator.
-
-3 - Under "Build Phases" tab in your application target, expand the "Link Binary with libraries" section, and click the + button. Choose __libTATLayout.a__ and add it to the phase. Your application will now link against the library.
-
-4 - Under "Build Settings" tab in your application target, find the "Other Linker Flags" build setting and add the flag __-ObjC__ if it is not already present.
-
-#### Adding TATLayout binary into your Xcode project:
-1 - Clone the repository.
-```bash
-$ git clone https://github.com/cromandini/TATLayout.git
-```
-
-2 - Open __TATLayout.xcworkspace__, select the __Framework__ scheme and build it. Building might take a while since it will compile i386 and arm architectures. When it finishes a finder window will open and show a folder containing __TATLayout.framework__.
-
-3 - In Finder, drag and drop or copy __TATLayout.framework__ to somewhere in your project folder.
-
-4 - Under "Build Phases" tab in your application target, expand the "Link Binary with libraries" section, and click the + button. Click "Add Other...", navigate to the place you copied __TATLayout.Framework__, select it and click "Open". Your application will now link against the library.
-
-5 - Under "Build Settings" tab in your application target, find the "Other Linker Flags" build setting and add the flag __-ObjC__ if it is not already present.
-
-#### Importing TATLayout in your application's source code:
-```objective-c
-#import <TATLayout/TATLayout.h>
-```
+TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
 
 ## Documentation
 Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org). Alternatively, you can build the documentation locally by building the __Documentation__ scheme.
