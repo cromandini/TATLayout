@@ -13,8 +13,8 @@ An expressive, simple yet poweful way for coding layout constraints in iOS.
 ## Requirements
 iOS 6.0+
 
-## Installation
-TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
+## Getting it
+TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check out the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
 
 ## Documentation
 Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org). Alternatively, you can build the documentation locally by building the __Documentation__ scheme.
