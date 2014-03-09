@@ -1,14 +1,14 @@
 //
-//  TATLayoutConstraintFactoryErrorSpec.m
+//  TATLayoutFactoryErrorSpec.m
 //  TATLayout
 //
 
 #import "Kiwi.h"
 #import "NSLayoutConstraint+TATLayoutFactory.h"
 
-SPEC_BEGIN(TATLayoutConstraintFactoryErrorSpec)
+SPEC_BEGIN(TATLayoutFactoryErrorSpec)
 
-describe(@"Constraint factory errors", ^{
+describe(@"TATLayoutFactory error handling", ^{
 
     NSString *errorMessagePrefix = @"Unable to parse constraint format:";
     __block UIView *square;

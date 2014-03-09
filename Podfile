@@ -1,7 +1,5 @@
 platform :ios, "6.0"
 
-workspace "../TATLayout"
-
 target :TATLayoutTests, :exclusive => true do
     pod "Kiwi/XCTest"
 end

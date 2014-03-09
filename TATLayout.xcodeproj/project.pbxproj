@@ -45,11 +45,11 @@
 		691789CA18A08E53003592DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 691789C818A08E53003592DB /* InfoPlist.strings */; };
 		6929D97C18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m */; };
 		6929D97D18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m */; };
-		6929D97F18A87CAD003195A4 /* TATLayoutConstraintFactoryErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97E18A87CAD003195A4 /* TATLayoutConstraintFactoryErrorSpec.m */; };
-		695F9EF118B0932500D66622 /* TATLayoutConstraintFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF018B0932500D66622 /* TATLayoutConstraintFactorySpec.m */; };
+		6929D97F18A87CAD003195A4 /* TATLayoutFactoryErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97E18A87CAD003195A4 /* TATLayoutFactoryErrorSpec.m */; };
+		695F9EF118B0932500D66622 /* TATLayoutFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF018B0932500D66622 /* TATLayoutFactorySpec.m */; };
 		695F9EF418B0938000D66622 /* UIView+TATLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF318B0938000D66622 /* UIView+TATLayoutConstraints.m */; };
 		695F9EF518B0938000D66622 /* UIView+TATLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF318B0938000D66622 /* UIView+TATLayoutConstraints.m */; };
-		695F9EF718B093A900D66622 /* TATLayoutViewConstraintsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF618B093A900D66622 /* TATLayoutViewConstraintsSpec.m */; };
+		695F9EF718B093A900D66622 /* TATLayoutConstraintsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF618B093A900D66622 /* TATLayoutConstraintsSpec.m */; };
 		695F9EF918B0941D00D66622 /* TATLayoutManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F9EF818B0941D00D66622 /* TATLayoutManagerSpec.m */; };
 		69652BE218C8D565009BE294 /* TATLayout.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69848D9018A09479002B6898 /* TATLayout.h */; };
 		69652BE318C8D569009BE294 /* TATLayoutManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69D3C4BD18A6727600309C0E /* TATLayoutManager.h */; };
@@ -110,13 +110,13 @@
 		691789C918A08E53003592DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSLayoutConstraint+TATLayoutFactory.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSLayoutConstraint+TATLayoutFactory.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6929D97E18A87CAD003195A4 /* TATLayoutConstraintFactoryErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TATLayoutConstraintFactoryErrorSpec.m; path = TATLayoutTests/TATLayoutConstraintFactoryErrorSpec.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6929D97E18A87CAD003195A4 /* TATLayoutFactoryErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TATLayoutFactoryErrorSpec.m; path = TATLayoutTests/TATLayoutFactoryErrorSpec.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6957DDA618B27F5D00AE074E /* TATLayoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TATLayoutTests-Info.plist"; path = "Supporting Files/TATLayoutTests-Info.plist"; sourceTree = "<group>"; };
 		6957DDA718B27F5D00AE074E /* TATLayoutTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TATLayoutTests-Prefix.pch"; path = "Supporting Files/TATLayoutTests-Prefix.pch"; sourceTree = "<group>"; };
-		695F9EF018B0932500D66622 /* TATLayoutConstraintFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutConstraintFactorySpec.m; sourceTree = "<group>"; };
+		695F9EF018B0932500D66622 /* TATLayoutFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutFactorySpec.m; sourceTree = "<group>"; };
 		695F9EF218B0938000D66622 /* UIView+TATLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TATLayoutConstraints.h"; sourceTree = "<group>"; };
 		695F9EF318B0938000D66622 /* UIView+TATLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TATLayoutConstraints.m"; sourceTree = "<group>"; };
-		695F9EF618B093A900D66622 /* TATLayoutViewConstraintsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutViewConstraintsSpec.m; sourceTree = "<group>"; };
+		695F9EF618B093A900D66622 /* TATLayoutConstraintsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutConstraintsSpec.m; sourceTree = "<group>"; };
 		695F9EF818B0941D00D66622 /* TATLayoutManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutManagerSpec.m; sourceTree = "<group>"; };
 		69848D9018A09479002B6898 /* TATLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TATLayout.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6990BAA418A0713200A34232 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -228,10 +228,10 @@
 		691789C518A08E53003592DB /* TATLayoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				695F9EF018B0932500D66622 /* TATLayoutConstraintFactorySpec.m */,
-				6929D97E18A87CAD003195A4 /* TATLayoutConstraintFactoryErrorSpec.m */,
+				695F9EF018B0932500D66622 /* TATLayoutFactorySpec.m */,
+				6929D97E18A87CAD003195A4 /* TATLayoutFactoryErrorSpec.m */,
 				695F9EF818B0941D00D66622 /* TATLayoutManagerSpec.m */,
-				695F9EF618B093A900D66622 /* TATLayoutViewConstraintsSpec.m */,
+				695F9EF618B093A900D66622 /* TATLayoutConstraintsSpec.m */,
 				691789C618A08E53003592DB /* Supporting Files */,
 			);
 			path = TATLayoutTests;
@@ -433,7 +433,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DOCUMENTATION_DIR=\"${PROJECT_DIR}/Documentation\"\nLIBRARY_IMAGE=\"${PROJECT_DIR}/Assets/TATLayout-Icon.png\"\nDOCUMENTATION_INDEX=\"/tmp/TATLayout-README.md\"\nCOMPANY=\"Claudio Romandini\";\nCOMPANY_ID=\"me.cromandini\";\nCOMPANY_URL=\"http://cromandini.me\";\nTARGET=\"iphoneos\";\n\n# Create documentation directory (destructive)\nrm -rf \"${DOCUMENTATION_DIR}\"\nmkdir \"${DOCUMENTATION_DIR}\"\n\n# Create documentation index from README file by replacing the image source and removing the language identifiers from code snippets\nOUTPUT=\"\"\nINDENT=\"NO\"\nwhile read LINE\ndo\n    if [ \"${INDENT}\" == \"YES\" ] ; then\n        if (echo \"${LINE}\" | grep \"^\\`\\`\\`$\" > /dev/null) ; then\n            OUTPUT=\"${OUTPUT}\\n\"\n            INDENT=\"NO\"\n        else\n            OUTPUT=\"${OUTPUT}\\t${LINE}\\n\"\n        fi\n    elif (echo \"${LINE}\" | grep \"^<img src=\" > /dev/null) ; then\n        OUTPUT=\"$(echo \"$LINE\" | sed -E 's/src=\\\".*TATLayout-Icon\\.png\\\"/src=\\\"\\.\\/docs\\/TATLayout-Icon\\.png\\\"/')\\n\"\n    elif (echo \"${LINE}\" | grep \"^\\`\\`\\`.*$\" > /dev/null) ; then\n        OUTPUT=\"${OUTPUT}\\n\"\n        INDENT=\"YES\"\n    else\n        OUTPUT=\"${OUTPUT}${LINE}\\n\"\n    fi\ndone < \"${PROJECT_DIR}/../README.md\"\necho -e \"${OUTPUT}\" > \"${DOCUMENTATION_INDEX}\"\n\n# Generate the documentation\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${COMPANY}\" \\\n--company-id \"${COMPANY_ID}\" \\\n--docset-atom-filename \"${PROJECT_NAME}.atom\" \\\n--docset-feed-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${COMPANY_URL}/${PROJECT_NAME}\" \\\n--output \"${DOCUMENTATION_DIR}\" \\\n--publish-docset \\\n--install-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--merge-categories \\\n--docset-platform-family \"${TARGET}\" \\\n--exit-threshold 2 \\\n--index-desc \"${DOCUMENTATION_INDEX}\" \\\n--include \"${LIBRARY_IMAGE}\" \\\n--ignore \"*.m\" \\\n--ignore \"TATLayoutManager.h\" \\\n--ignore \"UIView+TATLayoutConstraints.h\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}\"";
+			shellScript = "DOCUMENTATION_DIR=\"${PROJECT_DIR}/Documentation\"\nDOCUMENTATION_INDEX_FILE=\"/tmp/TATLayout-README.md\"\nCOMPANY=\"Claudio Romandini\";\nCOMPANY_ID=\"me.cromandini\";\nCOMPANY_URL=\"http://cromandini.me\";\nTARGET=\"iphoneos\";\n\n# Create documentation directory (destructive)\nrm -rf \"${DOCUMENTATION_DIR}\"\nmkdir \"${DOCUMENTATION_DIR}\"\n\n# Create documentation index file from README by removing the language identifiers from code snippets\nOUTPUT=\"\"\nINDENT=\"NO\"\nwhile read LINE\ndo\n    if [ \"${INDENT}\" == \"YES\" ] ; then\n        if (echo \"${LINE}\" | grep \"^\\`\\`\\`$\" > /dev/null) ; then\n            OUTPUT=\"${OUTPUT}\\n\"\n            INDENT=\"NO\"\n        else\n            OUTPUT=\"${OUTPUT}\\t${LINE}\\n\"\n        fi\n    elif (echo \"${LINE}\" | grep \"^\\`\\`\\`.*$\" > /dev/null) ; then\n        OUTPUT=\"${OUTPUT}\\n\"\n        INDENT=\"YES\"\n    else\n        OUTPUT=\"${OUTPUT}${LINE}\\n\"\n    fi\ndone < \"${PROJECT_DIR}/README.md\"\necho -e \"${OUTPUT}\" > \"${DOCUMENTATION_INDEX_FILE}\"\n\n# Generate the documentation\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${COMPANY}\" \\\n--company-id \"${COMPANY_ID}\" \\\n--docset-atom-filename \"${PROJECT_NAME}.atom\" \\\n--docset-feed-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${COMPANY_URL}/${PROJECT_NAME}\" \\\n--output \"${DOCUMENTATION_DIR}\" \\\n--publish-docset \\\n--install-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--merge-categories \\\n--docset-platform-family \"${TARGET}\" \\\n--exit-threshold 2 \\\n--index-desc \"${DOCUMENTATION_INDEX_FILE}\" \\\n--ignore \"*.m\" \\\n--ignore \"TATLayoutManager.h\" \\\n--ignore \"UIView+TATLayoutConstraints.h\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}\"";
 		};
 		695C22AF18C98DEA00882B74 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -497,10 +497,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695F9EF118B0932500D66622 /* TATLayoutConstraintFactorySpec.m in Sources */,
-				6929D97F18A87CAD003195A4 /* TATLayoutConstraintFactoryErrorSpec.m in Sources */,
+				695F9EF118B0932500D66622 /* TATLayoutFactorySpec.m in Sources */,
+				6929D97F18A87CAD003195A4 /* TATLayoutFactoryErrorSpec.m in Sources */,
 				695F9EF918B0941D00D66622 /* TATLayoutManagerSpec.m in Sources */,
-				695F9EF718B093A900D66622 /* TATLayoutViewConstraintsSpec.m in Sources */,
+				695F9EF718B093A900D66622 /* TATLayoutConstraintsSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

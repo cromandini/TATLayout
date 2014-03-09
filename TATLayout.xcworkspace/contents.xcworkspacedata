@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TATLayout/TATLayout.xcodeproj">
+      location = "group:TATLayout.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:TATLayout/Pods/Pods.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:README.md">

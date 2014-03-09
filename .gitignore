@@ -23,6 +23,4 @@ DerivedData
 Pods
 
 #Project
-_Private/*
-TATLayout/Podfile.lock
-TATLayout/Documentation/*
+Documentation

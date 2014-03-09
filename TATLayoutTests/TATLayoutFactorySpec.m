@@ -1,14 +1,14 @@
 //
-//  TATLayoutConstraintFactorySpec.m
+//  TATLayoutFactorySpec.m
 //  TATLayout
 //
 
 #import "Kiwi.h"
 #import "NSLayoutConstraint+TATLayoutFactory.h"
 
-SPEC_BEGIN(TATLayoutConstraintFactorySpec)
+SPEC_BEGIN(TATLayoutFactorySpec)
 
-describe(@"Constraint factory", ^{
+describe(@"TATLayoutFactory and equation format", ^{
     
     __block UIView *square;
     __block UIView *circle;
