@@ -356,6 +356,11 @@
 				TargetAttributes = {
 					6913AECC18A062EF000C1F5C = {
 						DevelopmentTeam = 44EU2U5TE9;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 					691789C018A08E53003592DB = {
 						TestTargetID = 6913AECC18A062EF000C1F5C;
@@ -661,6 +666,7 @@
 				);
 				INFOPLIST_FILE = "TATLayoutExamples/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -681,6 +687,7 @@
 				GCC_PREFIX_HEADER = "TATLayoutExamples/TATLayoutExamples-Prefix.pch";
 				INFOPLIST_FILE = "TATLayoutExamples/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
