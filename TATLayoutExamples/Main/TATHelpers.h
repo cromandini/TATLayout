@@ -10,10 +10,10 @@
  Returns a Boolean value indicating whether the current device idiom is Pad.
  @return YES if the current device idiom is Pad, otherwise returns NO.
  */
-BOOL TATDeviceIsPad();
+extern BOOL TATDeviceIsPad();
 
 /**
  Returns a Boolean value indicating whether the current device idiom is Phone.
  @return YES if the current device idiom is Phone, otherwise returns NO.
  */
-BOOL TATDeviceIsPhone();
+extern BOOL TATDeviceIsPhone();
