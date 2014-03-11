@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.platform              = :ios, "6.0"
   s.ios.deployment_target = "6.0"
-  s.source_files          = "TATLayout/TATLayout/*.{h,m}"
-  s.public_header_files   = 'TATLayout/TATLayout/*.h'
+  s.source_files          = "TATLayout/*.{h,m}"
+  s.public_header_files   = 'TATLayout/*.h'
 end
