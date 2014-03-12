@@ -15,7 +15,7 @@ iOS 6.0+
 TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check out the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
 
 ## Documentation
-Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org). Alternatively, you can build the documentation locally by building the __Documentation__ scheme.
+Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Usage
 Check out the documentation for a comprehensive look at all of the APIs available in TATLayout.
