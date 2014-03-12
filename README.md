@@ -71,7 +71,6 @@ $ pod try TATLayout
 TATLayout is intensively unit tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
 
 ```bash
-$ cd TATLayout
 $ pod install
 ```
 
