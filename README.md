@@ -14,11 +14,8 @@ iOS 6.0+
 ## Getting it
 TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check out the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
 
-## Documentation
-Documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org).
-
 ## Usage
-Check out the documentation for a comprehensive look at all of the APIs available in TATLayout.
+Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
 
 #### Creating constraints with equation format strings:
 
