@@ -58,7 +58,6 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = nil; // Until more examples are available
     self.currentExample = TAT_LAYOUT_INIT_EXAMPLE;
     UIViewController *initialViewController = [self viewControllerForExample:self.currentExample];
     [self showViewController:initialViewController];
