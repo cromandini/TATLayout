@@ -85,7 +85,7 @@
                                @"albumTitle.leading == superview.leading + longPadding",
                                @"albumTitle.trailing == superview.trailing - longPadding",
                                @"play.centerX == superview.centerX",
-                               @"play.bottom == volume.top + 7",
+                               @"play.bottom == volume.top + 3",
                                @"prev.centerY == play.centerY",
                                @"prev.trailing == play.leading - playbackSpacing",
                                @"next.centerY == play.centerY",
@@ -105,12 +105,12 @@
                                   @"progress.bottom == songTitle.top - 8",
                                   @"songTitle.bottom == albumTitle.top - 2",
                                   @"albumTitle.bottom == play.top - 9",
-                                  @"volume.bottom == superview.bottom - 29",
+                                  @"volume.bottom == superview.bottom - 38",
                                   @"volume.width <= volumeMaxWidthPhone",
                                   @"repeat.leading == volume.leading - shortPadding",
-                                  @"repeat.bottom == superview.bottom",
+                                  @"repeat.bottom == superview.bottom - 2",
                                   @"shuffle.trailing == volume.trailing + shortPadding",
-                                  @"shuffle.bottom == superview.bottom"];
+                                  @"shuffle.bottom == repeat.bottom"];
     } else {
         deviceSpecificFormats = @[
                                   @"songTitle.top == superview.top + 16",
