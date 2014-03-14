@@ -26,3 +26,4 @@
 //
 
 #import "NSLayoutConstraint+TATLayoutFactory.h"
+#import "UIView+TATLayoutConstraints.h"
