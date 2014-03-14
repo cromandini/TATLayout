@@ -79,9 +79,9 @@
 ///---------------------------
 
 /**
- Create a constraint described by a linear equation format string.
+ Create a constraint explicitly, described by a linear equation format string.
  
- This method is a wrapper for `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` with the addition of the priority. Optional params use the following default values: multiplier = 1 and constant = 0.
+ This method is a wrapper for `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` with the addition of the priority.
  @warning When using `superview` as second item, the first view must be added to its superview before creating the constraint.
  
  @param format The format specification for the constraint.
