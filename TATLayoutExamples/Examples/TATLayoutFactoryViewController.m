@@ -7,7 +7,7 @@
 
 #import "TATLayoutFactoryViewController.h"
 #import "TATLayout.h"
-#import "TATHelpers.h"
+#import "TATLayoutHelpers.h"
 
 @interface TATLayoutFactoryViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;

@@ -58,7 +58,7 @@
 		69A38E4B18C2039F0075B763 /* TATLayoutFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E4618C2039F0075B763 /* TATLayoutFactoryViewController.m */; };
 		69A38E4C18C2039F0075B763 /* TATLayoutManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E4818C2039F0075B763 /* TATLayoutManagerViewController.m */; };
 		69A38E4D18C2039F0075B763 /* TATLayoutViewConstraintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E4A18C2039F0075B763 /* TATLayoutViewConstraintsViewController.m */; };
-		69A38E5418C203C00075B763 /* TATHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E4F18C203C00075B763 /* TATHelpers.m */; };
+		69A38E5418C203C00075B763 /* TATLayoutHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E4F18C203C00075B763 /* TATLayoutHelpers.m */; };
 		69A38E5518C203C00075B763 /* TATLayoutAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E5118C203C00075B763 /* TATLayoutAppDelegate.m */; };
 		69A38E5618C203C00075B763 /* TATLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E5318C203C00075B763 /* TATLayoutViewController.m */; };
 		69D3C4BF18A6727600309C0E /* TATLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D3C4BE18A6727600309C0E /* TATLayoutManager.m */; };
@@ -126,8 +126,8 @@
 		69A38E4818C2039F0075B763 /* TATLayoutManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutManagerViewController.m; sourceTree = "<group>"; };
 		69A38E4918C2039F0075B763 /* TATLayoutViewConstraintsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATLayoutViewConstraintsViewController.h; sourceTree = "<group>"; };
 		69A38E4A18C2039F0075B763 /* TATLayoutViewConstraintsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutViewConstraintsViewController.m; sourceTree = "<group>"; };
-		69A38E4E18C203C00075B763 /* TATHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATHelpers.h; sourceTree = "<group>"; };
-		69A38E4F18C203C00075B763 /* TATHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATHelpers.m; sourceTree = "<group>"; };
+		69A38E4E18C203C00075B763 /* TATLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATLayoutHelpers.h; sourceTree = "<group>"; };
+		69A38E4F18C203C00075B763 /* TATLayoutHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutHelpers.m; sourceTree = "<group>"; };
 		69A38E5018C203C00075B763 /* TATLayoutAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATLayoutAppDelegate.h; sourceTree = "<group>"; };
 		69A38E5118C203C00075B763 /* TATLayoutAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutAppDelegate.m; sourceTree = "<group>"; };
 		69A38E5218C203C00075B763 /* TATLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATLayoutViewController.h; sourceTree = "<group>"; };
@@ -278,8 +278,8 @@
 		69A38E4418C2035B0075B763 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				69A38E4E18C203C00075B763 /* TATHelpers.h */,
-				69A38E4F18C203C00075B763 /* TATHelpers.m */,
+				69A38E4E18C203C00075B763 /* TATLayoutHelpers.h */,
+				69A38E4F18C203C00075B763 /* TATLayoutHelpers.m */,
 				69A38E5018C203C00075B763 /* TATLayoutAppDelegate.h */,
 				69A38E5118C203C00075B763 /* TATLayoutAppDelegate.m */,
 				69A38E5218C203C00075B763 /* TATLayoutViewController.h */,
@@ -489,7 +489,7 @@
 				6913AED918A062EF000C1F5C /* main.m in Sources */,
 				6929D97D18A87C04003195A4 /* NSLayoutConstraint+TATLayoutFactory.m in Sources */,
 				69D3C4C018A6727600309C0E /* TATLayoutManager.m in Sources */,
-				69A38E5418C203C00075B763 /* TATHelpers.m in Sources */,
+				69A38E5418C203C00075B763 /* TATLayoutHelpers.m in Sources */,
 				695F9EF518B0938000D66622 /* UIView+TATLayoutConstraints.m in Sources */,
 				69A38E4D18C2039F0075B763 /* TATLayoutViewConstraintsViewController.m in Sources */,
 				69A38E5518C203C00075B763 /* TATLayoutAppDelegate.m in Sources */,
