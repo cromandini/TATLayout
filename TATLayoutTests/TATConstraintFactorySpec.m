@@ -52,7 +52,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"attributes", ^{
-        
         context(@"left", ^{
             it(@"equals to NSLayoutAttributeLeft", ^{
                 equation = @"square.left==circle.left";
@@ -153,7 +152,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"relation", ^{
-        
         context(@"less than or equal sign (<=)", ^{
             it(@"equals to NSLayoutRelationLessThanOrEqual", ^{
                 equation = @"square.width<=circle.width";
@@ -178,7 +176,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"multiplier", ^{
-        
         it(@"can be a number", ^{
             equation = @"square.width==circle.width*2";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
@@ -207,7 +204,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"constant", ^{
-        
         it(@"can be a number", ^{
             equation = @"square.width==circle.width+2";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
@@ -248,7 +244,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"unary constraint constant", ^{
-        
         it(@"can be a number", ^{
             equation = @"square.width==500";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
@@ -272,7 +267,6 @@ describe(@"Creating constraints with the equation format", ^{
     });
     
     describe(@"priority", ^{
-        
         context(@"in unary constraints", ^{
             it(@"can be a number", ^{
                 equation = @"square.width==500@751";

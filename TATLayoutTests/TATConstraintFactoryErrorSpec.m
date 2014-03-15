@@ -24,7 +24,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"equation", ^{
-        
         context(@"when the equation is nil", ^{
             it(@"throws explaining the string is empty", ^{
                 [[theBlock(^{
@@ -42,7 +41,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"first item", ^{
-        
         context(@"when the first item is a minus sign", ^{
             it(@"throws expecting a view", ^{
                 [[theBlock(^{
@@ -81,7 +79,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"first attribute", ^{
-        
         context(@"when there is only a valid first item", ^{
             it(@"throws expecting an attribute", ^{
                 [[theBlock(^{
@@ -120,7 +117,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"relation", ^{
-        
         context(@"when there is no relation after a valid first attribute", ^{
             it(@"throws expecting a relation", ^{
                 [[theBlock(^{
@@ -152,7 +148,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"right hand side", ^{
-        
         context(@"when there is no right hand side", ^{
             it(@"throws expecting a view or constant", ^{
                 [[theBlock(^{
@@ -191,7 +186,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"second item", ^{
-        
         context(@"when the second item is not a key in the views dictionary", ^{
             it(@"throws explaining the key is not present", ^{
                 [[theBlock(^{
@@ -209,7 +203,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"second attribute", ^{
-        
         context(@"when the second attribute is not a valid name", ^{
             it(@"throws explaining the attribute name is not valid", ^{
                 [[theBlock(^{
@@ -220,7 +213,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"multiplier", ^{
-        
         context(@"when the multiplier is not a key in the metrics dictionary", ^{
             it(@"throws explaining the key is not present", ^{
                 [[theBlock(^{
@@ -231,7 +223,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"constant", ^{
-        
         context(@"when the constant is not a key in the metrics dictionary", ^{
             it(@"throws explaining the key is not present", ^{
                 [[theBlock(^{
@@ -242,7 +233,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"unary constraint constant", ^{
-        
         context(@"when the right hand side is a name and it is not a key in the metrics dictionary", ^{
             it(@"throws explaining the key is not present", ^{
                 [[theBlock(^{
@@ -267,7 +257,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"priority", ^{
-        
         context(@"when the constraint is binary and the priority is not a key in the metrics dictionary", ^{
             it(@"throws explaining the key is not present", ^{
                 [[theBlock(^{
@@ -285,7 +274,6 @@ describe(@"Errors while creating constraints with the equation format", ^{
     });
     
     describe(@"extra characters at the end of the format string", ^{
-        
         context(@"when the right hand side has a valid view and attribute and an asterisk", ^{
             it(@"throws expecting the end of the format string", ^{
                 [[theBlock(^{

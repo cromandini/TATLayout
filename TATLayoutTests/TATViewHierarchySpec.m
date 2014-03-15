@@ -36,7 +36,6 @@ describe(@"Inspecting the View Hierarchy", ^{
     });
     
     describe(@"Ancestor of a view", ^{
-        
         context(@"nil", ^{
             it(@"is not ancestor of any view", ^{
                 [[theValue([view1 tat_isAncestorOfView:nil]) should] beNo];
@@ -117,7 +116,6 @@ describe(@"Inspecting the View Hierarchy", ^{
     });
     
     describe(@"Closest ancestor shared with view", ^{
-        
         context(@"view1", ^{
             it(@"is the closest ancestor shared by views 2 and 6", ^{
                 [[[view2 tat_closestAncestorSharedWithView:view6] should] equal:view1];
