@@ -6,7 +6,7 @@
 #import "UIView+TATViewConstraints.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 
-static NSString * TATViewConstraintsEquationFormatPrefix = @"tatView.";
+static NSString * TATViewConstraintsReceiverKey = @"self";
 
 @implementation UIView (TATViewConstraints)
 
@@ -14,14 +14,18 @@ static NSString * TATViewConstraintsEquationFormatPrefix = @"tatView.";
 
 - (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
-    // prepend view in format
-    NSString *equation = [TATViewConstraintsEquationFormatPrefix stringByAppendingString:format];
-    // create constraint
-    NSLayoutConstraint *c = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:nil views:nil];
+    NSString *equation = [NSString stringWithFormat:@"%@.%@", TATViewConstraintsReceiverKey, format];
+    NSDictionary *viewsWithSelf;
+    if (!views) {
+        viewsWithSelf = @{TATViewConstraintsReceiverKey: self};
+    } else {
+        NSMutableDictionary *mutableViews = [views mutableCopy];
+        mutableViews[TATViewConstraintsReceiverKey] = self;
+        viewsWithSelf = mutableViews;
+    }
+    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsWithSelf];
     // install constraint
-    NSLog(@"%@", c);
-    // return constraint
-    return nil;
+    return constraint;
 }
 
 - (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format

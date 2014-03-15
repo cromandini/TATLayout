@@ -5,22 +5,30 @@
 
 #import "Kiwi.h"
 #import "UIView+TATViewConstraints.h"
-#import "NSLayoutConstraint+TATConstraintFactory.h"
 
 SPEC_BEGIN(TATViewConstraintsSpec)
 
-describe(@"Constraining Layout Attributes", ^{
+describe(@"Constraining layout attributes with the equation format", ^{
     
     __block UIView *view1;
     __block UIView *view2;
-    __block NSDictionary *metrics;
-    __block NSDictionary *views;
+    NSDictionary *metrics = @{};
+    NSDictionary *views = @{};
     
     beforeEach(^{
         view1 = [UIView new];
         view2 = [UIView new];
-        metrics = @{};
-        views = @{};
+    });
+    
+    describe(@"the receiver", ^{
+        it(@"is the first item in the equation", ^{
+            NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == 500"];
+            [[constraint.firstItem should] equal:view1];
+        });
+        it(@"can be set to be the second item by using the magic key self", ^{
+            NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == self.height"];
+            [[constraint.secondItem should] equal:view1];
+        });
     });
     
     describe(@"Convenience methods", ^{

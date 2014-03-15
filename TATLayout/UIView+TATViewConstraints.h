@@ -17,7 +17,7 @@
 /**
  Constrain a layout attribute by creating a constraint specified with the equation format and installing it in the closest ancestor shared by the receiver and any view related.
  
- The first item is set to be the receiver so the equation must start from the first attribute. For example `width == superview.width` translates to `receiver.width == superview.width`.
+ The first item is automatically set to be the receiver so the equation must start from the first attribute, example `width == superview.width` translates to `self.width == superview.width`. Also, if you need to set the second item to be the receiver you can do so by using the magic key `self`, example `width == self.height`.
  
  @param format The format specification for the constraint.
  @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
