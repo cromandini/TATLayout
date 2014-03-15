@@ -14,7 +14,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UILabel *label = [[UILabel alloc] init];
+    UILabel *label = [UILabel new];
     label.text = @"Coming soon...";
     label.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:label];

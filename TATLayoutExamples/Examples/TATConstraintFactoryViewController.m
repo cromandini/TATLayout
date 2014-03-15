@@ -208,7 +208,7 @@
 
 - (UILabel *)timeLabelWithText:(NSString *)text
 {
-    UILabel *label = [[UILabel alloc] init];
+    UILabel *label = [UILabel new];
     label.font = [UIFont systemFontOfSize:10];
     label.text = text;
     return label;
@@ -217,7 +217,7 @@
 - (UILabel *)songTitle
 {
     if (!_songTitle) {
-        _songTitle = [[UILabel alloc] init];
+        _songTitle = [UILabel new];
         _songTitle.text = @"The Gentle Art of Making Enemies";
         _songTitle.textAlignment = NSTextAlignmentCenter;
         [_songTitle setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -230,7 +230,7 @@
 - (UILabel *)albumTitle
 {
     if (!_albumTitle) {
-        _albumTitle = [[UILabel alloc] init];
+        _albumTitle = [UILabel new];
         _albumTitle.text = @"Faith No More – King for a Day, Fool for a Lifetime";
         _albumTitle.textAlignment = NSTextAlignmentCenter;
         [_albumTitle setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -276,7 +276,7 @@
 - (UISlider *)volumeSlider
 {
     if (!_volumeSlider) {
-        _volumeSlider = [[UISlider alloc] init];
+        _volumeSlider = [UISlider new];
         _volumeSlider.value = 0.95;
         _volumeSlider.minimumValueImage = [UIImage imageNamed:@"minVolume"];
         _volumeSlider.maximumValueImage = [UIImage imageNamed:@"maxVolume"];

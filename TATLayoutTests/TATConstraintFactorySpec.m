@@ -18,8 +18,8 @@ describe(@"Creating constraints with the equation format", ^{
     __block NSString *equation;
     
     beforeEach(^{
-        square = [[UIView alloc] init];
-        circle = [[UIView alloc] init];
+        square = [UIView new];
+        circle = [UIView new];
         metrics = @{@"multiplier": @0.5, @"constant": @750, @"priority": @251};
         views = NSDictionaryOfVariableBindings(square, circle);
     });
@@ -41,7 +41,7 @@ describe(@"Creating constraints with the equation format", ^{
             });
             context(@"when the second item name is superview", ^{
                 it(@"is the first item's superview", ^{
-                    UIView *topView = [[UIView alloc] init];
+                    UIView *topView = [UIView new];
                     [topView addSubview:square];
                     equation = @"square.height==superview.height";
                     constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];

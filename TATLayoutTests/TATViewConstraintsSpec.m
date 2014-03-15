@@ -25,7 +25,7 @@ describe(@"Constraining Layout Attributes", ^{
     
     describe(@"Convenience methods", ^{
         
-        NSString *format = @"";
+        NSString *format = @"width == 250";
         
         describe(@"tat_constrainLayoutAttributeWithEquationFormat", ^{
             it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil metrics and views", ^{

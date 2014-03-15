@@ -19,13 +19,13 @@ describe(@"Inspecting the View Hierarchy", ^{
     __block UIView *view7;
     
     beforeEach(^{
-        view1 = [[UIView alloc] init];
-        view2 = [[UIView alloc] init];
-        view3 = [[UIView alloc] init];
-        view4 = [[UIView alloc] init];
-        view5 = [[UIView alloc] init];
-        view6 = [[UIView alloc] init];
-        view7 = [[UIView alloc] init];
+        view1 = [UIView new];
+        view2 = [UIView new];
+        view3 = [UIView new];
+        view4 = [UIView new];
+        view5 = [UIView new];
+        view6 = [UIView new];
+        view7 = [UIView new];
         
         // See ViewHierarchy.pdf in Supporting Files for visual reference
         [view1 addSubview:view2];

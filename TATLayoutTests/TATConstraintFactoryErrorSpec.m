@@ -17,8 +17,8 @@ describe(@"Errors while creating constraints with the equation format", ^{
     __block NSDictionary *views;
     
     beforeEach(^{
-        square = [[UIView alloc] init];
-        circle = [[UIView alloc] init];
+        square = [UIView new];
+        circle = [UIView new];
         metrics = @{@"line": @200};
         views = NSDictionaryOfVariableBindings(square, circle);
     });
