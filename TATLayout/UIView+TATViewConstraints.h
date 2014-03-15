@@ -15,7 +15,7 @@
 ///-------------------------------------
 
 /**
- Constrain a layout attribute by creating a constraint described with the equation format and installing it in the closest ancestor shared by the receiver and any view related.
+ Constrain a layout attribute by creating a constraint described with the equation format and installing it into the closest ancestor shared by the receiver and any view related.
  
  The first item is automatically set to be the receiver so the equation must start from the first attribute, example `width == superview.width` translates to `self.width == superview.width`. Also, if you need to set the second item to be the receiver you can do so by using the magic keyword `self`, example `width == self.height`.
  
@@ -55,12 +55,13 @@
 
 
 /**
- Constrain layout attributes by applying the given equation formats.
- @param formats An array of format strings specifying for the constraints to be created. The first item is implicitly the receiver so the equation starts from the first attribute.
- @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
- @return An array of constraint objects relating the receiver and optionally other views with the specified relation, attributes, multiplier, constant and priority.
- @see NSLayoutConstraint(TATConstraintFactory) for a description of the language used for the equation format string.
+ Constrain multiple layout attributes by creating constraints described with the equation format and installing them into the closest ancestor shared by the receiver and any view related.
+ 
+ @param formats The format specifications for the constraints.
+ @param metrics A dictionary of constants that appear in the equation format strings. The keys must be the string values used in the equation format strings, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the equation format strings. The keys must be the string values used in the equation format string, and the values must be the view objects.
+ @return The constraints created.
+ @see NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
  */
 - (NSArray *)tat_constrainLayoutAttributesWithEquationFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
