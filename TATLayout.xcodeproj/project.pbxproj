@@ -260,11 +260,11 @@
 		69848D8F18A09464002B6898 /* TATLayout */ = {
 			isa = PBXGroup;
 			children = (
+				6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.h */,
+				6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.m */,
 				69848D9018A09479002B6898 /* TATLayout.h */,
 				69D3C4BD18A6727600309C0E /* TATLayoutManager.h */,
 				69D3C4BE18A6727600309C0E /* TATLayoutManager.m */,
-				6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.h */,
-				6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.m */,
 				695F9EF218B0938000D66622 /* UIView+TATViewConstraints.h */,
 				695F9EF318B0938000D66622 /* UIView+TATViewConstraints.m */,
 				696CC4F918D39586000F6597 /* UIView+TATViewHierarchy.h */,
