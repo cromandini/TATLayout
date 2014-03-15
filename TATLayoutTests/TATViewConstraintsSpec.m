@@ -14,26 +14,31 @@ describe(@"Constraining layout attributes with the equation format", ^{
     __block UIView *view2;
     NSDictionary *metrics = @{};
     NSDictionary *views = @{};
+    __block NSString *format;
     
     beforeEach(^{
         view1 = [UIView new];
         view2 = [UIView new];
+        format = @"width == 250";
     });
     
     describe(@"the receiver", ^{
+        
         it(@"is the first item in the equation", ^{
             NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == 500"];
             [[constraint.firstItem should] equal:view1];
         });
-        it(@"can be set to be the second item by using the magic key self", ^{
+        it(@"can be set to be the second item by using the magic keyword self", ^{
             NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == self.height"];
             [[constraint.secondItem should] equal:view1];
         });
     });
     
-    describe(@"Convenience methods", ^{
+    describe(@"", ^{
         
-        NSString *format = @"width == 250";
+    });
+    
+    describe(@"convenience methods", ^{
         
         describe(@"tat_constrainLayoutAttributeWithEquationFormat", ^{
             it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil metrics and views", ^{
