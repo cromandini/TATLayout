@@ -15,7 +15,6 @@ describe(@"Constraining layout attributes with the equation format", ^{
     __block UIView *view3;
     __block NSDictionary *metrics;
     __block NSDictionary *views;
-    __block NSString *simpleEquation;
     
     beforeEach(^{
         view1 = [UIView new];
@@ -25,12 +24,11 @@ describe(@"Constraining layout attributes with the equation format", ^{
                     @"multiplier": @2,
                     @"priority": @751};
         views = NSDictionaryOfVariableBindings(view2, view3);
-        simpleEquation = @"width == 250";
     });
     
     describe(@"the receiver", ^{
         it(@"is the first item in the equation", ^{
-            NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:simpleEquation];
+            NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == 250"];
             [[constraint.firstItem should] equal:view1];
         });
         it(@"can be set to be the second item by using the magic keyword self", ^{
@@ -86,23 +84,17 @@ describe(@"Constraining layout attributes with the equation format", ^{
     describe(@"convenience methods", ^{
         describe(@"tat_constrainLayoutAttributeWithEquationFormat", ^{
             it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil metrics and views", ^{
+                NSString *equation = @"width == 250";
                 [[view1 should] receive:@selector(tat_constrainLayoutAttributeWithEquationFormat:metrics:views:)
-                          withArguments:simpleEquation, nil, nil];
-                [view1 tat_constrainLayoutAttributeWithEquationFormat:simpleEquation];
+                          withArguments:equation, nil, nil];
+                [view1 tat_constrainLayoutAttributeWithEquationFormat:equation];
             });
         });
-        describe(@"tat_constrainLayoutAttributeWithEquationFormat:metrics", ^{
-            it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil views", ^{
-                [[view1 should] receive:@selector(tat_constrainLayoutAttributeWithEquationFormat:metrics:views:)
-                          withArguments:simpleEquation, metrics, nil];
-                [view1 tat_constrainLayoutAttributeWithEquationFormat:simpleEquation metrics:metrics];
-            });
-        });
-        describe(@"tat_constrainLayoutAttributeWithEquationFormat:views", ^{
-            it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil metrics", ^{
-                [[view1 should] receive:@selector(tat_constrainLayoutAttributeWithEquationFormat:metrics:views:)
-                          withArguments:simpleEquation, nil, views];
-                [view1 tat_constrainLayoutAttributeWithEquationFormat:simpleEquation views:views];
+        describe(@"tat_constrainLayoutAttributesWithEquationFormats", ^{
+            it(@"sends tat_constrainLayoutAttributesWithEquationFormats:metrics:views: to the receiver with nil metrics and views", ^{
+                [[view1 should] receive:@selector(tat_constrainLayoutAttributesWithEquationFormats:metrics:views:)];
+                [view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == 250",
+                                                                          @"height == 300"]];
             });
         });
     });

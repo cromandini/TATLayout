@@ -24,23 +24,13 @@ static NSString * TATViewConstraintsReceiverKey = @"self";
         viewsIncludinSelf = mutableViews;
     }
     NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsIncludinSelf];
-    // install constraint
+    // TODO: install constraint
     return constraint;
 }
 
 - (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format
 {
     return [self tat_constrainLayoutAttributeWithEquationFormat:format metrics:nil views:nil];
-}
-
-- (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics
-{
-    return [self tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:nil];
-}
-
-- (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format views:(NSDictionary *)views
-{
-    return [self tat_constrainLayoutAttributeWithEquationFormat:format metrics:nil views:views];
 }
 
 - (NSArray *)tat_constrainLayoutAttributesWithEquationFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
@@ -52,6 +42,11 @@ static NSString * TATViewConstraintsReceiverKey = @"self";
         [mutableConstraints addObject:[self tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views]];
     }
     return [mutableConstraints copy];
+}
+
+- (NSArray *)tat_constrainLayoutAttributesWithEquationFormats:(NSArray *)formats
+{
+    return [self tat_constrainLayoutAttributesWithEquationFormats:formats metrics:nil views:nil];
 }
 
 @end
