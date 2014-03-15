@@ -57,88 +57,88 @@ describe(@"Creating constraints with the equation format", ^{
             it(@"equals to NSLayoutAttributeLeft", ^{
                 equation = @"square.left==circle.left";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeLeft)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeLeft)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeLeft)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeLeft)];
             });
         });
         context(@"right", ^{
             it(@"equals to NSLayoutAttributeRight", ^{
                 equation = @"square.right==circle.right";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeRight)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeRight)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeRight)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeRight)];
             });
         });
         context(@"top", ^{
             it(@"equals to NSLayoutAttributeTop", ^{
                 equation = @"square.top==circle.top";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeTop)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeTop)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeTop)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeTop)];
             });
         });
         context(@"bottom", ^{
             it(@"equals to NSLayoutAttributeBottom", ^{
                 equation = @"square.bottom==circle.bottom";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeBottom)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeBottom)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeBottom)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeBottom)];
             });
         });
         context(@"leading", ^{
             it(@"equals to NSLayoutAttributeLeading", ^{
                 equation = @"square.leading==circle.leading";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeLeading)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeLeading)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeLeading)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeLeading)];
             });
         });
         context(@"trailing", ^{
             it(@"equals to NSLayoutAttributeTrailing", ^{
                 equation = @"square.trailing==circle.trailing";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeTrailing)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeTrailing)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeTrailing)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeTrailing)];
             });
         });
         context(@"width", ^{
             it(@"equals to NSLayoutAttributeWidth", ^{
                 equation = @"square.width==circle.width";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeWidth)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeWidth)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeWidth)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeWidth)];
             });
         });
         context(@"height", ^{
             it(@"equals to NSLayoutAttributeHeight", ^{
                 equation = @"square.height==circle.height";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeHeight)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeHeight)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeHeight)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeHeight)];
             });
         });
         context(@"centerX", ^{
             it(@"equals to NSLayoutAttributeCenterX", ^{
                 equation = @"square.centerX==circle.centerX";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeCenterX)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeCenterX)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeCenterX)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeCenterX)];
             });
         });
         context(@"centerY", ^{
             it(@"equals to NSLayoutAttributeCenterY", ^{
                 equation = @"square.centerY==circle.centerY";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeCenterY)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeCenterY)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeCenterY)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeCenterY)];
             });
         });
         context(@"baseline", ^{
             it(@"equals to NSLayoutAttributeBaseline", ^{
                 equation = @"square.baseline==circle.baseline";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeBaseline)];
-                [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeBaseline)];
+                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeBaseline)];
+                [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeBaseline)];
             });
         });
         describe(@"second attribute", ^{
@@ -146,7 +146,7 @@ describe(@"Creating constraints with the equation format", ^{
                 it(@"equals to NSLayoutAttributeNotAnAttribute", ^{
                     equation = @"square.width==constant";
                     constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                    [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeNotAnAttribute)];
+                    [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeNotAnAttribute)];
                 });
             });
         });
@@ -158,21 +158,21 @@ describe(@"Creating constraints with the equation format", ^{
             it(@"equals to NSLayoutRelationLessThanOrEqual", ^{
                 equation = @"square.width<=circle.width";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.relation) should] equal:theValue(NSLayoutRelationLessThanOrEqual)];
+                [[@(constraint.relation) should] equal:@(NSLayoutRelationLessThanOrEqual)];
             });
         });
         context(@"equal sign (==)", ^{
             it(@"equals to NSLayoutRelationEqual", ^{
                 equation = @"square.width==circle.width";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.relation) should] equal:theValue(NSLayoutRelationEqual)];
+                [[@(constraint.relation) should] equal:@(NSLayoutRelationEqual)];
             });
         });
         context(@"greater than or equal sign (>=)", ^{
             it(@"equals to NSLayoutRelationGreaterThanOrEqual", ^{
                 equation = @"square.width>=circle.width";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.relation) should] equal:theValue(NSLayoutRelationGreaterThanOrEqual)];
+                [[@(constraint.relation) should] equal:@(NSLayoutRelationGreaterThanOrEqual)];
             });
         });
     });
@@ -182,27 +182,27 @@ describe(@"Creating constraints with the equation format", ^{
         it(@"can be a number", ^{
             equation = @"square.width==circle.width*2";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.multiplier) should] equal:theValue(2)];
+            [[@(constraint.multiplier) should] equal:@(2)];
         });
         it(@"can be a number with decimal", ^{
             equation = @"square.width==circle.width*0.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.multiplier) should] equal:theValue(0.5)];
+            [[@(constraint.multiplier) should] equal:@(0.5)];
         });
         it(@"can be a number with decimal without specifying the integer part", ^{
             equation = @"square.width==circle.width*.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.multiplier) should] equal:theValue(0.5)];
+            [[@(constraint.multiplier) should] equal:@(0.5)];
         });
         it(@"can be a key of an object in the metrics dictionary", ^{
             equation = @"square.width==circle.width*multiplier";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.multiplier) should] equal:theValue(0.5)];
+            [[@(constraint.multiplier) should] equal:@(0.5)];
         });
         it(@"is optional and defaults to 1", ^{
             equation = @"square.width==circle.width";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.multiplier) should] equal:theValue(1)];
+            [[@(constraint.multiplier) should] equal:@(1)];
         });
     });
     
@@ -211,38 +211,38 @@ describe(@"Creating constraints with the equation format", ^{
         it(@"can be a number", ^{
             equation = @"square.width==circle.width+2";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(2)];
+            [[@(constraint.constant) should] equal:@(2)];
         });
         it(@"can be a number with decimal", ^{
             equation = @"square.width==circle.width+200.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(200.5)];
+            [[@(constraint.constant) should] equal:@(200.5)];
         });
         it(@"can be a number with decimal without specifying the integer part", ^{
             equation = @"square.width==circle.width+.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(0.5)];
+            [[@(constraint.constant) should] equal:@(0.5)];
         });
         it(@"can be a key of an object in the metrics dictionary", ^{
             equation = @"square.width==circle.width+constant";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(750)];
+            [[@(constraint.constant) should] equal:@(750)];
         });
         it(@"is optional and defaults to 0", ^{
             equation = @"square.width==circle.width";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(0)];
+            [[@(constraint.constant) should] equal:@(0)];
         });
         context(@"when the modifier is a minus sign", ^{
             it(@"mofifies the constant number", ^{
                 equation = @"square.width==circle.width-200";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.constant) should] equal:theValue(-200)];
+                [[@(constraint.constant) should] equal:@(-200)];
             });
             it(@"mofifies the constant value from metrics", ^{
                 equation = @"square.width==circle.width-constant";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.constant) should] equal:theValue(-750)];
+                [[@(constraint.constant) should] equal:@(-750)];
             });
         });
     });
@@ -252,22 +252,22 @@ describe(@"Creating constraints with the equation format", ^{
         it(@"can be a number", ^{
             equation = @"square.width==500";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(500)];
+            [[@(constraint.constant) should] equal:@(500)];
         });
         it(@"can be a number with decimal", ^{
             equation = @"square.width==200.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(200.5)];
+            [[@(constraint.constant) should] equal:@(200.5)];
         });
         it(@"can be a number with decimal without specifying the integer part", ^{
             equation = @"square.width==.5";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(0.5)];
+            [[@(constraint.constant) should] equal:@(0.5)];
         });
         it(@"can be a key of an object in the metrics dictionary", ^{
             equation = @"square.width==constant";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-            [[theValue(constraint.constant) should] equal:theValue(750)];
+            [[@(constraint.constant) should] equal:@(750)];
         });
     });
     
@@ -277,54 +277,54 @@ describe(@"Creating constraints with the equation format", ^{
             it(@"can be a number", ^{
                 equation = @"square.width==500@751";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(751)];
+                [[@(constraint.priority) should] equal:@(751)];
             });
             it(@"can be a number with decimal", ^{
                 equation = @"square.width==500@200.5";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(200.5)];
+                [[@(constraint.priority) should] equal:@(200.5)];
             });
             it(@"can be a number with decimal without specifying the integer part", ^{
                 equation = @"square.width==500@.5";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(0.5)];
+                [[@(constraint.priority) should] equal:@(0.5)];
             });
             it(@"can be a key of an object in the metrics dictionary", ^{
                 equation = @"square.width==500@priority";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(251)];
+                [[@(constraint.priority) should] equal:@(251)];
             });
             it(@"is optional and defaults to 1000", ^{
                 equation = @"square.width==500";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(1000)];
+                [[@(constraint.priority) should] equal:@(1000)];
             });
         });
         context(@"in binary constraints", ^{
             it(@"can be a number", ^{
                 equation = @"square.width==circle.width@751";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(751)];
+                [[@(constraint.priority) should] equal:@(751)];
             });
             it(@"can be a number with decimal", ^{
                 equation = @"square.width==circle.width@200.5";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(200.5)];
+                [[@(constraint.priority) should] equal:@(200.5)];
             });
             it(@"can be a number with decimal without specifying the integer part", ^{
                 equation = @"square.width==circle.width@.5";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(0.5)];
+                [[@(constraint.priority) should] equal:@(0.5)];
             });
             it(@"can be a key of an object in the metrics dictionary", ^{
                 equation = @"square.width==circle.width@priority";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(251)];
+                [[@(constraint.priority) should] equal:@(251)];
             });
             it(@"is optional and defaults to 1000", ^{
                 equation = @"square.width==circle.width";
                 constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                [[theValue(constraint.priority) should] equal:theValue(1000)];
+                [[@(constraint.priority) should] equal:@(1000)];
             });
         });
     });
@@ -334,13 +334,13 @@ describe(@"Creating constraints with the equation format", ^{
             equation = @"square.width == circle.width * 0.5 + 25 @750";
             constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
             [[constraint.firstItem should] equal:square];
-            [[theValue(constraint.firstAttribute) should] equal:theValue(NSLayoutAttributeWidth)];
-            [[theValue(constraint.relation) should] equal:theValue(NSLayoutRelationEqual)];
+            [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeWidth)];
+            [[@(constraint.relation) should] equal:@(NSLayoutRelationEqual)];
             [[constraint.secondItem should] equal:circle];
-            [[theValue(constraint.secondAttribute) should] equal:theValue(NSLayoutAttributeWidth)];
-            [[theValue(constraint.multiplier) should] equal:theValue(0.5)];
-            [[theValue(constraint.constant) should] equal:theValue(25)];
-            [[theValue(constraint.priority) should] equal:theValue(750)];
+            [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeWidth)];
+            [[@(constraint.multiplier) should] equal:@(0.5)];
+            [[@(constraint.constant) should] equal:@(25)];
+            [[@(constraint.priority) should] equal:@(750)];
         });
     });
 });
