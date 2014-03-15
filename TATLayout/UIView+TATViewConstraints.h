@@ -15,7 +15,7 @@
 ///-------------------------------------
 
 /**
- Constrain a layout attribute by creating a constraint specified with the equation format and installing it in the closest ancestor shared by the receiver and any view related.
+ Constrain a layout attribute by creating a constraint described with the equation format and installing it in the closest ancestor shared by the receiver and any view related.
  
  The first item is automatically set to be the receiver so the equation must start from the first attribute, example `width == superview.width` translates to `self.width == superview.width`. Also, if you need to set the second item to be the receiver you can do so by using the magic keyword `self`, example `width == self.height`.
  
