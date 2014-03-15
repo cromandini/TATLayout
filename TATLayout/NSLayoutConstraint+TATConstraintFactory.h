@@ -39,8 +39,11 @@
     someView.trailing <= otherView.trailing + 500
     otherView.top >= superview.top
     otherView.top == 500 @251
-    otherView.bottom == superview.bottom - someMetricName
     otherView.left == 0
+ 
+ `superview` is a magic key which is set to be the superview of the first item. That said, when using `superview` as second item, the first item must be added to its superview before creating the constraint. Examples:
+ 
+    otherView.bottom == superview.bottom - someMetricName
     otherView.right <= superview.right * someMetricName - otherMetricName @yetAnotherMetricName
  
  Whitespace is allowed anywhere in the string, so the following are the same:
