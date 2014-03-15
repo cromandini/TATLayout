@@ -50,6 +50,9 @@ describe(@"Constraining layout attributes with the equation format", ^{
             [[@(constraint.constant) should] equal:metrics[@"constant"]];
             [[@(constraint.priority) should] equal:metrics[@"priority"]];
         });
+        it(@"is installed into the closest ancestor shared by the receiver and any view related", ^{
+            // TODO: add spec
+        });
     });
     
     describe(@"multiple attributes", ^{

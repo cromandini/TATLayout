@@ -41,7 +41,7 @@
  
  @param formats The format specifications for the constraints.
  @param metrics A dictionary of constants that appear in the equation format strings. The keys must be the string values used in the equation format strings, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the equation format strings. The keys must be the string values used in the equation format string, and the values must be the view objects.
+ @param views A dictionary of views that appear in the equation format strings. The keys must be the string values used in the equation format strings, and the values must be the view objects.
  @return The constraints created.
  @see NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
  */
@@ -52,7 +52,7 @@
  
  @param formats The format specifications for the constraints.
  @return The constraints created.
- @see NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
+ @warning If there is any metric or view specified in the equation string an error will be thrown.
  */
 - (NSArray *)tat_constrainLayoutAttributesWithEquationFormats:(NSArray *)formats;
 
