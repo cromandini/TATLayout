@@ -4,17 +4,17 @@
 //
 
 #import "TATLayoutViewController.h"
-#import "TATLayoutFactoryViewController.h"
-#import "TATLayoutViewConstraintsViewController.h"
+#import "TATConstraintFactoryViewController.h"
+#import "TATViewConstraintsViewController.h"
 #import "TATLayoutManagerViewController.h"
 
 typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
-    TATLayoutViewControllerExampleFactory,
+    TATLayoutViewControllerExampleConstraintFactory,
     TATLayoutViewControllerExampleViewConstraints,
     TATLayoutViewControllerExampleLayoutManager
 };
 
-#define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleFactory
+#define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleViewConstraints
 
 @interface TATLayoutViewController () <UIActionSheetDelegate>
 @property (strong, nonatomic) NSArray *exampleNames;
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 - (NSArray *)exampleNames
 {
     if (!_exampleNames) {
-        _exampleNames = @[@"Factory",
+        _exampleNames = @[@"Constraint Factory",
                           @"View Constraints",
                           @"Layout Manager"];
     }
@@ -44,12 +44,12 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 - (UIViewController *)viewControllerForExample:(TATLayoutViewControllerExample)example
 {
     switch (example) {
-        case TATLayoutViewControllerExampleFactory:
-            return [[TATLayoutFactoryViewController alloc] init];
+        case TATLayoutViewControllerExampleConstraintFactory:
+            return [TATConstraintFactoryViewController new];
         case TATLayoutViewControllerExampleViewConstraints:
-            return [[TATLayoutViewConstraintsViewController alloc] init];
+            return [TATViewConstraintsViewController new];
         case TATLayoutViewControllerExampleLayoutManager:
-            return [[TATLayoutManagerViewController alloc] init];
+            return [TATLayoutManagerViewController new];
     }
 }
 

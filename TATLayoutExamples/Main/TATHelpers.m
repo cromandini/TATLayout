@@ -1,9 +1,9 @@
 //
-//  TATLayoutHelpers.m
+//  TATHelpers.m
 //  TATLayout
 //
 
-#import "TATLayoutHelpers.h"
+#import "TATHelpers.h"
 
 BOOL TATDeviceIsPad() {
     return [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;

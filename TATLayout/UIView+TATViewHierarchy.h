@@ -1,5 +1,5 @@
 //
-//  UIView+TATLayoutHierarchy.h
+//  UIView+TATViewHierarchy.h
 //  TATLayout
 //
 
@@ -8,7 +8,7 @@
 /**
  This category in `UIView` provides support for inspecting the view hierarchy to see if a view is ancestor of another and to calculate the closest ancestor shared by 2 views.
  */
-@interface UIView (TATLayoutHierarchy)
+@interface UIView (TATViewHierarchy)
 
 ///------------------------------------
 /// @name Inspecting the View Hierarchy

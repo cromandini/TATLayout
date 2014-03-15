@@ -1,11 +1,11 @@
 //
-//  UIView+TATLayoutHierarchy.m
+//  UIView+TATViewHierarchy.m
 //  TATLayout
 //
 
-#import "UIView+TATLayoutHierarchy.h"
+#import "UIView+TATViewHierarchy.h"
 
-@implementation UIView (TATLayoutHierarchy)
+@implementation UIView (TATViewHierarchy)
 
 #pragma mark - Inspecting the View Hierarchy
 

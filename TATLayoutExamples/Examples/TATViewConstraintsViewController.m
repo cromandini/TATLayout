@@ -1,15 +1,15 @@
 //
-//  TATLayoutViewConstraintsViewController.m
+//  TATViewConstraintsViewController.m
 //  TATLayout
 //
 
-#import "TATLayoutViewConstraintsViewController.h"
+#import "TATViewConstraintsViewController.h"
 #import "TATLayout.h"
 
-@interface TATLayoutViewConstraintsViewController ()
+@interface TATViewConstraintsViewController ()
 @end
 
-@implementation TATLayoutViewConstraintsViewController
+@implementation TATViewConstraintsViewController
 
 - (void)viewDidLoad
 {

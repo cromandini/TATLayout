@@ -1,15 +1,15 @@
 //
-//  TATLayoutFactoryViewController.m
+//  TATConstraintFactoryViewController.m
 //  TATLayout
 //
 // This example showcases the use of the equation format to instanciate constraints.
 // Many of the constraints in this example could be created using Apple's visual format, but the purpose of the example is to make heavy use of the equation format in order to show the flexibility, expressiveness and readability obtained when you create constraints with it.
 
-#import "TATLayoutFactoryViewController.h"
+#import "TATConstraintFactoryViewController.h"
 #import "TATLayout.h"
-#import "TATLayoutHelpers.h"
+#import "TATHelpers.h"
 
-@interface TATLayoutFactoryViewController ()
+@interface TATConstraintFactoryViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;
 @property (strong, nonatomic) UIImageView *progressBar;
 @property (strong, nonatomic) UILabel *timeElapsed;
@@ -25,7 +25,7 @@
 @property (strong, nonatomic) NSLayoutConstraint *phoneLandscapeConstraint;
 @end
 
-@implementation TATLayoutFactoryViewController
+@implementation TATConstraintFactoryViewController
 
 #pragma mark - Lifecycle
 

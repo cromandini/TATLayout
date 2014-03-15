@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraint+TATLayoutFactory.h
+//  NSLayoutConstraint+TATConstraintFactory.h
 //  TATLayout
 //
 
@@ -72,11 +72,11 @@
     someView.width>=otherView.width+someConstant
                                                 ^
  */
-@interface NSLayoutConstraint (TATLayoutFactory)
+@interface NSLayoutConstraint (TATConstraintFactory)
 
-///---------------------------
-/// @name Creating Constraints
-///---------------------------
+///----------------------------------------------------
+/// @name Creating Constraints with the Equation Format
+///----------------------------------------------------
 
 /**
  Create a constraint explicitly, described by a linear equation format string.

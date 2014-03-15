@@ -25,5 +25,5 @@
 //  THE SOFTWARE.
 //
 
-#import "NSLayoutConstraint+TATLayoutFactory.h"
-#import "UIView+TATLayoutConstraints.h"
+#import "NSLayoutConstraint+TATConstraintFactory.h"
+#import "UIView+TATViewConstraints.h"
