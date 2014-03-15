@@ -15,15 +15,15 @@ static NSString * TATViewConstraintsReceiverKey = @"self";
 - (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
     NSString *equation = [NSString stringWithFormat:@"%@.%@", TATViewConstraintsReceiverKey, format];
-    NSDictionary *viewsWithSelf;
+    NSDictionary *viewsIncludinSelf;
     if (!views) {
-        viewsWithSelf = @{TATViewConstraintsReceiverKey: self};
+        viewsIncludinSelf = @{TATViewConstraintsReceiverKey: self};
     } else {
         NSMutableDictionary *mutableViews = [views mutableCopy];
         mutableViews[TATViewConstraintsReceiverKey] = self;
-        viewsWithSelf = mutableViews;
+        viewsIncludinSelf = mutableViews;
     }
-    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsWithSelf];
+    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsIncludinSelf];
     // install constraint
     return constraint;
 }
