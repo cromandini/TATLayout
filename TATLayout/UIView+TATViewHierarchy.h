@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `UIView` provides support for inspecting the view hierarchy to see if a view is ancestor of another and to calculate the closest ancestor shared by 2 views.
+ This category in `UIView` provides support for inspecting the view hierarchy.
  */
 @interface UIView (TATViewHierarchy)
 
@@ -19,10 +19,10 @@
  @param view The view to test if it is within scope of the receiver.
  @return `YES` if `view` is within scope of the receiver, otherwise `NO`. If `view` is identical to the receiver, returns `YES`.
  */
-- (BOOL)tat_isAncestorOfView:(UIView *)view; // TODO: Should this method be private?
+- (BOOL)tat_isAncestorOfView:(UIView *)view;
 
 /**
- Returns the closest ancestor shared by the receiver and a given view.
+ The closest ancestor shared by the receiver and a given view.
  @param view The view to test (along with the receiver) for closest shared ancestor.
  @return The closest shared ancestor or `nil` if there’s no such object. Returns `self` if `view` is identical to the receiver.
  */
