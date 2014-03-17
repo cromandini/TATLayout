@@ -3,7 +3,7 @@
 //  TATLayout
 //
 // This example showcases the use of the equation format to instanciate constraints.
-// Many of the constraints in this example could be created using Apple's visual format, but the purpose of the example is to make heavy use of the equation format in order to show the flexibility, expressiveness and readability obtained when you create constraints with it.
+// Many of the constraints in this example could be created using Apple's visual format, but the purpose of the example is to make heavy use of the equation format in order to show the flexibility and readability of the API.
 
 #import "TATConstraintFactoryViewController.h"
 #import "TATLayout.h"
