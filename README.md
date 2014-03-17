@@ -36,21 +36,25 @@ view1.translatesAutoresizingMaskIntoConstraints = NO;
 // Using metrics and views
 UIView *view2 = [UIView new];
 view2.translatesAutoresizingMaskIntoConstraints = NO;
+[self.view addSubview:view2];
 NSDictionary *metrics = @{@"multiplier": @0.8, @"constant": @100, @"priority": @751};
 NSDictionary *views = NSDictionaryOfVariableBindings(view2);
 
 [view1 tat_constrainLayoutAttributeWithEquationFormat:@"leading == view2.leading + constant"
                                               metrics:metrics views:views];
 [view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == view2.width * multiplier",
-                                                        @"height == view2.height * multiplier",
-                                                        @"centerX == superview.centerX @priority",
-                                                        @"centerY == superview.centerY @priority"]
+                                                          @"height == view2.height * multiplier",
+                                                          @"centerX == superview.centerX @priority",
+                                                          @"centerY == superview.centerY @priority"]
                                                 metrics:metrics views:views];
 ```
 
 #### Creating constraints with equation format strings:
 
 ```objective-c
+UIView *view1 = [UIView new];
+UIView *view2 = [UIView new];
+UILabel *label = [UILabel new];
 NSDictionary *metrics = @{@"multiplier": @0.5, @"constant": @50, @"priority": @751};
 NSDictionary *views = NSDictionaryOfVariableBindings(view1, view2, label);
 NSLayoutConstraint *c;
