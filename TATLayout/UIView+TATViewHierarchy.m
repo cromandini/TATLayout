@@ -49,6 +49,7 @@
 
 /**
  Enumerates the receiver's superviews using the given block, starting with `self.superview` and continuing upwards in the hierarchy.
+ 
  @param block The block to apply to superviews. The block takes two arguments, `superview`: The superview enumerated. `stop`: A reference to a Boolean value that the block can set to YES to stop further enumeration.
  */
 - (void)tat_enumerateSuperviewsUsingBlock:(void (^)(UIView *superview, BOOL *stop))block
