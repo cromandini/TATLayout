@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `UIView` provides support for constraining receiver's layout attributes by describing constraints with the equation format.
+ This category in `UIView` provides support for constraining the receiver's layout attributes by describing constraints with the equation format.
  */
 @interface UIView (TATViewConstraints)
 

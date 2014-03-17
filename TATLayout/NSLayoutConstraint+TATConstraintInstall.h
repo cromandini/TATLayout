@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `NSLayoutConstraint` provides support for auto installation and uninstallation.
+ This category in `NSLayoutConstraint` provides support for auto installation and un-installation.
 */
 @interface NSLayoutConstraint (TATConstraintInstall)
 
