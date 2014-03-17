@@ -1,11 +1,12 @@
-# TATLayout
-An expressive, simple yet poweful way for coding layout constraints in iOS.
+# An expressive, simple yet poweful way for coding layout constraints in iOS.
+
+TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints without compromising performance. It provides a higher level API to layout constraints that makes your layouts easier to read, mantain and modify dynamically.
 
 #### Features:
-- Category in `NSLayoutConstraint` with a class method for creating constraints using a linear equation format string.
+- Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
+- Category in `UIView` providing methods for constraining layout attributes.
 
 #### Next steps:
-- Extend `UIView` with convenience methods for creating/installing constraints.
 - Create a Layout Manager that supports constraints creation, installation, uninstallation and retrieval (for editing).
 
 ## Requirements
@@ -16,6 +17,28 @@ TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static
 
 ## Usage
 Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
+
+#### Constraining layout attributes of a view:
+```objective-c
+UIView *view1 = [UIView new];
+view1.translatesAutoresizingMaskIntoConstraints = NO;
+[self.view addSubview:view1];
+
+// Single attribute
+[view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == 300"];
+
+// Multiple attributes
+[view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == superview.width * 0.5", @"height == superview.height * 0.5", @"centerX == superview.centerX", @"centerY == superview.centerY"]];
+
+// Using metrics and views
+UIView *view2 = [UIView new];
+view2.translatesAutoresizingMaskIntoConstraints = NO;
+NSDictionary *metrics = @{@"multiplier": @0.8, @"constant": @100, @"priority": @751};
+NSDictionary *views = NSDictionaryOfVariableBindings(view2);
+
+[view1 tat_constrainLayoutAttributeWithEquationFormat:@"leading == view2.leading + constant" metrics:metrics views:views];
+[view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == view2.width * multiplier", @"height == view2.height * multiplier", @"centerX == superview.centerX @priority", @"centerY == superview.centerY @priority"] metrics:metrics views:views];
+```
 
 #### Creating constraints with equation format strings:
 
