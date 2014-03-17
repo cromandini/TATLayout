@@ -1,5 +1,14 @@
 # TATLayout CHANGELOG
 
+## 0.2.0
+
+View constraints implementation.
+
+- Implemented UIView+TATViewConstraints category.
+- Extended Examples app with View Constraints example.
+- Renamed categories for consistency.
+- Specs covering TATViewConstraints and private classes functionality.
+
 ## 0.1.1
 
 Improvements in the documentation, project restructure.
