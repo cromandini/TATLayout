@@ -41,7 +41,7 @@
     otherView.top == 500 @251
     otherView.left == 0
  
- `superview` is a magic keyword which is set to be the superview of the first item. That said, when using `superview` as second item, the first item must be added to its superview before creating the constraint. Examples:
+ `superview` is a keyword which is set to be the superview of the first item. That said, when using `superview` as second item, the first item must be added to its superview before creating the constraint. Examples:
  
     otherView.bottom == superview.bottom - someMetricName
     otherView.right <= superview.right * someMetricName - otherMetricName @yetAnotherMetricName
