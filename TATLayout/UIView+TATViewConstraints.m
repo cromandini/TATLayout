@@ -5,8 +5,10 @@
 
 #import "UIView+TATViewConstraints.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
+#import "NSLayoutConstraint+TATConstraintInstall.h"
 
-static NSString * TATViewConstraintsReceiverKey = @"self";
+static NSString * TATViewConstraintsReceiverKeyword = @"self";
+static NSString * const TATViewConstraintsErrorNotAString = @"%@ is not a format string.";
 
 @implementation UIView (TATViewConstraints)
 
@@ -14,17 +16,17 @@ static NSString * TATViewConstraintsReceiverKey = @"self";
 
 - (NSLayoutConstraint *)tat_constrainLayoutAttributeWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
-    NSString *equation = [NSString stringWithFormat:@"%@.%@", TATViewConstraintsReceiverKey, format];
-    NSDictionary *viewsIncludinSelf;
+    NSString *equation = [NSString stringWithFormat:@"%@.%@", TATViewConstraintsReceiverKeyword, format];
+    NSDictionary *viewsIncludingSelf;
     if (!views) {
-        viewsIncludinSelf = @{TATViewConstraintsReceiverKey: self};
+        viewsIncludingSelf = @{TATViewConstraintsReceiverKeyword: self};
     } else {
         NSMutableDictionary *mutableViews = [views mutableCopy];
-        mutableViews[TATViewConstraintsReceiverKey] = self;
-        viewsIncludinSelf = mutableViews;
+        mutableViews[TATViewConstraintsReceiverKeyword] = self;
+        viewsIncludingSelf = mutableViews;
     }
-    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsIncludinSelf];
-    // TODO: install constraint
+    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:viewsIncludingSelf];
+    [constraint tat_install];
     return constraint;
 }
 
@@ -37,7 +39,7 @@ static NSString * TATViewConstraintsReceiverKey = @"self";
 {
     NSMutableArray *mutableConstraints = [NSMutableArray new];
     for (id item in formats) {
-        NSAssert([item isKindOfClass:[NSString class]], @"%@ is not a format string.", item);
+        NSAssert([item isKindOfClass:[NSString class]], TATViewConstraintsErrorNotAString, item);
         NSString *format = (NSString *)item;
         [mutableConstraints addObject:[self tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views]];
     }

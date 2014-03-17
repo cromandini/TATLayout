@@ -11,6 +11,7 @@ SPEC_BEGIN(TATViewConstraintsSpec)
 
 describe(@"Constraining layout attributes with the equation format", ^{
     
+    __block UIView *superview;
     __block UIView *view1;
     __block UIView *view2;
     __block NSDictionary *metrics;
@@ -19,6 +20,9 @@ describe(@"Constraining layout attributes with the equation format", ^{
     beforeEach(^{
         view1 = [UIView new];
         view2 = [UIView new];
+        superview = [UIView new];
+        [superview addSubview:view1];
+        [superview addSubview:view2];
         metrics = @{@"multiplier": @2, @"priority": @751};
         views = NSDictionaryOfVariableBindings(view2);
     });
@@ -53,7 +57,8 @@ describe(@"Constraining layout attributes with the equation format", ^{
             [view1 tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views];
         });
         it(@"is installed into the closest ancestor shared by the receiver and any view related", ^{
-            // TODO: add spec
+            NSLayoutConstraint *constraint = [view1 tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views];
+            [[superview.constraints should] contain:constraint];
         });
     });
     
