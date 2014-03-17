@@ -18,7 +18,7 @@ TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static
 ## Usage
 Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
 
-#### Constraining layout attributes of a view:
+#### Constraining layout attributes:
 ```objective-c
 UIView *view1 = [UIView new];
 view1.translatesAutoresizingMaskIntoConstraints = NO;
