@@ -26,7 +26,7 @@
 ///-------------------------------
 
 /**
- Removes the constraint.
+ Remove the constraint.
  */
 - (void)tat_uninstall;
 
