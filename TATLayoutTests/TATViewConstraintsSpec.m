@@ -6,99 +6,131 @@
 #import "Kiwi.h"
 #import "UIView+TATViewConstraints.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
-#import "TATViewHierarchyHelper.h"
+#import "NSLayoutConstraint+TATConstraintInstall.h"
 
 SPEC_BEGIN(TATViewConstraintsSpec)
 
-describe(@"Constraining layout attributes with the equation format", ^{
+describe(@"View", ^{
+    UIView *view1 = [UIView new];
+    UIView *view2 = [UIView new];
+    NSDictionary *metrics = @{@"size": @"150"};
+    NSDictionary *inViews = NSDictionaryOfVariableBindings(view2);
     
-    TATViewHierarchyHelper *vh = [TATViewHierarchyHelper new];
-    NSDictionary *metrics = @{@"multiplier": @2, @"priority": @751};
-    NSDictionary *views = @{@"view6": vh.view6};
-    
-    describe(@"the receiver", ^{
-        it(@"is set as the first item in the equation", ^{
-            NSLayoutConstraint *constraint = [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:@"width == 250"];
-            [[constraint.firstItem should] equal:vh.view2];
+    context(@"when constraining a layout attribute", ^{
+        NSString *inFormat = @"width == self.height";
+        NSString *outFormat = @"self.width == self.height";
+        NSDictionary *outViews = @{@"self": view1, @"view2": view2};
+        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:view1
+                                                                      attribute:NSLayoutAttributeWidth
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:view1
+                                                                      attribute:NSLayoutAttributeHeight
+                                                                     multiplier:1
+                                                                       constant:0];
+        beforeEach(^{
+            [[NSLayoutConstraint stubAndReturn:constraint] tat_constraintWithEquationFormat:outFormat metrics:metrics views:outViews];
         });
-        it(@"can be set to be the second item by using the keyword self", ^{
-            NSLayoutConstraint *constraint = [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:@"width == self.height"];
-            [[constraint.secondItem should] equal:vh.view2];
-        });
-    });
-    
-    describe(@"the constraint", ^{
-        NSString *format = @"width == view6.width * multiplier + 100 @priority";
         
-        it(@"is described by the equation format", ^{
-            NSLayoutConstraint *constraint = [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views];
-            
-            [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeWidth)];
-            [[@(constraint.relation) should] equal:@(NSLayoutRelationEqual)];
-            [[constraint.secondItem should] equal:vh.view6];
-            [[@(constraint.secondAttribute) should] equal:@(NSLayoutAttributeWidth)];
-            [[@(constraint.multiplier) should] equal:metrics[@"multiplier"]];
-            [[@(constraint.constant) should] equal:@100];
-            [[@(constraint.priority) should] equal:metrics[@"priority"]];
+        it(@"creates a constraint with the equation format", ^{
+            [[[NSLayoutConstraint should] receive] tat_constraintWithEquationFormat:outFormat metrics:metrics views:outViews];
+            [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:inViews];
         });
-        it(@"is created with TATConstraintFactory method tat_constraintWithEquationFormat:metrics:views:", ^{
-            [[NSLayoutConstraint should] receive:@selector(tat_constraintWithEquationFormat:metrics:views:)];
-            [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views];
+        it(@"prepends self in the equation format string", ^{
+            KWCaptureSpy *spy = [NSLayoutConstraint captureArgument:@selector(tat_constraintWithEquationFormat:metrics:views:) atIndex:0];
+            [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:inViews];
+            [[spy.argument should] equal:outFormat];
         });
-        it(@"is installed into the closest ancestor shared by the receiver and any view related", ^{
-            NSLayoutConstraint *constraint = [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:format metrics:metrics views:views];
-            [[vh.view1.constraints should] contain:constraint];
+        it(@"adds the receiver in the views dictionary with the keyword self", ^{
+            KWCaptureSpy *spy = [NSLayoutConstraint captureArgument:@selector(tat_constraintWithEquationFormat:metrics:views:) atIndex:2];
+            [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:inViews];
+            [[spy.argument should] equal:outViews];
+        });
+        context(@"when the views dictionary is nil", ^{
+            it(@"creates a view dictionary containing the receiver in the keyword self", ^{
+                KWCaptureSpy *spy = [NSLayoutConstraint captureArgument:@selector(tat_constraintWithEquationFormat:metrics:views:) atIndex:2];
+                [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:nil];
+                [[spy.argument should] equal:@{@"self": view1}];
+            });
+        });
+        it(@"installs the constraint", ^{
+            [[[constraint should] receive] tat_install];
+            [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:inViews];
+        });
+        it(@"returns the constraint created", ^{
+            [[[view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:metrics views:inViews] should] equal:constraint];
+        });
+        describe(@"without metrics and views", ^{
+            it(@"is the same as constraining with nil metrics and views", ^{
+                [[[view1 should] receive] tat_constrainLayoutAttributeUsingEquationFormat:inFormat metrics:nil views:nil];
+                [view1 tat_constrainLayoutAttributeUsingEquationFormat:inFormat];
+            });
         });
     });
     
-    describe(@"convenience methods", ^{
-        describe(@"tat_constrainLayoutAttributeWithEquationFormat", ^{
-            it(@"sends tat_constrainLayoutAttributeWithEquationFormat:metrics:views: to the receiver with nil metrics and views", ^{
-                NSString *equation = @"width == 250";
-                [[vh.view2 should] receive:@selector(tat_constrainLayoutAttributeWithEquationFormat:metrics:views:)
-                             withArguments:equation, nil, nil];
-                [vh.view2 tat_constrainLayoutAttributeWithEquationFormat:equation];
-            });
+    context(@"when constraining multiple layout attributes", ^{
+        NSString *format1 = @"width == 100";
+        NSString *format2 = @"height == 200";
+        NSString *format3 = @"centerX == view2.centerX";
+        NSString *format4 = @"centerY == view2.centerY";
+        NSArray *formats = @[format1, format2, format3, format4];
+        NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:view1
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                     multiplier:1
+                                                                        constant:100];
+        NSLayoutConstraint *constraint2 = [NSLayoutConstraint constraintWithItem:view1
+                                                                       attribute:NSLayoutAttributeHeight
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                     multiplier:1
+                                                                        constant:200];
+        NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:view1
+                                                                       attribute:NSLayoutAttributeCenterX
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:view2
+                                                                       attribute:NSLayoutAttributeCenterX
+                                                                     multiplier:1
+                                                                        constant:0];
+        NSLayoutConstraint *constraint4 = [NSLayoutConstraint constraintWithItem:view1
+                                                                       attribute:NSLayoutAttributeCenterY
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:view2
+                                                                       attribute:NSLayoutAttributeCenterY
+                                                                     multiplier:1
+                                                                        constant:0];
+        NSArray *constraints = @[constraint1, constraint2, constraint3, constraint4];
+        
+        beforeEach(^{
+            [[view1 stubAndReturn:constraint1] tat_constrainLayoutAttributeUsingEquationFormat:format1 metrics:metrics views:inViews];
+            [[view1 stubAndReturn:constraint2] tat_constrainLayoutAttributeUsingEquationFormat:format2 metrics:metrics views:inViews];
+            [[view1 stubAndReturn:constraint3] tat_constrainLayoutAttributeUsingEquationFormat:format3 metrics:metrics views:inViews];
+            [[view1 stubAndReturn:constraint4] tat_constrainLayoutAttributeUsingEquationFormat:format4 metrics:metrics views:inViews];
         });
-        describe(@"tat_constrainLayoutAttributesWithEquationFormats:metrics:views:", ^{
-            NSArray *formats = @[@"width == 100",
-                                 @"height == 200",
-                                 @"centerX == view6.centerX",
-                                 @"centerY == view6.centerY"];
-            
-            it(@"constrains multiple layout attributes", ^{
-                NSArray *constraints = [vh.view2 tat_constrainLayoutAttributesWithEquationFormats:formats metrics:metrics views:views];
-                [[constraints should] haveCountOf:4];
-                
-                NSLayoutConstraint *constraint = constraints[0];
-                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeWidth)];
-                
-                constraint = constraints[1];
-                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeHeight)];
-                
-                constraint = constraints[2];
-                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeCenterX)];
-                
-                constraint = constraints[3];
-                [[@(constraint.firstAttribute) should] equal:@(NSLayoutAttributeCenterY)];
-            });
-            it(@"uses tat_constrainLayoutAttributeWithEquationFormat:metrics:views:", ^{
-                [[vh.view2 should] receive:@selector(tat_constrainLayoutAttributeWithEquationFormat:metrics:views:)
-                                 andReturn:@"a fake object" withCount:4];
-                [vh.view2 tat_constrainLayoutAttributesWithEquationFormats:formats metrics:metrics views:views];
-            });
-            it(@"throws if any item in the formats array is not a string", ^{
+        
+        it(@"creates and installs a constraint for every format in formats", ^{
+            [[[view1 should] receive] tat_constrainLayoutAttributeUsingEquationFormat:format1 metrics:metrics views:inViews];
+            [[[view1 should] receive] tat_constrainLayoutAttributeUsingEquationFormat:format2 metrics:metrics views:inViews];
+            [[[view1 should] receive] tat_constrainLayoutAttributeUsingEquationFormat:format3 metrics:metrics views:inViews];
+            [[[view1 should] receive] tat_constrainLayoutAttributeUsingEquationFormat:format4 metrics:metrics views:inViews];
+            [view1 tat_constrainLayoutAttributesUsingEquationFormats:formats metrics:metrics views:inViews];
+        });
+        context(@"and any of the formats is not a string", ^{
+            it(@"throws", ^{
                 [[theBlock(^{
-                    [vh.view2 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == 100", @2] metrics:metrics views:views];
-                }) should] raiseWithName:NSInternalInconsistencyException reason:@"2 is not a format string."];
+                    [view1 tat_constrainLayoutAttributesUsingEquationFormats:@[format1, [UIView new]] metrics:metrics views:inViews];
+                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [format isKindOfClass:[NSString class]]"];
             });
         });
-        describe(@"tat_constrainLayoutAttributesWithEquationFormats", ^{
-            it(@"sends tat_constrainLayoutAttributesWithEquationFormats:metrics:views: to the receiver with nil metrics and views", ^{
-                NSArray *formats = @[@"width == 250", @"height == 300"];
-                [[vh.view2 should] receive:@selector(tat_constrainLayoutAttributesWithEquationFormats:metrics:views:)
-                             withArguments:formats, nil, nil];
-                [vh.view2 tat_constrainLayoutAttributesWithEquationFormats:formats];
+        it(@"returns the constraints created", ^{
+            [[[view1 tat_constrainLayoutAttributesUsingEquationFormats:formats metrics:metrics views:inViews] should] equal:constraints];
+        });
+        describe(@"without metrics and views", ^{
+            it(@"is the same as constraining with nil metrics and views", ^{
+                [[[view1 should] receive] tat_constrainLayoutAttributesUsingEquationFormats:formats metrics:nil views:nil];
+                [view1 tat_constrainLayoutAttributesUsingEquationFormats:formats];
             });
         });
     });

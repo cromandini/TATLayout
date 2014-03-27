@@ -2,7 +2,7 @@
 //  TATViewConstraintsViewController.m
 //  TATLayout
 //
-// This example showcases the use of tat_constrainLayoutAttributeWithEquationFormat:metrics:views: and variants.
+// This example showcases the use of tat_constrainLayoutAttributeUsingEquationFormat:metrics:views: and variants.
 
 
 #import "TATViewConstraintsViewController.h"
@@ -32,23 +32,23 @@
     keyboard.translatesAutoresizingMaskIntoConstraints = NO;
     [view addSubview:keyboard];
     self.keyboard = keyboard;
-    [keyboard tat_constrainLayoutAttributesWithEquationFormats:@[@"bottom == superview.bottom",
-                                                                 @"leading == superview.leading",
-                                                                 @"trailing == superview.trailing"]];
+    [keyboard tat_constrainLayoutAttributesUsingEquationFormats:@[@"bottom == superview.bottom",
+                                                                  @"leading == superview.leading",
+                                                                  @"trailing == superview.trailing"]];
     UIView *console = [UIView new];
     console.backgroundColor = self.blackColor;
     console.translatesAutoresizingMaskIntoConstraints = NO;
     [view addSubview:console];
-    [console tat_constrainLayoutAttributesWithEquationFormats:@[@"top == superview.top",
-                                                                @"leading == superview.leading",
-                                                                @"trailing == superview.trailing",
-                                                                @"bottom == keyboard.top"]
-                                                      metrics:nil views:NSDictionaryOfVariableBindings(keyboard)];
+    [console tat_constrainLayoutAttributesUsingEquationFormats:@[@"top == superview.top",
+                                                                 @"leading == superview.leading",
+                                                                 @"trailing == superview.trailing",
+                                                                 @"bottom == keyboard.top"]
+                                                       metrics:nil views:NSDictionaryOfVariableBindings(keyboard)];
     
     UIButton *division = [self buttonWithImageNamed:@"starWhite" backgroundColor:orange];
     [keyboard addSubview:division];
     self.division = division;
-    [division tat_constrainLayoutAttributeWithEquationFormat:@"height == view.height * proportion"
+    [division tat_constrainLayoutAttributeUsingEquationFormat:@"height == view.height * proportion"
                                                    metrics:@{@"proportion": @(1.0 / 6.3)} views:NSDictionaryOfVariableBindings(view)];
     
     UIButton *multiplication = [self buttonWithImageNamed:@"starWhite" backgroundColor:orange];
@@ -143,8 +143,8 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
     [console addSubview:label];
     self.label = label;
-    [label tat_constrainLayoutAttributesWithEquationFormats:@[@"centerY == superview.centerY",
-                                                              @"centerX == division.centerX"] metrics:nil views:buttons];
+    [label tat_constrainLayoutAttributesUsingEquationFormats:@[@"centerY == superview.centerY",
+                                                               @"centerX == division.centerX"] metrics:nil views:buttons];
     
     self.view = view;
 }
@@ -160,7 +160,7 @@
         numberOfButtons = 4;
         self.label.font = [UIFont systemFontOfSize:80];
     }
-    self.divisionWidth = [self.division tat_constrainLayoutAttributeWithEquationFormat:@"width == superview.width * proportion"
+    self.divisionWidth = [self.division tat_constrainLayoutAttributeUsingEquationFormat:@"width == superview.width * proportion"
                                                                                metrics:@{@"proportion": @(1.0 / numberOfButtons)}
                                                                                  views:nil];
 }
