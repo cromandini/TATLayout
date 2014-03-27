@@ -7,7 +7,6 @@
 
 #import "TATConstraintFactoryViewController.h"
 #import "TATLayout.h"
-#import "TATHelpers.h"
 
 @interface TATConstraintFactoryViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;
@@ -100,7 +99,7 @@
     
     NSArray *deviceSpecificFormats;
     
-    if (TATDeviceIsPhone()) {
+    if (TATLayoutDeviceIsPhone()) {
         deviceSpecificFormats = @[@"art.bottom <= progress.top - shortPadding @highPriority",
                                   @"progress.bottom == songTitle.top - 8",
                                   @"songTitle.bottom == albumTitle.top - 2",
@@ -138,13 +137,13 @@
     if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         self.songTitle.font = [UIFont boldSystemFontOfSize:18];
         self.albumTitle.font = [UIFont systemFontOfSize:13];
-        if (TATDeviceIsPhone()) {
+        if (TATLayoutDeviceIsPhone()) {
             [self.view addConstraint:self.phoneLandscapeConstraint];
         }
     } else {
         self.songTitle.font = [UIFont boldSystemFontOfSize:20];
         self.albumTitle.font = [UIFont systemFontOfSize:14];
-        if (TATDeviceIsPhone()) {
+        if (TATLayoutDeviceIsPhone()) {
             [self.view removeConstraint:self.phoneLandscapeConstraint];
         }
     }
