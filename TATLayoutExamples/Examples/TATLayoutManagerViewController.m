@@ -14,15 +14,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UILabel *label = [UILabel new];
-    label.text = @"Coming soon...";
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:label];
-    NSDictionary *bindings = NSDictionaryOfVariableBindings(label);
-    [self.view addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerX == superview.centerX"
-                                                                          metrics:nil views:bindings]];
-    [self.view addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerY == superview.centerY"
-                                                                          metrics:nil views:bindings]];
+    
+    UIView *blue = [UIView new];
+    blue.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:blue];
+    
+    UIView *green = [UIView new];
+    green.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:green];
+    
+    TATLayoutUnableAutoresizingMaskInViews(blue, green);
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(blue, green);
+    
+    [blue tat_constrainLayoutAttributeUsingEquationFormat:@"width == superview.width * 0.5"];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[blue][green(==blue)]|"
+                                                                     options:NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom
+                                                                     metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[green]|"
+                                                                      options:0 metrics:nil views:views]];
 }
 
 @end

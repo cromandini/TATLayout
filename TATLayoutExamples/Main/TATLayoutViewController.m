@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
     TATLayoutViewControllerExampleLayoutManager
 };
 
-#define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleConstraintFactory
+#define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleLayoutManager
 
 @interface TATLayoutViewController () <UIActionSheetDelegate>
 @property (strong, nonatomic) NSArray *exampleNames;
