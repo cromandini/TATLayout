@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- This class creates a view hierarchy that is used in specs, see ViewHierarchy.pdf for visual reference.
+ This class creates a view hierarchy that is used in the specs, see ViewHierarchy.pdf for visual reference.
  */
 @interface TATViewHierarchyHelper : NSObject
 
