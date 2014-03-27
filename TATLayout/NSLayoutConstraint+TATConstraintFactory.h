@@ -82,15 +82,13 @@
 ///----------------------------------------------------
 
 /**
- Create a constraint explicitly, described by a linear equation format string.
- 
- This method is a wrapper for `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` with the addition of the priority.
- @warning When using `superview` as second item, the first view must be added to its superview before creating the constraint.
- 
+ Creates a constraint explicitly, described by a linear equation format string.
  @param format The format specification for the constraint.
  @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
  @return A constraint object relating the provided views with the specified relation, attributes, multiplier, constant and priority.
+ @discussion This method is a wrapper for `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` with the addition of the priority.
+ @warning When using `superview` as second item, the first view must be added to its superview before creating the constraint.
  */
 + (NSLayoutConstraint *)tat_constraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 

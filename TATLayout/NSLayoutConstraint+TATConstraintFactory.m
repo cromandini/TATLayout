@@ -197,7 +197,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
             }
         }
     } else {
-        // Unary constraint constant
+        // Constant when there is only one item
         NSRange constantNumberRange = [match rangeAtIndex:11];
         if (constantNumberRange.location != NSNotFound) {
             NSString *constantNumber = [equation substringWithRange:constantNumberRange];
