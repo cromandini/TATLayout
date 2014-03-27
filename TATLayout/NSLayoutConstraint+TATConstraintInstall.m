@@ -6,7 +6,7 @@
 #import "NSLayoutConstraint+TATConstraintInstall.h"
 #import "UIView+TATViewHierarchy.h"
 
-static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNotFound = @"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the view hierarchy before attempting to install the constraint:\n%@\n%@";
+static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNotFound = @"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the same view hierarchy before attempting to install the constraint:\n%@\n%@";
 
 @implementation NSLayoutConstraint (TATConstraintInstall)
 
@@ -34,7 +34,6 @@ static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNot
 
 /**
  The receiver's first view.
- 
  @return The first object participating in the constraint casted to `UIView`.
  */
 - (UIView *)tat_firstView
@@ -44,7 +43,6 @@ static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNot
 
 /**
  The receiver's second view.
- 
  @return The second object participating in the constraint casted to `UIView` or `nil` if there’s no such object.
  */
 - (UIView *)tat_secondView
@@ -54,12 +52,14 @@ static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNot
 
 /**
  The closest ancestor shared by the views the constraint involves.
- 
  @return The closest shared ancestor or `nil` if there’s no such object. Returns the first view if there's only one view participating.
  */
 - (UIView *)tat_closestAncestorSharedByItems
 {
-    return !self.secondItem ? self.tat_firstView : [self.tat_firstView tat_closestAncestorSharedWithView:self.tat_secondView];
+    if (!self.secondItem) {
+        return [self tat_firstView];
+    }
+    return [self.tat_firstView tat_closestAncestorSharedWithView:self.tat_secondView];
 }
 
 @end
