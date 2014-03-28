@@ -20,7 +20,7 @@ BOOL TATLayoutDeviceIsPhone() {
     return [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
 }
 
-#pragma mark - Settings views to not translate autoresizing mask into constraints
+#pragma mark - Setting views to not translate autoresizing mask into constraints
 
 void TATLayoutSetViewsToNotTranslateAutoresizingMaskIntoConstraints(id firstView, ...) {
     if (firstView) {

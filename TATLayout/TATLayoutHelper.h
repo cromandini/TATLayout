@@ -24,7 +24,7 @@ extern BOOL TATLayoutDeviceIsPad();
 extern BOOL TATLayoutDeviceIsPhone();
 
 ///-------------------------------------------------------------------------
-/// @name Settings views to not translate autoresizing mask into constraints
+/// @name Setting views to not translate autoresizing mask into constraints
 ///-------------------------------------------------------------------------
 
 /**
