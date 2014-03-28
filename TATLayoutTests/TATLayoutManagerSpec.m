@@ -77,8 +77,7 @@ describe(@"Layout Manager", ^{
     
     context(@"when constraining using the visual format", ^{
         beforeEach(^{
-            [[NSLayoutConstraint stubAndReturn:constraints1And2] constraintsWithVisualFormat:visualFormat
-                                                                                     options:options metrics:metrics views:views];
+            [[NSLayoutConstraint stubAndReturn:constraints1And2] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
         });
         it(@"creates the constraints", ^{
             [[[NSLayoutConstraint should] receive] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
@@ -168,6 +167,56 @@ describe(@"Layout Manager", ^{
                     it(@"can be retrieved with the same name", ^{
                         [layoutManager constrainUsingEquationFormat:equationFormat metrics:metrics views:views named:name];
                         [[[layoutManager constraintNamed:name] should] equal:constraint1];
+                    });
+                });
+            });
+        });
+        context(@"when constraining using the visual format", ^{
+            beforeEach(^{
+                [[NSLayoutConstraint stubAndReturn:constraints1And2] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
+            });
+            describe(@"the name", ^{
+                it(@"can be nil", ^{
+                    [[theBlock(^{
+                        [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views named:nil];
+                    }) shouldNot] raise];
+                });
+            });
+            context(@"without a name", ^{
+                it(@"is like constraining with a nil name", ^{
+                    [[[layoutManager should] receive] constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views named:nil];
+                    [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views];
+                });
+            });
+            it(@"creates the constraint", ^{
+                [[[NSLayoutConstraint should] receive] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
+                [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views];
+            });
+            context(@"and is active", ^{
+                it(@"installs the constraint", ^{
+                    [[[constraint1 should] receive] tat_install];
+                    [[[constraint2 should] receive] tat_install];
+                    [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views];
+                });
+            });
+            context(@"and is deactivated", ^{
+                it(@"does not install the constraint", ^{
+                    [layoutManager deactivate];
+                    [[[constraint1 shouldNot] receive] tat_install];
+                    [[[constraint2 shouldNot] receive] tat_install];
+                    [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views];
+                });
+            });
+            it(@"keeps references to the constraints", ^{
+                [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views];
+                [[layoutManager.constraints should] contain:constraint1];
+                [[layoutManager.constraints should] contain:constraint2];
+            });
+            context(@"with a name", ^{
+                describe(@"the constraints", ^{
+                    it(@"can be retrieved with the same name", ^{
+                        [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views named:name];
+                        [[[layoutManager constraintsNamed:name] should] equal:constraints1And2];
                     });
                 });
             });

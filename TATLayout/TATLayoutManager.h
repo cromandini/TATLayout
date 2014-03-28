@@ -95,49 +95,30 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
  */
 - (void)constrainUsingEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
 
+/**
+ Creates constraints described by the visual format and installs it if the layout manager is active.
+ @param format The format specification for the constraints.
+ @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
+ @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
+ @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string.
+ */
+- (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
+
+/**
+ Creates constraints described by the visual format, associated with a given name, and installs it if the layout manager is active.
+ @param format The format specification for the constraints.
+ @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
+ @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
+ @param name The name to associate with the constraint.
+ @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string.
+ */
+- (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
+
 ///-------------------------
 /// @name Adding Constraints
 ///-------------------------
-
-/**
- Adds a constraint to the layout manager, described by the equation format.
- @param format The format specification for the constraint.
- @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
- @discussion When the layout manager is active, the constraint is also installed (ie: added to the view which is the closest ancestor shared by the views participating in the constraint). See NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
- */
-- (void)addConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
-
-/**
- Adds a constraint to the layout manager, described by the equation format and associated with a given name.
- @param format The format specification for the constraint.
- @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
- @param name The name to associate with the constraint.
- @discussion When the layout manager is active, the constraint is also installed (ie: added to the view which is the closest ancestor shared by the views participating in the constraint). See NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
- */
-- (void)addConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
-
-/**
- Adds multiple constraints to the layout manager, described by the visual format.
- @param format The format specification for the constraints.
- @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
- @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
- @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string.
- */
-- (void)addConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
-
-/**
- Adds multiple constraints to the layout manager, described by the visual format and associated with a given name.
- @param format The format specification for the constraints.
- @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
- @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
- @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
- @param name The name to associate with the constraints.
- @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string.
- */
-- (void)addConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
 
 /**
  Adds multiple constraints to the layout manager, described by mixed format strings (including equation and visual formats).

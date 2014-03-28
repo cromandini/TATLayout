@@ -74,31 +74,28 @@ NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visualFormat,
     if (self.isActive) {
         [constraint tat_install];
     }
-    constraint.tat_name = name;
     [self.mutableConstraints addObject:constraint];
+    constraint.tat_name = name;
+}
+
+- (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views
+{
+    [self constrainUsingVisualFormat:format options:options metrics:metrics views:views named:nil];
+}
+
+- (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name
+{
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:format options:options metrics:metrics views:views];
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (self.isActive) {
+            [constraint tat_install];
+        }
+        constraint.tat_name = name;
+    }
+    [self.mutableConstraints addObjectsFromArray:constraints];
 }
 
 #pragma mark - Adding Constraints
-
-- (void)addConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
-{
-//    [self addConstraintWithEquationFormat:format metrics:metrics views:views named:nil];
-}
-
-- (void)addConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name
-{
-//    [self addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:format metrics:metrics views:views] named:name];
-}
-
-- (void)addConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views
-{
-//    [self addConstraintsWithVisualFormat:format options:options metrics:metrics views:views named:nil];
-}
-
-- (void)addConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name
-{
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format options:options metrics:metrics views:views] named:name];
-}
 
 - (void)addConstraintsWithMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
