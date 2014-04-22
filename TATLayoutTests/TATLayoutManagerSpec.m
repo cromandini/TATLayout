@@ -10,31 +10,6 @@
 
 SPEC_BEGIN(TATLayoutManagerSpec)
 
-describe(@"Helper", ^{
-    
-    describe(@"Array with visual format and options", ^{
-        NSLayoutFormatOptions formatOptions = NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom;
-        
-        it(@"creates an array with visual format and options", ^{
-            NSString *visualFormat = @"H:|[view1][view2]|";
-            [[TATLayoutManagerArrayWithVisualFormatAndOptions(visualFormat, formatOptions) should] equal:@[visualFormat, @(formatOptions)]];
-        });
-        context(@"when visual format is nil", ^{
-            it(@"throws", ^{
-                [[theBlock(^{
-                    TATLayoutManagerArrayWithVisualFormatAndOptions(nil, formatOptions);
-                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: visualFormat"];
-            });
-        });
-        describe(@"visual format", ^{
-            it(@"can be any string", ^{
-                NSString *string = @"any string";
-                [[TATLayoutManagerArrayWithVisualFormatAndOptions(string, formatOptions) should] equal:@[string, @(formatOptions)]];
-            });
-        });
-    });
-});
-
 describe(@"Layout Manager", ^{
     UIView *view = [UIView new];
     NSLayoutFormatOptions options = NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY;

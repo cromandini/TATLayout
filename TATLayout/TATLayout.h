@@ -28,4 +28,4 @@
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 #import "UIView+TATViewConstraints.h"
 #import "TATLayoutManager.h"
-#import "TATLayoutHelper.h"
+#import "TATLayoutUtilities.h"

@@ -1,5 +1,5 @@
 //
-//  TATLayoutHelperSpec.m
+//  TATLayoutUtilitiesSpec.m
 //  TATLayout
 //
 
@@ -7,11 +7,11 @@
 #import "TATLayout.h"
 
 
-SPEC_BEGIN(TATLayoutHelperSpec)
+SPEC_BEGIN(TATLayoutUtilitiesSpec)
 
-describe(@"Layout Helper", ^{
+describe(@"Utilities", ^{
     
-    describe(@"TATLayoutDeviceIsPad()", ^{
+    describe(@"Device Is Pad", ^{
         context(@"when the current device idiom is Pad", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPad)];
@@ -26,7 +26,7 @@ describe(@"Layout Helper", ^{
         });
     });
     
-    describe(@"TATLayoutDeviceIsPhone()", ^{
+    describe(@"Device Is Phone", ^{
         context(@"when the current device idiom is Phone", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPhone)];
@@ -51,19 +51,41 @@ describe(@"Layout Helper", ^{
             [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beYes];
         });
         
-        describe(@"TATLayoutSetViewsToNotTranslateAutoresizingMaskIntoConstraints(firstView, ...)", ^{
+        describe(@"Deactivate Autoresizing Mask In Nil Terminated Views", ^{
             it(@"sets translatesAutoresizingMaskIntoConstraints = NO in all the views of a given nil-terminated list", ^{
-                TATLayoutSetViewsToNotTranslateAutoresizingMaskIntoConstraints(view1, view2, nil);
+                TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(view1, view2, nil);
                 [[theValue(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
                 [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
             });
         });
         
-        describe(@"TATLayoutUnableAutoresizingMaskInViews(...)", ^{
+        describe(@"Deactivate Autoresizing Mask In Views", ^{
             it(@"sets translatesAutoresizingMaskIntoConstraints = NO in all the views of a given list", ^{
-                TATLayoutUnableAutoresizingMaskInViews(view1, view2);
+                TATLayoutDeactivateAutoresizingMaskInViews(view1, view2);
                 [[theValue(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
                 [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
+            });
+        });
+    });
+    
+    describe(@"Array With Visual Format And Options", ^{
+        NSLayoutFormatOptions options = NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom;
+        
+        it(@"creates an array with visual format and options", ^{
+            NSString *visualFormat = @"H:|[view1][view2]|";
+            [[TATLayoutArrayWithVisualFormatAndOptions(visualFormat, options) should] equal:@[visualFormat, @(options)]];
+        });
+        context(@"when visual format is nil", ^{
+            it(@"throws", ^{
+                [[theBlock(^{
+                    TATLayoutArrayWithVisualFormatAndOptions(nil, options);
+                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: visualFormat"];
+            });
+        });
+        describe(@"visual format", ^{
+            it(@"can be any string", ^{
+                NSString *string = @"any string";
+                [[TATLayoutArrayWithVisualFormatAndOptions(string, options) should] equal:@[string, @(options)]];
             });
         });
     });

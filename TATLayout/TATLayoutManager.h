@@ -7,16 +7,6 @@
 @import UIKit;
 
 /**
- Creates an array with a visual format string and an `NSNumber` containing an `NSLayoutFormatOptions`.
- @param visualFormat The visual format string. Keep in mind that any string is valid, since the format is not validated.
- @param formatOptions The options for the visual format string.
- @return An array with the visual format string as the first element and an `NSNumber` containing the given options as the second.
- @discussion This function is particularly useful when adding constraints with mixed formats in the layout manager.
- @warning Throws an exception if _visualFormat_ is `nil`.
- */
-extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visualFormat, NSLayoutFormatOptions formatOptions);
-
-/**
  `TATLayoutManager` manages parts of a layout by providing creation, installation, uninstallation and retrieval of Layout Constraints.
  */
 @interface TATLayoutManager : NSObject
@@ -79,7 +69,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 
 /**
  Creates constraints described by mixed format strings (including equation and visual formats) and installs them into the closest ancestor shared by the views participating in every constraint.
- @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutManagerArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
+ @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
  
     NSArray *formats = @[@"view1.width == superview.width * 0.5",
                          @[@"H:|[view1][view2(==view1)]|", @(NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom)],
@@ -134,7 +124,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 
 /**
  Creates constraints described by mixed format strings (including equation and visual formats).
- @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutManagerArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
+ @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
  
     NSArray *formats = @[@"view1.width == superview.width * 0.5",
                          @[@"H:|[view1][view2(==view1)]|", @(NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom)],

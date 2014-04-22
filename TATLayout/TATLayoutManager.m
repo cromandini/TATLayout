@@ -8,11 +8,6 @@
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 #import "NSLayoutConstraint+TATConstraintInstall.h"
 
-NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visualFormat, NSLayoutFormatOptions formatOptions) {
-    NSCParameterAssert(visualFormat);
-    return @[visualFormat, @(formatOptions)];
-}
-
 @interface TATLayoutManager ()
 @property (nonatomic, readwrite, getter=isActive) BOOL active;
 @property (strong, nonatomic) NSMutableArray *mutableConstraints;
