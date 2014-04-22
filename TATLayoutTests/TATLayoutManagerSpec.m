@@ -37,9 +37,10 @@ describe(@"Helper", ^{
 
 describe(@"Layout Manager", ^{
     UIView *view = [UIView new];
+    NSLayoutFormatOptions options = NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY;
     NSString *equationFormat = @"view.height == 100";
     NSString *visualFormat = @"H:|view|";
-    NSLayoutFormatOptions options = NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY;
+    NSArray *mixedFormats = @[equationFormat, @[visualFormat, @(options)]];
     NSDictionary *metrics = @{@"size": @"150"};
     NSDictionary *views = NSDictionaryOfVariableBindings(view);
     NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:view
@@ -90,6 +91,26 @@ describe(@"Layout Manager", ^{
         });
         it(@"returns the constraints", ^{
             [[[TATLayoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views] should] equal:constraints1And2];
+        });
+    });
+    
+    context(@"when constraining using mixed formats", ^{
+        beforeEach(^{
+            [[NSLayoutConstraint stubAndReturn:constraint1] tat_constraintWithEquationFormat:equationFormat metrics:metrics views:views];
+            [[NSLayoutConstraint stubAndReturn:constraints1And2] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
+        });
+        it(@"creates the constraints", ^{
+            [[[NSLayoutConstraint should] receive] tat_constraintWithEquationFormat:equationFormat metrics:metrics views:views];
+            [[[NSLayoutConstraint should] receive] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
+            [TATLayoutManager constrainUsingMixedFormats:mixedFormats metrics:metrics views:views];
+        });
+        it(@"installs the constraints", ^{
+            [[[constraint1 should] receiveWithCount:2] tat_install];
+            [[[constraint2 should] receive] tat_install];
+            [TATLayoutManager constrainUsingMixedFormats:mixedFormats metrics:metrics views:views];
+        });
+        it(@"returns the constraints", ^{
+            [[[TATLayoutManager constrainUsingMixedFormats:mixedFormats metrics:metrics views:views] should] equal:@[constraint1, constraint1, constraint2]];
         });
     });
     
@@ -218,6 +239,25 @@ describe(@"Layout Manager", ^{
                         [layoutManager constrainUsingVisualFormat:visualFormat options:options metrics:metrics views:views named:name];
                         [[[layoutManager constraintsNamed:name] should] equal:constraints1And2];
                     });
+                });
+            });
+        });
+        context(@"when constraining using mixed formats", ^{
+            beforeEach(^{
+                [[NSLayoutConstraint stubAndReturn:constraint1] tat_constraintWithEquationFormat:equationFormat metrics:metrics views:views];
+                [[NSLayoutConstraint stubAndReturn:constraints1And2] constraintsWithVisualFormat:visualFormat options:options metrics:metrics views:views];
+            });
+            describe(@"the name", ^{
+                it(@"can be nil", ^{
+                    [[theBlock(^{
+                        [layoutManager constrainUsingMixedFormats:mixedFormats metrics:metrics views:views named:nil];
+                    }) shouldNot] raise];
+                });
+            });
+            context(@"without a name", ^{
+                it(@"is like constraining with a nil name", ^{
+                    [[[layoutManager should] receive] constrainUsingMixedFormats:mixedFormats metrics:metrics views:views named:nil];
+                    [layoutManager constrainUsingMixedFormats:mixedFormats metrics:metrics views:views];
                 });
             });
         });

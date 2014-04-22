@@ -63,6 +63,23 @@ NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visualFormat,
     return constraints;
 }
 
++ (NSArray *)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
+{
+    NSMutableArray *constraints = [NSMutableArray new];
+    for (id format in formats) {
+        if ([format isKindOfClass:[NSString class]]) {
+            [constraints addObject:[NSLayoutConstraint tat_constraintWithEquationFormat:format metrics:metrics views:views]];
+        } else if ([format isKindOfClass:[NSArray class]]) {
+            NSLayoutFormatOptions options = [format[1] unsignedIntegerValue];
+            [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format[0] options:options metrics:metrics views:views]];
+        } else {
+            @throw [NSException exceptionWithName:@"some" reason:@"reason" userInfo:nil]; // TODO: handle this
+        }
+    }
+    [constraints makeObjectsPerformSelector:@selector(tat_install)];
+    return [constraints copy];
+}
+
 - (void)constrainUsingEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
     [self constrainUsingEquationFormat:format metrics:metrics views:views named:nil];
@@ -95,14 +112,12 @@ NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visualFormat,
     [self.mutableConstraints addObjectsFromArray:constraints];
 }
 
-#pragma mark - Adding Constraints
-
-- (void)addConstraintsWithMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
+- (void)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
-//    [self addConstraintsWithMixedFormats:formats metrics:metrics views:views named:nil];
+    [self constrainUsingMixedFormats:formats metrics:metrics views:views named:nil];
 }
 
-- (void)addConstraintsWithMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name
+- (void)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name
 {
 //    NSMutableArray *constraints = [NSMutableArray new];
 //    NSString *format;

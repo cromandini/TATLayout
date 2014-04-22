@@ -70,6 +70,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 /**
  Creates constraints described by the visual format and installs them into the closest ancestor shared by the views participating in every constraint.
  @param format The format specification for the constraint.
+ @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
  @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
  @return The constraints created.
@@ -77,7 +78,22 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 + (NSArray *)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
 /**
- Creates a constraint described by the equation format and installs it if the layout manager is active.
+ Creates constraints described by mixed format strings (including equation and visual formats) and installs them into the closest ancestor shared by the views participating in every constraint.
+ @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutManagerArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
+ 
+    NSArray *formats = @[@"view1.width == superview.width * 0.5",
+                         @[@"H:|[view1][view2(==view1)]|", @(NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom)],
+                         @[@"V:|[view2]|", @0]];
+    [layoutManager addConstraintsWithMixedFormats:formats metrics:nil views:NSDictionaryOfVariableBindings(view1, view2)];
+ 
+ @param metrics A dictionary of constants that appear in the format strings. The keys must be the string values used in the format strings, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the format strings. The keys must be the string values used in the format strings, and the values must be the view objects.
+ @return The constraints created.
+ */
++ (NSArray *)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
+
+/**
+ Creates a constraint described by the equation format.
  @param format The format specification for the constraint.
  @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
@@ -86,7 +102,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 - (void)constrainUsingEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
 /**
- Creates a constraint described by the equation format, associated with a given name, and installs it if the layout manager is active.
+ Creates a constraint described by the equation format, associated with a given name.
  @param format The format specification for the constraint.
  @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
@@ -96,7 +112,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 - (void)constrainUsingEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
 
 /**
- Creates constraints described by the visual format and installs it if the layout manager is active.
+ Creates constraints described by the visual format.
  @param format The format specification for the constraints.
  @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
  @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
@@ -106,7 +122,7 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
 - (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
 /**
- Creates constraints described by the visual format, associated with a given name, and installs it if the layout manager is active.
+ Creates constraints described by the visual format, associated with a given name.
  @param format The format specification for the constraints.
  @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
  @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
@@ -116,16 +132,12 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
  */
 - (void)constrainUsingVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
 
-///-------------------------
-/// @name Adding Constraints
-///-------------------------
-
 /**
- Adds multiple constraints to the layout manager, described by mixed format strings (including equation and visual formats).
+ Creates constraints described by mixed format strings (including equation and visual formats).
  @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. You can create the mentioned array by using the helper function `TATLayoutManagerArrayWithVisualFormatAndOptions()`, but why bother using that verbose name when you can create the array literally, example:
  
     NSArray *formats = @[@"view1.width == superview.width * 0.5",
-                         @[@"H:|[view1][view2(==view1)]|", @(NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom)]
+                         @[@"H:|[view1][view2(==view1)]|", @(NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom)],
                          @[@"V:|[view2]|", @0]];
     [layoutManager addConstraintsWithMixedFormats:formats metrics:nil views:NSDictionaryOfVariableBindings(view1, view2)];
  
@@ -133,17 +145,17 @@ extern NSArray *TATLayoutManagerArrayWithVisualFormatAndOptions(NSString *visual
  @param views A dictionary of views that appear in the format strings. The keys must be the string values used in the format strings, and the values must be the view objects.
  @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string and NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
  */
-- (void)addConstraintsWithMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
+- (void)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
 /**
- Adds multiple constraints to the layout manager, described by mixed format strings (including equation and visual formats) and associated with a given name.
+ Creates constraints described by mixed format strings (including equation and visual formats), associated with a given name.
  @param formats An array of mixed objects that can be equation format strings or an array with a visual format string as the first element and an `NSNumber` containing an `NSLayoutFormatOptions` value as the second. See addConstraintsWithMixedFormats:metrics:views: for an example.
  @param metrics A dictionary of constants that appear in the format strings. The keys must be the string values used in the format strings, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the format strings. The keys must be the string values used in the format strings, and the values must be the view objects.
  @param name The name to associate with the constraints.
  @discussion When the layout manager is active, the constraints are also installed (ie: added to the view which is the closest ancestor shared by the views participating in every constraint). See "Visual Format Language" in Apple's Auto Layout Guide for a description of the language used in the visual format string and NSLayoutConstraint(TATConstraintFactory) for a description of the language used in the equation format string.
  */
-- (void)addConstraintsWithMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
+- (void)constrainUsingMixedFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views named:(NSString *)name;
 
 ///---------------------------
 /// @name Removing Constraints
