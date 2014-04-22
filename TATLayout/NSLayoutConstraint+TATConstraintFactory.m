@@ -231,7 +231,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
         }
     }
     
-    // Checking for extra characters at the end of the equation because the regex is intentionally permissive to provide diagnostic messages (like the following).
+    // Checking for extra characters at the end of the equation because the regular expression is intentionally permissive to provide diagnostic messages (like the following).
     if ([match range].length < equation.length) {
         @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedEndOfEquation, equation, [match range]);
     }
