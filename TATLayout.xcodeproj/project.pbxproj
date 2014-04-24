@@ -115,7 +115,7 @@
 		6913AEA018A0625B000C1F5C /* libTATLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTATLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6913AEA318A0625B000C1F5C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6913AEB118A0625B000C1F5C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6913AECD18A062EF000C1F5C /* TATLayoutExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TATLayoutExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6913AECD18A062EF000C1F5C /* TATLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TATLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6913AECF18A062EF000C1F5C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6913AED418A062EF000C1F5C /* TATLayoutExamples-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TATLayoutExamples-Info.plist"; sourceTree = "<group>"; };
 		6913AED618A062EF000C1F5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			children = (
 				69848D8F18A09464002B6898 /* TATLayout */,
 				691789C518A08E53003592DB /* TATLayoutTests */,
-				6913AED218A062EF000C1F5C /* TATLayoutExamples */,
+				6913AED218A062EF000C1F5C /* TATLayoutExample */,
 				6913AEA218A0625B000C1F5C /* Frameworks */,
 				6913AEA118A0625B000C1F5C /* Products */,
 			);
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				6913AEA018A0625B000C1F5C /* libTATLayout.a */,
-				6913AECD18A062EF000C1F5C /* TATLayoutExamples.app */,
+				6913AECD18A062EF000C1F5C /* TATLayoutExample.app */,
 				691789C118A08E53003592DB /* TATLayoutTests.xctest */,
 			);
 			name = Products;
@@ -226,7 +226,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6913AED218A062EF000C1F5C /* TATLayoutExamples */ = {
+		6913AED218A062EF000C1F5C /* TATLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
 				69A38E4318C2035B0075B763 /* Examples */,
@@ -236,7 +236,7 @@
 				6913AEE718A062EF000C1F5C /* Images.xcassets */,
 				6913AED318A062EF000C1F5C /* Supporting Files */,
 			);
-			path = TATLayoutExamples;
+			path = TATLayoutExample;
 			sourceTree = "<group>";
 		};
 		6913AED318A062EF000C1F5C /* Supporting Files */ = {
@@ -354,9 +354,9 @@
 			productReference = 6913AEA018A0625B000C1F5C /* libTATLayout.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		6913AECC18A062EF000C1F5C /* TATLayoutExamples */ = {
+		6913AECC18A062EF000C1F5C /* TATLayoutExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6913AEFB18A062F0000C1F5C /* Build configuration list for PBXNativeTarget "TATLayoutExamples" */;
+			buildConfigurationList = 6913AEFB18A062F0000C1F5C /* Build configuration list for PBXNativeTarget "TATLayoutExample" */;
 			buildPhases = (
 				6913AEC918A062EF000C1F5C /* Sources */,
 				6913AECA18A062EF000C1F5C /* Frameworks */,
@@ -366,9 +366,9 @@
 			);
 			dependencies = (
 			);
-			name = TATLayoutExamples;
+			name = TATLayoutExample;
 			productName = TATLayoutExamples;
-			productReference = 6913AECD18A062EF000C1F5C /* TATLayoutExamples.app */;
+			productReference = 6913AECD18A062EF000C1F5C /* TATLayoutExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		691789C018A08E53003592DB /* TATLayoutTests */ = {
@@ -428,7 +428,7 @@
 			targets = (
 				6913AE9F18A0625B000C1F5C /* TATLayout */,
 				691789C018A08E53003592DB /* TATLayoutTests */,
-				6913AECC18A062EF000C1F5C /* TATLayoutExamples */,
+				6913AECC18A062EF000C1F5C /* TATLayoutExample */,
 				6921899118C14594000F345C /* Documentation */,
 				695C22AB18C98DE300882B74 /* Framework */,
 			);
@@ -572,7 +572,7 @@
 /* Begin PBXTargetDependency section */
 		691789CF18A08E53003592DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6913AECC18A062EF000C1F5C /* TATLayoutExamples */;
+			target = 6913AECC18A062EF000C1F5C /* TATLayoutExample */;
 			targetProxy = 691789CE18A08E53003592DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -717,12 +717,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutExamples/TATLayoutExamples-Prefix.pch";
+				GCC_PREFIX_HEADER = "TATLayoutExample/TATLayoutExamples-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TATLayoutExamples/TATLayoutExamples-Info.plist";
+				INFOPLIST_FILE = "TATLayoutExample/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,8 +742,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutExamples/TATLayoutExamples-Prefix.pch";
-				INFOPLIST_FILE = "TATLayoutExamples/TATLayoutExamples-Info.plist";
+				GCC_PREFIX_HEADER = "TATLayoutExample/TATLayoutExamples-Prefix.pch";
+				INFOPLIST_FILE = "TATLayoutExample/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -844,7 +844,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6913AEFB18A062F0000C1F5C /* Build configuration list for PBXNativeTarget "TATLayoutExamples" */ = {
+		6913AEFB18A062F0000C1F5C /* Build configuration list for PBXNativeTarget "TATLayoutExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6913AEFC18A062F0000C1F5C /* Debug */,
