@@ -34,7 +34,7 @@ extern BOOL TATLayoutDeviceIsPhone();
 extern void TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(id firstView, ...) NS_REQUIRES_NIL_TERMINATION;
 
 /**
- This macro is a helper that can be used to call `TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews()` without terminating the list of views with `nil`.
+ This macro is a helper that can be used instead of `TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews()` to avoid terminating the list of views with `nil`.
  */
 #define TATLayoutDeactivateAutoresizingMaskInViews(...) TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(__VA_ARGS__, nil)
 
