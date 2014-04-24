@@ -198,7 +198,7 @@
 			children = (
 				69848D8F18A09464002B6898 /* Source */,
 				691789C518A08E53003592DB /* TATLayoutTests */,
-				6913AED218A062EF000C1F5C /* TATLayoutExample */,
+				6913AED218A062EF000C1F5C /* Example */,
 				6913AEA218A0625B000C1F5C /* Frameworks */,
 				6913AEA118A0625B000C1F5C /* Products */,
 			);
@@ -226,7 +226,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6913AED218A062EF000C1F5C /* TATLayoutExample */ = {
+		6913AED218A062EF000C1F5C /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				69A38E4318C2035B0075B763 /* Examples */,
@@ -236,7 +236,7 @@
 				6913AEE718A062EF000C1F5C /* Images.xcassets */,
 				6913AED318A062EF000C1F5C /* Supporting Files */,
 			);
-			path = TATLayoutExample;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		6913AED318A062EF000C1F5C /* Supporting Files */ = {
@@ -717,12 +717,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutExample/TATLayoutExamples-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/TATLayoutExamples-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TATLayoutExample/TATLayoutExamples-Info.plist";
+				INFOPLIST_FILE = "Example/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,8 +742,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutExample/TATLayoutExamples-Prefix.pch";
-				INFOPLIST_FILE = "TATLayoutExample/TATLayoutExamples-Info.plist";
+				GCC_PREFIX_HEADER = "Example/TATLayoutExamples-Prefix.pch";
+				INFOPLIST_FILE = "Example/TATLayoutExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
