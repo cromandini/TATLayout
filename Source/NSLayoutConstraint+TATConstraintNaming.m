@@ -1,12 +1,12 @@
 //
-//  NSLayoutConstraint+TATConstraintName.m
+//  NSLayoutConstraint+TATConstraintNaming.m
 //  TATLayout
 //
 
 @import ObjectiveC;
-#import "NSLayoutConstraint+TATConstraintName.h"
+#import "NSLayoutConstraint+TATConstraintNaming.h"
 
-@implementation NSLayoutConstraint (TATConstraintData)
+@implementation NSLayoutConstraint (TATConstraintNaming)
 
 #pragma mark - Accessing Constraint Data
 

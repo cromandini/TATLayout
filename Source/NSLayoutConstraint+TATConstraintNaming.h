@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraint+TATConstraintName.h
+//  NSLayoutConstraint+TATConstraintNaming.h
 //  TATLayout
 //
 
@@ -8,7 +8,7 @@
 /**
  This category in `NSLayoutConstraint` provides support for accessing extra data, like a name that is an associated string used to retrieve constraints.
  */
-@interface NSLayoutConstraint (TATConstraintData)
+@interface NSLayoutConstraint (TATConstraintNaming)
 
 ///--------------------------------
 /// @name Accessing Constraint Data

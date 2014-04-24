@@ -4,11 +4,11 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATConstraintName.h"
+#import "NSLayoutConstraint+TATConstraintNaming.h"
 
-SPEC_BEGIN(TATConstraintNameSpec)
+SPEC_BEGIN(TATConstraintNamingSpec)
 
-describe(@"Constraint Name", ^{
+describe(@"Constraint", ^{
     __block NSLayoutConstraint *constraint;
     
     beforeEach(^{

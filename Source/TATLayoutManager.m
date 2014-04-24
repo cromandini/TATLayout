@@ -4,7 +4,7 @@
 //
 
 #import "TATLayoutManager.h"
-#import "NSLayoutConstraint+TATConstraintName.h"
+#import "NSLayoutConstraint+TATConstraintNaming.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 #import "NSLayoutConstraint+TATConstraintInstall.h"
 
