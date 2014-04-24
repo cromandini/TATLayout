@@ -15,13 +15,13 @@ describe(@"Utilities", ^{
         context(@"when the current device idiom is Pad", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPad)];
-                [[theValue(TATLayoutDeviceIsPad()) should] beYes];
+                [[@(TATLayoutDeviceIsPad()) should] beYes];
             });
         });
         context(@"when the current device idiom is not Pad", ^{
             it(@"returns NO", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPhone)];
-                [[theValue(TATLayoutDeviceIsPad()) should] beNo];
+                [[@(TATLayoutDeviceIsPad()) should] beNo];
             });
         });
     });
@@ -30,13 +30,13 @@ describe(@"Utilities", ^{
         context(@"when the current device idiom is Phone", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPhone)];
-                [[theValue(TATLayoutDeviceIsPhone()) should] beYes];
+                [[@(TATLayoutDeviceIsPhone()) should] beYes];
             });
         });
         context(@"when the current device idiom is not Phone", ^{
             it(@"returns NO", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPad)];
-                [[theValue(TATLayoutDeviceIsPhone()) should] beNo];
+                [[@(TATLayoutDeviceIsPhone()) should] beNo];
             });
         });
     });
@@ -47,23 +47,23 @@ describe(@"Utilities", ^{
         beforeEach(^{
             view1 = [UIView new];
             view2 = [UIView new];
-            [[theValue(view1.translatesAutoresizingMaskIntoConstraints) should] beYes];
-            [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beYes];
+            [[@(view1.translatesAutoresizingMaskIntoConstraints) should] beYes];
+            [[@(view2.translatesAutoresizingMaskIntoConstraints) should] beYes];
         });
         
         describe(@"Deactivate Autoresizing Mask In Nil Terminated Views", ^{
             it(@"sets translatesAutoresizingMaskIntoConstraints = NO in all the views of a given nil-terminated list", ^{
                 TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(view1, view2, nil);
-                [[theValue(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
-                [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
+                [[@(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
+                [[@(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
             });
         });
         
         describe(@"Deactivate Autoresizing Mask In Views", ^{
             it(@"sets translatesAutoresizingMaskIntoConstraints = NO in all the views of a given list", ^{
                 TATLayoutDeactivateAutoresizingMaskInViews(view1, view2);
-                [[theValue(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
-                [[theValue(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
+                [[@(view1.translatesAutoresizingMaskIntoConstraints) should] beNo];
+                [[@(view2.translatesAutoresizingMaskIntoConstraints) should] beNo];
             });
         });
     });

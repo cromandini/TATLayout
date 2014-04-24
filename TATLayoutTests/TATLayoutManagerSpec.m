@@ -99,8 +99,8 @@ describe(@"Layout Manager", ^{
         
         context(@"when created", ^{
             it(@"is active", ^{
-                [[theValue(layoutManager.isActive) should] beYes];
-                [[theValue([TATLayoutManager new].isActive) should] beYes];
+                [[@(layoutManager.isActive) should] beYes];
+                [[@([TATLayoutManager new].isActive) should] beYes];
             });
             describe(@"constraints", ^{
                 it(@"is empty", ^{
@@ -111,13 +111,13 @@ describe(@"Layout Manager", ^{
         });
         it(@"can be deactivated", ^{
             [layoutManager deactivate];
-            [[theValue(layoutManager.isActive) should] beNo];
+            [[@(layoutManager.isActive) should] beNo];
         });
         context(@"when deactivated", ^{
             it(@"can be activated", ^{
                 [layoutManager deactivate];
                 [layoutManager activate];
-                [[theValue(layoutManager.isActive) should] beYes];
+                [[@(layoutManager.isActive) should] beYes];
             });
         });
         context(@"when constraining using the equation format", ^{
