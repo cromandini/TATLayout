@@ -128,7 +128,7 @@
 		691789C918A08E53003592DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSLayoutConstraint+TATConstraintFactory.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATConstraintFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSLayoutConstraint+TATConstraintFactory.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6929D97E18A87CAD003195A4 /* TATConstraintFactoryErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TATConstraintFactoryErrorSpec.m; path = TATLayoutTests/TATConstraintFactoryErrorSpec.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6929D97E18A87CAD003195A4 /* TATConstraintFactoryErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TATConstraintFactoryErrorSpec.m; path = Tests/TATConstraintFactoryErrorSpec.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		693F18FE18DDC3AE00DB8633 /* NSLayoutConstraint+TATConstraintData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+TATConstraintData.h"; sourceTree = "<group>"; };
 		693F18FF18DDC3AE00DB8633 /* NSLayoutConstraint+TATConstraintData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TATConstraintData.m"; sourceTree = "<group>"; };
 		693F190218DDC85E00DB8633 /* TATConstraintDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATConstraintDataSpec.m; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				69848D8F18A09464002B6898 /* Source */,
-				691789C518A08E53003592DB /* TATLayoutTests */,
+				691789C518A08E53003592DB /* Tests */,
 				6913AED218A062EF000C1F5C /* Example */,
 				6913AEA218A0625B000C1F5C /* Frameworks */,
 				6913AEA118A0625B000C1F5C /* Products */,
@@ -250,7 +250,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		691789C518A08E53003592DB /* TATLayoutTests */ = {
+		691789C518A08E53003592DB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				693F190218DDC85E00DB8633 /* TATConstraintDataSpec.m */,
@@ -264,7 +264,7 @@
 				691789C618A08E53003592DB /* Supporting Files */,
 				69F9891F18D6A5ED00AAF1EC /* ViewHierarchyHelper */,
 			);
-			path = TATLayoutTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		691789C618A08E53003592DB /* Supporting Files */ = {
@@ -762,12 +762,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutTests/Supporting Files/TATLayoutTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Tests/Supporting Files/TATLayoutTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TATLayoutTests/Supporting Files/TATLayoutTests-Info.plist";
+				INFOPLIST_FILE = "Tests/Supporting Files/TATLayoutTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -786,8 +786,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TATLayoutTests/Supporting Files/TATLayoutTests-Prefix.pch";
-				INFOPLIST_FILE = "TATLayoutTests/Supporting Files/TATLayoutTests-Info.plist";
+				GCC_PREFIX_HEADER = "Tests/Supporting Files/TATLayoutTests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Supporting Files/TATLayoutTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
