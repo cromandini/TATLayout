@@ -1,14 +1,14 @@
 //
-//  TATConstraintDataSpec.m
+//  TATConstraintNameSpec.m
 //  TATLayout
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATConstraintData.h"
+#import "NSLayoutConstraint+TATConstraintName.h"
 
-SPEC_BEGIN(TATConstraintDataSpec)
+SPEC_BEGIN(TATConstraintNameSpec)
 
-describe(@"Constraint Data", ^{
+describe(@"Constraint Name", ^{
     __block NSLayoutConstraint *constraint;
     
     beforeEach(^{
