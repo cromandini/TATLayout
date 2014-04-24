@@ -196,7 +196,7 @@
 		6913AE9718A0625B000C1F5C = {
 			isa = PBXGroup;
 			children = (
-				69848D8F18A09464002B6898 /* TATLayout */,
+				69848D8F18A09464002B6898 /* Source */,
 				691789C518A08E53003592DB /* TATLayoutTests */,
 				6913AED218A062EF000C1F5C /* TATLayoutExample */,
 				6913AEA218A0625B000C1F5C /* Frameworks */,
@@ -278,7 +278,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		69848D8F18A09464002B6898 /* TATLayout */ = {
+		69848D8F18A09464002B6898 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				693F18FE18DDC3AE00DB8633 /* NSLayoutConstraint+TATConstraintData.h */,
@@ -297,7 +297,7 @@
 				696CC4F918D39586000F6597 /* UIView+TATViewHierarchy.h */,
 				696CC4FA18D39586000F6597 /* UIView+TATViewHierarchy.m */,
 			);
-			path = TATLayout;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		69A38E4318C2035B0075B763 /* Examples */ = {
@@ -755,7 +755,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0862CCDE14C74022BD51E7AD /* Pods-TATLayoutTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TATLayoutExamples.app/TATLayoutExamples";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TATLayoutExample.app/TATLayoutExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -779,7 +779,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0862CCDE14C74022BD51E7AD /* Pods-TATLayoutTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TATLayoutExamples.app/TATLayoutExamples";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TATLayoutExample.app/TATLayoutExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
