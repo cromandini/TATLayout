@@ -117,10 +117,10 @@
 		6913AEB118A0625B000C1F5C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6913AECD18A062EF000C1F5C /* TATLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TATLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6913AECF18A062EF000C1F5C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6913AED418A062EF000C1F5C /* TATLayoutExamples-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TATLayoutExamples-Info.plist"; sourceTree = "<group>"; };
+		6913AED418A062EF000C1F5C /* TATLayoutExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TATLayoutExample-Info.plist"; sourceTree = "<group>"; };
 		6913AED618A062EF000C1F5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6913AED818A062EF000C1F5C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6913AEDA18A062EF000C1F5C /* TATLayoutExamples-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TATLayoutExamples-Prefix.pch"; sourceTree = "<group>"; };
+		6913AEDA18A062EF000C1F5C /* TATLayoutExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TATLayoutExample-Prefix.pch"; sourceTree = "<group>"; };
 		6913AEDF18A062EF000C1F5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		6913AEE218A062EF000C1F5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		6913AEE718A062EF000C1F5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -242,10 +242,10 @@
 		6913AED318A062EF000C1F5C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6913AED418A062EF000C1F5C /* TATLayoutExamples-Info.plist */,
+				6913AED418A062EF000C1F5C /* TATLayoutExample-Info.plist */,
 				6913AED518A062EF000C1F5C /* InfoPlist.strings */,
 				6913AED818A062EF000C1F5C /* main.m */,
-				6913AEDA18A062EF000C1F5C /* TATLayoutExamples-Prefix.pch */,
+				6913AEDA18A062EF000C1F5C /* TATLayoutExample-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -717,12 +717,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/TATLayoutExamples-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/TATLayoutExample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Example/TATLayoutExamples-Info.plist";
+				INFOPLIST_FILE = "Example/TATLayoutExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,8 +742,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/TATLayoutExamples-Prefix.pch";
-				INFOPLIST_FILE = "Example/TATLayoutExamples-Info.plist";
+				GCC_PREFIX_HEADER = "Example/TATLayoutExample-Prefix.pch";
+				INFOPLIST_FILE = "Example/TATLayoutExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
