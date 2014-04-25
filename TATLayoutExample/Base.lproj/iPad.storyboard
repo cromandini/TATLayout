@@ -7,7 +7,7 @@
         <!--View Controller - TATLayout Example-->
         <scene sceneID="9Hu-Db-ewJ">
             <objects>
-                <viewController id="d7h-iC-MI3" customClass="TLEViewController" sceneMemberID="viewController">
+                <viewController id="d7h-iC-MI3" customClass="TATLEViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Ps-x7-y4k"/>
                         <viewControllerLayoutGuide type="bottom" id="D0r-xt-UjY"/>

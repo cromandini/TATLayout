@@ -1,11 +1,11 @@
 //
-//  TLEAppDelegate.h
+//  TATLEAppDelegate.h
 //  TATLayout
 //
 
 @import UIKit;
 
-@interface TLEAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TATLEAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

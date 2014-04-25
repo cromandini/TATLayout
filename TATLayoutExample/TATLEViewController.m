@@ -1,9 +1,9 @@
 //
-//  TLEViewController.m
+//  TATLEViewController.m
 //  TATLayout
 //
 
-#import "TLEViewController.h"
+#import "TATLEViewController.h"
 #import "TATLayout.h"
 
 typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 
 #define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleLayoutManager
 
-@interface TLEViewController ()
+@interface TATLEViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;
 @property (strong, nonatomic) UIImageView *progressBar;
 @property (strong, nonatomic) UILabel *timeElapsed;
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 @property (strong, nonatomic) NSLayoutConstraint *phoneLandscapeConstraint;
 @end
 
-@implementation TLEViewController
+@implementation TATLEViewController
 
 #pragma mark - Lifecycle
 

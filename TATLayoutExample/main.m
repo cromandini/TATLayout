@@ -4,11 +4,11 @@
 //
 
 @import UIKit;
-#import "TLEAppDelegate.h"
+#import "TATLEAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TLEAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TATLEAppDelegate class]));
     }
 }
