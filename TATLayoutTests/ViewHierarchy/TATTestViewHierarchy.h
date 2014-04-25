@@ -1,5 +1,5 @@
 //
-//  TATViewHierarchyHelper.h
+//  TATTestViewHierarchy.h
 //  TATLayout
 //
 
@@ -8,7 +8,7 @@
 /**
  This class creates a view hierarchy that is used in some of the specs, see ViewHierarchy.pdf for visual reference.
  */
-@interface TATViewHierarchyHelper : NSObject
+@interface TATTestViewHierarchy : NSObject
 
 @property (strong, nonatomic) UIView *view1;
 @property (strong, nonatomic) UIView *view2;

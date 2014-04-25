@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `NSLayoutConstraint` provides support for auto installation/uninstallation of a Layout Constraint.
+ This category in `NSLayoutConstraint` provides support for installation (ie: adding itself to the view which is the closest ancestor shared by the views participating in the constraint) as well as uninstallation.
 */
 @interface NSLayoutConstraint (TATConstraintInstallation)
 
@@ -15,8 +15,8 @@
 ///-----------------------------
 
 /**
- Adds the constraint to the closest ancestor shared by the views the constraint involves, being it the first item if there's only one view participating.
- @warning If the constraint has two views participating, both of them must be part of the view hierarchy before installation. This is because the view hierarchy is inspected in order to find the closest ancestor shared by the views the constraint involves.
+ Adds the constraint to the closest ancestor shared by the views participating, being it the first item if there's only one view.
+ @warning If the constraint has two views participating, both of them must be part of the view hierarchy before installation. This is because the view hierarchy is inspected in order to find the closest ancestor shared by the views participating in the constraint.
  */
 - (void)tat_install;
 

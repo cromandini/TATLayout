@@ -74,7 +74,7 @@
 		69A38E5618C203C00075B763 /* TATLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A38E5318C203C00075B763 /* TATLayoutViewController.m */; };
 		69D3C4BF18A6727600309C0E /* TATLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D3C4BE18A6727600309C0E /* TATLayoutManager.m */; };
 		69D3C4C018A6727600309C0E /* TATLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D3C4BE18A6727600309C0E /* TATLayoutManager.m */; };
-		69F9892318D6A65D00AAF1EC /* TATViewHierarchyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F9892218D6A65D00AAF1EC /* TATViewHierarchyHelper.m */; };
+		69F9892318D6A65D00AAF1EC /* TATTestViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F9892218D6A65D00AAF1EC /* TATTestViewHierarchy.m */; };
 		771FB2F13B924159BB51B0CC /* libPods-TATLayoutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF29B5A6F2946E08C535A37 /* libPods-TATLayoutTests.a */; };
 /* End PBXBuildFile section */
 
@@ -157,8 +157,8 @@
 		69D3C4BD18A6727600309C0E /* TATLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TATLayoutManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		69D3C4BE18A6727600309C0E /* TATLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TATLayoutManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		69F9892018D6A60E00AAF1EC /* ViewHierarchy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ViewHierarchy.pdf; sourceTree = "<group>"; };
-		69F9892118D6A65D00AAF1EC /* TATViewHierarchyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATViewHierarchyHelper.h; sourceTree = "<group>"; };
-		69F9892218D6A65D00AAF1EC /* TATViewHierarchyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATViewHierarchyHelper.m; sourceTree = "<group>"; };
+		69F9892118D6A65D00AAF1EC /* TATTestViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TATTestViewHierarchy.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		69F9892218D6A65D00AAF1EC /* TATTestViewHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TATTestViewHierarchy.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7BF29B5A6F2946E08C535A37 /* libPods-TATLayoutTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TATLayoutTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -262,7 +262,7 @@
 				695F9EF618B093A900D66622 /* TATViewConstraintsSpec.m */,
 				696CC4FE18D39658000F6597 /* TATViewHierarchySpec.m */,
 				691789C618A08E53003592DB /* Supporting Files */,
-				69F9891F18D6A5ED00AAF1EC /* ViewHierarchyHelper */,
+				69F9891F18D6A5ED00AAF1EC /* ViewHierarchy */,
 			);
 			path = TATLayoutTests;
 			sourceTree = "<group>";
@@ -324,14 +324,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		69F9891F18D6A5ED00AAF1EC /* ViewHierarchyHelper */ = {
+		69F9891F18D6A5ED00AAF1EC /* ViewHierarchy */ = {
 			isa = PBXGroup;
 			children = (
-				69F9892118D6A65D00AAF1EC /* TATViewHierarchyHelper.h */,
-				69F9892218D6A65D00AAF1EC /* TATViewHierarchyHelper.m */,
+				69F9892118D6A65D00AAF1EC /* TATTestViewHierarchy.h */,
+				69F9892218D6A65D00AAF1EC /* TATTestViewHierarchy.m */,
 				69F9892018D6A60E00AAF1EC /* ViewHierarchy.pdf */,
 			);
-			path = ViewHierarchyHelper;
+			path = ViewHierarchy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,7 +560,7 @@
 				690364CF18DCC95B00B5CB8C /* TATLayoutUtilitiesSpec.m in Sources */,
 				6929D97F18A87CAD003195A4 /* TATConstraintFactoryErrorSpec.m in Sources */,
 				696CC4FF18D39658000F6597 /* TATViewHierarchySpec.m in Sources */,
-				69F9892318D6A65D00AAF1EC /* TATViewHierarchyHelper.m in Sources */,
+				69F9892318D6A65D00AAF1EC /* TATTestViewHierarchy.m in Sources */,
 				695F9EF918B0941D00D66622 /* TATLayoutManagerSpec.m in Sources */,
 				693F190318DDC85E00DB8633 /* TATConstraintNameSpec.m in Sources */,
 				695F9EF718B093A900D66622 /* TATViewConstraintsSpec.m in Sources */,

@@ -1,11 +1,11 @@
 //
-//  TATViewHierarchyHelper.m
+//  TATTestViewHierarchy.m
 //  TATLayout
 //
 
-#import "TATViewHierarchyHelper.h"
+#import "TATTestViewHierarchy.h"
 
-@implementation TATViewHierarchyHelper
+@implementation TATTestViewHierarchy
 
 - (instancetype)init
 {

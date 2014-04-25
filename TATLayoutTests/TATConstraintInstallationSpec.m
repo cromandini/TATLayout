@@ -5,13 +5,13 @@
 
 #import <Kiwi/Kiwi.h>
 #import "NSLayoutConstraint+TATConstraintInstallation.h"
-#import "TATViewHierarchyHelper.h"
+#import "TATTestViewHierarchy.h"
 
 SPEC_BEGIN(TATConstraintInstallationSpec)
 
 describe(@"Constraint", ^{
     
-    TATViewHierarchyHelper *vh = [TATViewHierarchyHelper new];
+    TATTestViewHierarchy *vh = [TATTestViewHierarchy new];
     NSDictionary *views = @{@"view2": vh.view2,
                             @"view3": vh.view3,
                             @"view4": vh.view4,
