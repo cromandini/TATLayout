@@ -31,7 +31,7 @@
  | \<metricName\>      | Parsed as a C identifier. This must be a key mapping to an instance of `NSNumber` in the passed metrics dictionary.|
  | \<number\>          | A valid text representation of a floating-point number. As parsed by `strtod_l`, with the C locale.                |
  
- Equation format strings examples:
+ Equation format string examples:
  
     someView.width == otherView.width * 0.5 + 200 @751
     someView.height == someView.width
@@ -41,7 +41,7 @@
     otherView.top == 500 @251
     otherView.left == 0
  
- `superview` is a keyword which is set to be the superview of the first item. That said, when using `superview` as second item, the first item must be added to its superview before creating the constraint, because the view hierarchy must be inspected in order to get a reference to the superview. Examples:
+ The keyword `superview` is set to be the superview of the first item. That said, when using `superview` as second item, the first item must be added to its superview before creating the constraint. This is because the view hierarchy must be inspected in order to get a reference to the superview. Examples:
  
     otherView.bottom == superview.bottom - someMetricName
     otherView.right <= superview.right * someMetricName - otherMetricName @yetAnotherMetricName
