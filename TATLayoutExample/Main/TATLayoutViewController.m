@@ -5,7 +5,7 @@
 
 #import "TATLayoutViewController.h"
 #import "TATConstraintFactoryViewController.h"
-#import "TATViewConstraintsViewController.h"
+#import "TATViewAttributeConstraintsViewController.h"
 #import "TATLayoutManagerViewController.h"
 
 typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
         case TATLayoutViewControllerExampleConstraintFactory:
             return [TATConstraintFactoryViewController new];
         case TATLayoutViewControllerExampleViewConstraints:
-            return [TATViewConstraintsViewController new];
+            return [TATViewAttributeConstraintsViewController new];
         case TATLayoutViewControllerExampleLayoutManager:
             return [TATLayoutManagerViewController new];
     }

@@ -1,10 +1,10 @@
 //
-//  TATViewConstraintsViewController.h
+//  TATViewAttributeConstraintsViewController.h
 //  TATLayout
 //
 
 @import UIKit;
 
-@interface TATViewConstraintsViewController : UIViewController
+@interface TATViewAttributeConstraintsViewController : UIViewController
 
 @end

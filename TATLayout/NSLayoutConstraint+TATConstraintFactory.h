@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `NSLayoutConstraint` provides support for creating constraints with an equation format string. The format string describes a linear equation with the addition of the priority and can be of 2 types, depending on the number of views related:
+ This category in `NSLayoutConstraint` adds support for creating constraints with an equation format string. The format string describes a linear equation with the addition of the priority and can be of 2 types, depending on the number of views related:
  
     item1.attribute1 == item2.attribute2 * multiplier + constant @priority
     item1.attribute1 == constant @priority

@@ -1,14 +1,14 @@
 //
-//  TATViewConstraintsSpec.m
+//  TATViewAttributeConstraintsSpec.m
 //  TATLayout
 //
 
 #import "Kiwi.h"
-#import "UIView+TATViewConstraints.h"
+#import "UIView+TATViewAttributeConstraints.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 #import "NSLayoutConstraint+TATConstraintInstallation.h"
 
-SPEC_BEGIN(TATViewConstraintsSpec)
+SPEC_BEGIN(TATViewAttributeConstraintsSpec)
 
 describe(@"View", ^{
     UIView *view1 = [UIView new];

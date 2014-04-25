@@ -1,14 +1,14 @@
 //
-//  TATViewConstraintsViewController.m
+//  TATViewAttributeConstraintsViewController.m
 //  TATLayout
 //
 // This example showcases the use of tat_constrainLayoutAttributeUsingEquationFormat:metrics:views: and variants.
 
 
-#import "TATViewConstraintsViewController.h"
+#import "TATViewAttributeConstraintsViewController.h"
 #import "TATLayout.h"
 
-@interface TATViewConstraintsViewController ()
+@interface TATViewAttributeConstraintsViewController ()
 @property (strong, nonatomic) UIColor *blackColor;
 @property (strong, nonatomic) UIView *keyboard;
 @property (strong, nonatomic) UIView *division;
@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSLayoutConstraint *divisionWidth;
 @end
 
-@implementation TATViewConstraintsViewController
+@implementation TATViewAttributeConstraintsViewController
 
 #pragma mark - Lifecycle
 

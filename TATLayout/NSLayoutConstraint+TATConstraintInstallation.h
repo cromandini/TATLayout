@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This category in `NSLayoutConstraint` provides support for installation (ie: adding itself to the view which is the closest ancestor shared by the views participating in the constraint) as well as uninstallation.
+ This category in `NSLayoutConstraint` adds support for installation (ie: adding itself to the view which is the closest ancestor shared by the views participating in the constraint) as well as uninstallation.
 */
 @interface NSLayoutConstraint (TATConstraintInstallation)
 
