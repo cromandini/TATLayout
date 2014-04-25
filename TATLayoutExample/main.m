@@ -4,11 +4,11 @@
 //
 
 @import UIKit;
-#import "TATLayoutAppDelegate.h"
+#import "TLEAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TATLayoutAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TLEAppDelegate class]));
     }
 }

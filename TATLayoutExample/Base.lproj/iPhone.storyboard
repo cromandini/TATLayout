@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="y04-Ma-env">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="y04-Ma-env">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Layout View Controller - Example Name-->
+        <!--View Controller - TATLayout Example-->
         <scene sceneID="e3N-tM-Tn0">
             <objects>
-                <viewController id="m4c-kG-fg4" customClass="TATLayoutViewController" sceneMemberID="viewController">
+                <viewController id="m4c-kG-fg4" customClass="TLEViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cti-rt-0Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="ScS-Af-RbI"/>
@@ -19,17 +19,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Example Name" id="uTg-Su-jkD">
-                        <barButtonItem key="rightBarButtonItem" image="listIcon" id="Cvc-DB-Km9">
-                            <connections>
-                                <action selector="showExampleSelector:" destination="m4c-kG-fg4" id="6qj-kk-vAz"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="TATLayout Example" id="uTg-Su-jkD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du4-ik-IiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="1321"/>
+            <point key="canvasLocation" x="623" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8xI-Nr-riK">
@@ -47,12 +41,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p60-iF-cUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="1321"/>
+            <point key="canvasLocation" x="97" y="4"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="listIcon" width="21" height="21"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

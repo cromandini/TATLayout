@@ -16,5 +16,5 @@
  */
 extern void TATDisableAutoresizingConstraintsInNilTerminatedViews(id firstView, ...) NS_REQUIRES_NIL_TERMINATION;
 
-// This macro is a helper to call `TATDisableAutoresizingConstraintsInNilTerminatedViews()` without terminating the list of views with `nil`.
+// This is a helper to call `TATDisableAutoresizingConstraintsInNilTerminatedViews()` without terminating the list of views with `nil`.
 #define TATDisableAutoresizingConstraintsInViews(...) TATDisableAutoresizingConstraintsInNilTerminatedViews(__VA_ARGS__, nil)
