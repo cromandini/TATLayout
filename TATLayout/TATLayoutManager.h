@@ -7,6 +7,16 @@
 @import UIKit;
 
 /**
+ Creates an array with a visual format string and an `NSNumber` containing an `NSLayoutFormatOptions`.
+ @param visualFormat The visual format string. Keep in mind that any string is valid, since the format is not validated.
+ @param formatOptions The options for the visual format string.
+ @return An array with the visual format string as the first element and an `NSNumber` containing the given options as the second.
+ @discussion This function is particularly useful when adding constraints with mixed formats in the layout manager.
+ @warning Throws an exception if _visualFormat_ is `nil`.
+ */
+extern NSArray *TATLayoutArrayWithVisualFormatAndOptions(NSString *visualFormat, NSLayoutFormatOptions formatOptions);
+
+/**
  `TATLayoutManager` manages parts of a layout by providing creation, installation, uninstallation and retrieval of Layout Constraints.
  */
 @interface TATLayoutManager : NSObject

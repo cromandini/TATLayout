@@ -239,4 +239,26 @@ describe(@"Layout Manager", ^{
     });
 });
 
+//    describe(@"Array With Visual Format And Options", ^{
+//        NSLayoutFormatOptions options = NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom;
+//
+//        it(@"creates an array with visual format and options", ^{
+//            NSString *visualFormat = @"H:|[view1][view2]|";
+//            [[TATLayoutArrayWithVisualFormatAndOptions(visualFormat, options) should] equal:@[visualFormat, @(options)]];
+//        });
+//        context(@"when visual format is nil", ^{
+//            it(@"throws", ^{
+//                [[theBlock(^{
+//                    TATLayoutArrayWithVisualFormatAndOptions(nil, options);
+//                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: visualFormat"];
+//            });
+//        });
+//        describe(@"visual format", ^{
+//            it(@"can be any string", ^{
+//                NSString *string = @"any string";
+//                [[TATLayoutArrayWithVisualFormatAndOptions(string, options) should] equal:@[string, @(options)]];
+//            });
+//        });
+//    });
+
 SPEC_END

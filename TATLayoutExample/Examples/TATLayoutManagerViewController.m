@@ -23,7 +23,7 @@
     green.backgroundColor = [UIColor greenColor];
     [self.view addSubview:green];
     
-    TATLayoutDeactivateAutoresizingMaskInViews(blue, green);
+    TATDisableAutoresizingConstraintsInViews(blue, green);
     
     NSDictionary *views = NSDictionaryOfVariableBindings(blue, green);
     
