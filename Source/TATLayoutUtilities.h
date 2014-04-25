@@ -33,10 +33,14 @@ extern BOOL TATLayoutDeviceIsPhone();
  */
 extern void TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(id firstView, ...) NS_REQUIRES_NIL_TERMINATION;
 
+extern void TATDisableAutoresizingConstraintsInNilTerminatedViews(id firstView, ...) NS_REQUIRES_NIL_TERMINATION;
+
 /**
  This macro is a helper that can be used instead of `TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews()` to avoid terminating the list of views with `nil`.
  */
 #define TATLayoutDeactivateAutoresizingMaskInViews(...) TATLayoutDeactivateAutoresizingMaskInNilTerminatedViews(__VA_ARGS__, nil)
+
+#define TATDisableAutoresizingConstraintsInViews(...) TATDisableAutoresizingConstraintsInNilTerminatedViews(__VA_ARGS__, nil)
 
 ///-----------------------------------------------------------
 /// @name Creating arrays containing visual format and options

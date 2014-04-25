@@ -5,7 +5,7 @@
 
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 
-static NSString * const TATConstraintFactoryAttributeNames = @"left, right, top, bottom, leading, trailing, width, height, centerX, centerY or baseline.";
+static NSString * const TATConstraintFactoryAttributes = @"left, right, top, bottom, leading, trailing, width, height, centerX, centerY or baseline.";
 static NSString * const TATConstraintFactoryErrorEmptyString = @" It's an empty string.";
 static NSString * const TATConstraintFactoryErrorExpectedARelation = @"Expected a relation. Relation must be one of <=, == or >=.";
 static NSString * const TATConstraintFactoryErrorExpectedAView = @"Expected a view. View names must start with a letter or an underscore, then contain letters, numbers, and underscores.";
@@ -24,12 +24,11 @@ static NSString *TATConstraintFactoryErrorNotAKeyInMetrics(NSString *metricName)
 }
 
 static NSString *TATConstraintFactoryErrorExpectedAnAttribute() {
-    return [@"Expected an attribute. Attribute names must start with a dot and be one of " stringByAppendingString:TATConstraintFactoryAttributeNames];
+    return [@"Expected an attribute. Attribute names must start with a dot and be one of " stringByAppendingString:TATConstraintFactoryAttributes];
 }
 
 static NSString *TATConstraintFactoryErrorNotAnAttribute(NSString *attributeName) {
-    return [attributeName stringByAppendingFormat:@" is not a valid attribute name. Attribute names must be one of %@",
-            TATConstraintFactoryAttributeNames];
+    return [attributeName stringByAppendingFormat:@" is not a valid attribute name. Attribute names must be one of %@", TATConstraintFactoryAttributes];
 }
 
 static NSString *TATConstraintFactoryErrorDoesNotHaveASuperview(NSString *viewName) {

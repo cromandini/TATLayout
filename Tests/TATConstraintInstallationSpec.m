@@ -1,15 +1,15 @@
 //
-//  TATConstraintInstallSpec.m
+//  TATConstraintInstallationSpec.m
 //  TATLayout
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATConstraintInstall.h"
+#import "NSLayoutConstraint+TATConstraintInstallation.h"
 #import "TATViewHierarchyHelper.h"
 
-SPEC_BEGIN(TATConstraintInstallSpec)
+SPEC_BEGIN(TATConstraintInstallationSpec)
 
-describe(@"Constraint Install", ^{
+describe(@"Constraint", ^{
     
     TATViewHierarchyHelper *vh = [TATViewHierarchyHelper new];
     NSDictionary *views = @{@"view2": vh.view2,
@@ -22,7 +22,7 @@ describe(@"Constraint Install", ^{
         
         it(@"is added to the closest ancestor shared by the views paricipating", ^{
             NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view2][view3][view4][view5]"
-                                                                  options:0 metrics:nil views:views];
+                                                                           options:0 metrics:nil views:views];
             for (NSLayoutConstraint *constraint in constraints) {
                 [constraint tat_install];
             }

@@ -1,14 +1,14 @@
 //
-//  NSLayoutConstraint+TATConstraintInstall.m
+//  NSLayoutConstraint+TATConstraintInstallation.m
 //  TATLayout
 //
 
-#import "NSLayoutConstraint+TATConstraintInstall.h"
+#import "NSLayoutConstraint+TATConstraintInstallation.h"
 #import "UIView+TATViewHierarchy.h"
 
-static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNotFound = @"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the same view hierarchy before attempting to install the constraint:\n%@\n%@";
+static NSString * const TATConstraintInstallationErrorClosestAncestorSharedByItemsNotFound = @"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the same view hierarchy before attempting to install the constraint:\n%@\n%@";
 
-@implementation NSLayoutConstraint (TATConstraintInstall)
+@implementation NSLayoutConstraint (TATConstraintInstallation)
 
 #pragma mark - Installing Constraints
 
@@ -16,7 +16,7 @@ static NSString * const TATConstraintInstallErrorClosestAncestorSharedByItemsNot
 {
     UIView *closestAncestorSharedByItems = [self tat_closestAncestorSharedByItems];
     if (!closestAncestorSharedByItems) {
-        NSString *reason = [NSString stringWithFormat:TATConstraintInstallErrorClosestAncestorSharedByItemsNotFound,
+        NSString *reason = [NSString stringWithFormat:TATConstraintInstallationErrorClosestAncestorSharedByItemsNotFound,
                             self, self.firstItem, self.secondItem];
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:reason userInfo:nil];
     }

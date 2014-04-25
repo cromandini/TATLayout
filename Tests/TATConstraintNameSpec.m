@@ -4,9 +4,9 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATConstraintNaming.h"
+#import "NSLayoutConstraint+TATConstraintName.h"
 
-SPEC_BEGIN(TATConstraintNamingSpec)
+SPEC_BEGIN(TATConstraintNameSpec)
 
 describe(@"Constraint", ^{
     __block NSLayoutConstraint *constraint;
@@ -16,7 +16,7 @@ describe(@"Constraint", ^{
     });
     
     describe(@"name", ^{
-        it(@"is an associated string that can be assigned to a constraint", ^{
+        it(@"is an associated string that can be assigned to the constraint", ^{
             NSString *name = @"the name";
             constraint.tat_name = name;
             [[constraint.tat_name should] equal:name];

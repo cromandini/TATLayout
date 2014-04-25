@@ -5,7 +5,7 @@
 
 #import "UIView+TATViewConstraints.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
-#import "NSLayoutConstraint+TATConstraintInstall.h"
+#import "NSLayoutConstraint+TATConstraintInstallation.h"
 
 static NSString * TATViewConstraintsReceiverKeyword = @"self";
 

@@ -6,7 +6,7 @@
 #import "Kiwi.h"
 #import "TATLayoutManager.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
-#import "NSLayoutConstraint+TATConstraintInstall.h"
+#import "NSLayoutConstraint+TATConstraintInstallation.h"
 
 SPEC_BEGIN(TATLayoutManagerSpec)
 

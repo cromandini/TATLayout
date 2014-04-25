@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraint+TATConstraintInstall.h
+//  NSLayoutConstraint+TATConstraintInstallation.h
 //  TATLayout
 //
 
@@ -8,7 +8,7 @@
 /**
  This category in `NSLayoutConstraint` provides support for auto installation/uninstallation of a Layout Constraint.
 */
-@interface NSLayoutConstraint (TATConstraintInstall)
+@interface NSLayoutConstraint (TATConstraintInstallation)
 
 ///-----------------------------
 /// @name Installing Constraints

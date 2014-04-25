@@ -4,9 +4,9 @@
 //
 
 #import "TATLayoutManager.h"
-#import "NSLayoutConstraint+TATConstraintNaming.h"
+#import "NSLayoutConstraint+TATConstraintName.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
-#import "NSLayoutConstraint+TATConstraintInstall.h"
+#import "NSLayoutConstraint+TATConstraintInstallation.h"
 
 @interface TATLayoutManager ()
 @property (nonatomic, readwrite, getter=isActive) BOOL active;
