@@ -1,6 +1,6 @@
 //
 //  main.m
-//  TATLayoutExamples
+//  TATLayoutExample
 //
 
 @import UIKit;

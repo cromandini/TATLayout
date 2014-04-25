@@ -1,6 +1,6 @@
 //
 //  TATConstraintFactoryErrorSpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import "Kiwi.h"

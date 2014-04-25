@@ -1,6 +1,6 @@
 //
 //  TATTestViewHierarchy.h
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import <Foundation/Foundation.h>

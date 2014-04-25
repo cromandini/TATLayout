@@ -1,6 +1,6 @@
 //
 //  TATLEAppDelegate.h
-//  TATLayout
+//  TATLayoutExample
 //
 
 @import UIKit;

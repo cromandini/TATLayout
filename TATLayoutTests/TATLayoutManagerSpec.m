@@ -1,6 +1,6 @@
 //
 //  TATLayoutManagerSpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import "Kiwi.h"

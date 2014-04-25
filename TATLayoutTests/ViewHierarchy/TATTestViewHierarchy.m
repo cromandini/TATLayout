@@ -1,6 +1,6 @@
 //
 //  TATTestViewHierarchy.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import "TATTestViewHierarchy.h"

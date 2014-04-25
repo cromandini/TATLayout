@@ -1,6 +1,6 @@
 //
 //  TATConstraintInstallationSpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import <Kiwi/Kiwi.h>

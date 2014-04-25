@@ -1,6 +1,6 @@
 //
 //  TATConstraintNameSpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import <Kiwi/Kiwi.h>

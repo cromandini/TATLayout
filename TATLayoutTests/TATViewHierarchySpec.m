@@ -1,6 +1,6 @@
 //
 //  TATViewHierarchySpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import "Kiwi.h"

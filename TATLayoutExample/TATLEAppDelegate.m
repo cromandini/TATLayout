@@ -1,6 +1,6 @@
 //
 //  TATLEAppDelegate.m
-//  TATLayout
+//  TATLayoutExample
 //
 
 #import "TATLEAppDelegate.h"

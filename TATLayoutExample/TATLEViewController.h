@@ -1,6 +1,6 @@
 //
 //  TATLEViewController.h
-//  TATLayout
+//  TATLayoutExample
 //
 
 @import UIKit;

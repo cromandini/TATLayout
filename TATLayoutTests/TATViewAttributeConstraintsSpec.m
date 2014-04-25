@@ -1,6 +1,6 @@
 //
 //  TATViewAttributeConstraintsSpec.m
-//  TATLayout
+//  TATLayoutTests
 //
 
 #import "Kiwi.h"

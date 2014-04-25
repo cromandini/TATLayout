@@ -1,18 +1,10 @@
 //
 //  TATLEViewController.m
-//  TATLayout
+//  TATLayoutExample
 //
 
 #import "TATLEViewController.h"
 #import "TATLayout.h"
-
-typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
-    TATLayoutViewControllerExampleConstraintFactory,
-    TATLayoutViewControllerExampleViewConstraints,
-    TATLayoutViewControllerExampleLayoutManager
-};
-
-#define TAT_LAYOUT_INIT_EXAMPLE TATLayoutViewControllerExampleLayoutManager
 
 @interface TATLEViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;
@@ -37,11 +29,11 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.view.tintColor = [UIColor colorWithRed:0.988 green:0.192 blue:0.349 alpha:1.000];
     
-    NSDictionary *metrics = @{@"progressHeight": @15,
-                              @"playbackSpacing": @43,
-                              @"playbackButtonSize": @44,
+    NSDictionary *metrics = @{@"playbackSpacing": @43,
+                              @"playbackButtonsSize": @44,
                               @"timeSpacing": @8,
                               @"longPadding": @20,
                               @"shortPadding": @10,
@@ -64,16 +56,12 @@ typedef NS_ENUM(NSUInteger, TATLayoutViewControllerExample) {
                             @"repeat": self.repeatButton,
                             @"shuffle": self.shuffleButton};
     
-    [self.albumArt addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"art.height == art.width"
-                                                                              metrics:nil views:views]];
-    [self.progressBar addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"progress.height == progressHeight"
-                                                                                 metrics:metrics views:views]];
+    [self.albumArt tat_constrainLayoutAttributeUsingEquationFormat:@"height == self.width"];
+    [self.progressBar tat_constrainLayoutAttributeUsingEquationFormat:@"height == 15"];
+    
     for (UIButton *button in @[self.playButton, self.prevButton, self.nextButton]) {
-        NSDictionary *bindings = NSDictionaryOfVariableBindings(button);
-        [button addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"button.width == playbackButtonSize"
-                                                                           metrics:metrics views:bindings]];
-        [button addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:@"button.height == button.width"
-                                                                           metrics:metrics views:bindings]];
+        [button tat_constrainLayoutAttributesUsingEquationFormats:@[@"width == playbackButtonsSize",
+                                                                    @"height == self.width"] metrics:metrics views:nil];
     }
     
     NSArray *sharedFormats = @[@"art.top == superview.top @highPriority",
