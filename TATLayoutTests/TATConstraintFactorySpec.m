@@ -322,13 +322,14 @@ describe(@"When creating multiple constraints", ^{
     NSLayoutConstraint *c2 = [NSLayoutConstraint new];
     NSLayoutConstraint *c3 = [NSLayoutConstraint new];
     
-    beforeEach(^{
+    void (^mockAndStubSingleConstraintFactory)() = ^void() {
         [[[NSLayoutConstraint should] receiveAndReturn:c1] tat_constraintWithEquationFormat:@"format1" metrics:metrics views:views];
         [[[NSLayoutConstraint should] receiveAndReturn:c2] tat_constraintWithEquationFormat:@"format2" metrics:metrics views:views];
         [[[NSLayoutConstraint should] receiveAndReturn:c3] tat_constraintWithEquationFormat:@"format3" metrics:metrics views:views];
-    });
+    };
     
     it(@"returns the constraints created", ^{
+        mockAndStubSingleConstraintFactory();
         NSArray *constraints = [NSLayoutConstraint tat_constraintsWithEquationFormats:formats metrics:metrics views:views];
         [[[constraints should] have:3] items];
         [[constraints[0] should] equal:c1];
@@ -337,10 +338,18 @@ describe(@"When creating multiple constraints", ^{
     });
     context(@"all objects in formats", ^{
         it(@"must be strings", ^{
+            mockAndStubSingleConstraintFactory();
             NSArray *formatsIncludingNonString = [formats arrayByAddingObject:@[]];
             [[theBlock(^{
                 [NSLayoutConstraint tat_constraintsWithEquationFormats:formatsIncludingNonString metrics:metrics views:views];
             }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [format isKindOfClass:[NSString class]]"];
+        });
+    });
+    context(@"when formats is nil", ^{
+        it(@"returns an empty array", ^{
+            NSArray *constraints = [NSLayoutConstraint tat_constraintsWithEquationFormats:nil metrics:metrics views:views];
+            [[constraints shouldNot] beNil];
+            [[constraints should] beEmpty];
         });
     });
 });
