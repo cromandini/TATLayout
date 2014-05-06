@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name                  = "TATLayout"
   s.version               = "0.2.0"
   s.license               = "MIT"
-  s.summary               = "An expressive, simple yet poweful way for coding layout constraints in iOS."
+  s.summary               = "An expressive, simple yet powerful way for coding layout constraints in iOS."
   s.description           = <<-DESC
                             TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints without compromising performance. It provides a higher level API to layout constraints that makes your layouts easier to read, mantain and modify dynamically.
                             

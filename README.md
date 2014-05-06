@@ -1,4 +1,4 @@
-## An expressive, simple yet poweful way for coding layout constraints in iOS.
+## An expressive, simple yet powerful way for coding layout constraints in iOS.
 
 TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints without compromising performance. It provides a higher level API to layout constraints that makes your layouts easier to read, mantain and modify dynamically.
 

@@ -2,7 +2,7 @@
 //  TATLayout.h
 //  TATLayout
 //
-//  An expressive, simple yet poweful way for coding layout constraints in iOS.
+//  An expressive, simple yet powerful way for coding layout constraints in iOS.
 //
 //  Copyright (c) 2014 Claudio Romandini.
 //
