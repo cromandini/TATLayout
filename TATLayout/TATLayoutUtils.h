@@ -1,5 +1,5 @@
 //
-//  TATLayoutHelpers.h
+//  TATLayoutUtils.h
 //  TATLayout
 //
 // These are a few helper functions and macros that are useful when working with layouts.
@@ -7,8 +7,17 @@
 @import Foundation;
 @import UIKit;
 
-#define TATDeviceIsIPAD     [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad
-#define TATDeviceIsIPHONE   [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
+/**
+ Whether the current device is an iPad.
+ @return `YES` if the current device is iPad, `NO` otherwise.
+ */
+extern BOOL TATDeviceIsIPAD();
+
+/**
+ Whether the current device is an iPhone.
+ @return `YES` if the current device is iPhone, `NO` otherwise.
+ */
+extern BOOL TATDeviceIsIPHONE();
 
 /**
  Sets `translatesAutoresizingMaskIntoConstraints = NO` in the views of a given nil-terminated list.

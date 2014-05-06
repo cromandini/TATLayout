@@ -1,27 +1,27 @@
 //
-//  TATLayoutHelpersSpec.m
+//  TATLayoutUtilsSpec.m
 //  TATLayoutTests
 //
 
 #import <Kiwi/Kiwi.h>
-#import "TATLayout.h"
+#import "TATLayoutUtils.h"
 
 
-SPEC_BEGIN(TATLayoutHelpersSpec)
+SPEC_BEGIN(TATLayoutUtilsSpec)
 
-describe(@"Helpers", ^{
+describe(@"Utils", ^{
     
     describe(@"Device Is IPAD", ^{
         context(@"when the current device idiom is Pad", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPad)];
-                [[@(TATDeviceIsIPAD) should] beYes];
+                [[@(TATDeviceIsIPAD()) should] beYes];
             });
         });
         context(@"when the current device idiom is not Pad", ^{
             it(@"returns NO", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPhone)];
-                [[@(TATDeviceIsIPAD) should] beNo];
+                [[@(TATDeviceIsIPAD()) should] beNo];
             });
         });
     });
@@ -30,13 +30,13 @@ describe(@"Helpers", ^{
         context(@"when the current device idiom is Phone", ^{
             it(@"returns YES", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPhone)];
-                [[@(TATDeviceIsIPHONE) should] beYes];
+                [[@(TATDeviceIsIPHONE()) should] beYes];
             });
         });
         context(@"when the current device idiom is not Phone", ^{
             it(@"returns NO", ^{
                 [[UIDevice currentDevice] stub:@selector(userInterfaceIdiom) andReturn:theValue(UIUserInterfaceIdiomPad)];
-                [[@(TATDeviceIsIPHONE) should] beNo];
+                [[@(TATDeviceIsIPHONE()) should] beNo];
             });
         });
     });
