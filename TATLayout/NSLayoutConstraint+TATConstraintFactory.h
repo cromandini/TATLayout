@@ -92,4 +92,13 @@
  */
 + (NSLayoutConstraint *)tat_constraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
+/**
+ Creates multiple constraints described by the equation format.
+ @param formats The format specifications for the constraints.
+ @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
+ @return The constraints created, in the order.
+ */
++ (NSArray *)tat_constraintsWithEquationFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
+
 @end

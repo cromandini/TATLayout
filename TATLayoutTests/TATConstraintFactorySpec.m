@@ -29,28 +29,29 @@ describe(@"Equation Format", ^{
             [[constraint.firstItem should] equal:square];
             [[constraint.secondItem should] equal:circle];
         });
-        describe(@"second item", ^{
-            context(@"in a constraint with only one item", ^{
-                it(@"is nil", ^{
-                    equation = @"square.width==constant";
-                    constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                    [[constraint.secondItem should] beNil];
-                });
+    });
+    
+    describe(@"second item", ^{
+        context(@"in a constraint with only one item", ^{
+            it(@"is nil", ^{
+                equation = @"square.width==constant";
+                constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
+                [[constraint.secondItem should] beNil];
             });
-            context(@"when is superview", ^{
-                it(@"is the superview of the first item", ^{
-                    UIView *superview = [UIView new];
-                    [superview addSubview:square];
-                    equation = @"square.height==superview.height";
-                    constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
-                    [[constraint.secondItem should] equal:((UIView *)constraint.firstItem).superview];
-                    [[constraint.secondItem should] equal:superview];
-                });
+        });
+        context(@"when is superview", ^{
+            it(@"is the superview of the first item", ^{
+                UIView *superview = [UIView new];
+                [superview addSubview:square];
+                equation = @"square.height==superview.height";
+                constraint = [NSLayoutConstraint tat_constraintWithEquationFormat:equation metrics:metrics views:views];
+                [[constraint.secondItem should] equal:((UIView *)constraint.firstItem).superview];
+                [[constraint.secondItem should] equal:superview];
             });
         });
     });
     
-    describe(@"attributes", ^{
+    describe(@"attribute", ^{
         describe(@"left", ^{
             it(@"is NSLayoutAttributeLeft", ^{
                 equation = @"square.left==circle.left";
@@ -308,6 +309,36 @@ describe(@"Equation Format", ^{
             [[@(constraint.multiplier) should] equal:@(0.5)];
             [[@(constraint.constant) should] equal:@(25)];
             [[@(constraint.priority) should] equal:@(750)];
+        });
+    });
+});
+
+describe(@"When creating multiple constraints", ^{
+    
+    NSArray *formats = @[@"format1", @"format2", @"format3"];
+    NSLayoutConstraint *c1 = [NSLayoutConstraint new];
+    NSLayoutConstraint *c2 = [NSLayoutConstraint new];
+    NSLayoutConstraint *c3 = [NSLayoutConstraint new];
+    
+    beforeEach(^{
+        [[[NSLayoutConstraint should] receiveAndReturn:c1] tat_constraintWithEquationFormat:@"format1" metrics:any() views:any()];
+        [[[NSLayoutConstraint should] receiveAndReturn:c2] tat_constraintWithEquationFormat:@"format2" metrics:any() views:any()];
+        [[[NSLayoutConstraint should] receiveAndReturn:c3] tat_constraintWithEquationFormat:@"format3" metrics:any() views:any()];
+    });
+    
+    it(@"returns the constraints created", ^{
+        NSArray *constraints = [NSLayoutConstraint tat_constraintsWithEquationFormats:formats metrics:nil views:nil];
+        [[[constraints should] have:3] items];
+        [[constraints[0] should] equal:c1];
+        [[constraints[1] should] equal:c2];
+        [[constraints[2] should] equal:c3];
+    });
+    context(@"all objects in formats", ^{
+        it(@"must be strings", ^{
+            NSArray *formatsIncludingNonString = [formats arrayByAddingObject:@[]];
+            [[theBlock(^{
+                [NSLayoutConstraint tat_constraintsWithEquationFormats:formatsIncludingNonString metrics:nil views:nil];
+            }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [format isKindOfClass:[NSString class]]"];
         });
     });
 });

@@ -230,7 +230,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
         }
     }
     
-    // Checking for extra characters at the end of the equation because the regular expression is intentionally permissive to provide diagnostic messages (like the following).
+    // Checking for extra characters at the end of the equation string because the regular expression is intentionally permissive in order to provide diagnostic messages (like the following).
     if ([match range].length < equation.length) {
         @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedEndOfEquation, equation, [match range]);
     }
@@ -244,6 +244,16 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
                                                                    constant:constant];
     constraint.priority = priority;
     return constraint;
+}
+
++ (NSArray *)tat_constraintsWithEquationFormats:(NSArray *)formats metrics:(NSDictionary *)metrics views:(NSDictionary *)views
+{
+    NSMutableArray *constraints = [NSMutableArray arrayWithCapacity:[formats count]];
+    for (id format in formats) {
+        NSParameterAssert([format isKindOfClass:[NSString class]]);
+        [constraints addObject:[self tat_constraintWithEquationFormat:format metrics:metrics views:views]];
+    }
+    return [constraints copy];
 }
 
 @end
