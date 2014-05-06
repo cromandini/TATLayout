@@ -316,18 +316,20 @@ describe(@"Equation Format", ^{
 describe(@"When creating multiple constraints", ^{
     
     NSArray *formats = @[@"format1", @"format2", @"format3"];
+    NSDictionary *metrics = @{@"metrics": @"dictionary"};
+    NSDictionary *views = @{@"views": @"dictionary"};
     NSLayoutConstraint *c1 = [NSLayoutConstraint new];
     NSLayoutConstraint *c2 = [NSLayoutConstraint new];
     NSLayoutConstraint *c3 = [NSLayoutConstraint new];
     
     beforeEach(^{
-        [[[NSLayoutConstraint should] receiveAndReturn:c1] tat_constraintWithEquationFormat:@"format1" metrics:any() views:any()];
-        [[[NSLayoutConstraint should] receiveAndReturn:c2] tat_constraintWithEquationFormat:@"format2" metrics:any() views:any()];
-        [[[NSLayoutConstraint should] receiveAndReturn:c3] tat_constraintWithEquationFormat:@"format3" metrics:any() views:any()];
+        [[[NSLayoutConstraint should] receiveAndReturn:c1] tat_constraintWithEquationFormat:@"format1" metrics:metrics views:views];
+        [[[NSLayoutConstraint should] receiveAndReturn:c2] tat_constraintWithEquationFormat:@"format2" metrics:metrics views:views];
+        [[[NSLayoutConstraint should] receiveAndReturn:c3] tat_constraintWithEquationFormat:@"format3" metrics:metrics views:views];
     });
     
     it(@"returns the constraints created", ^{
-        NSArray *constraints = [NSLayoutConstraint tat_constraintsWithEquationFormats:formats metrics:nil views:nil];
+        NSArray *constraints = [NSLayoutConstraint tat_constraintsWithEquationFormats:formats metrics:metrics views:views];
         [[[constraints should] have:3] items];
         [[constraints[0] should] equal:c1];
         [[constraints[1] should] equal:c2];
@@ -337,7 +339,7 @@ describe(@"When creating multiple constraints", ^{
         it(@"must be strings", ^{
             NSArray *formatsIncludingNonString = [formats arrayByAddingObject:@[]];
             [[theBlock(^{
-                [NSLayoutConstraint tat_constraintsWithEquationFormats:formatsIncludingNonString metrics:nil views:nil];
+                [NSLayoutConstraint tat_constraintsWithEquationFormats:formatsIncludingNonString metrics:metrics views:views];
             }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [format isKindOfClass:[NSString class]]"];
         });
     });
