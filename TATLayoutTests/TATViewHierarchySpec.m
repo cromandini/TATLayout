@@ -5,13 +5,13 @@
 
 #import "Kiwi.h"
 #import "UIView+TATViewHierarchy.h"
-#import "TATTestViewHierarchy.h"
+#import "TATFakeViewHierarchy.h"
 
 SPEC_BEGIN(TATViewHierarchySpec)
 
 describe(@"View Hierarchy", ^{
     
-    TATTestViewHierarchy *vh = [TATTestViewHierarchy new];
+    TATFakeViewHierarchy *vh = [TATFakeViewHierarchy new];
 	
     describe(@"ancestor of view", ^{
         describe(@"nil", ^{

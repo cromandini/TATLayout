@@ -1,11 +1,11 @@
 //
-//  TATTestViewHierarchy.m
+//  TATFakeViewHierarchy.m
 //  TATLayoutTests
 //
 
-#import "TATTestViewHierarchy.h"
+#import "TATFakeViewHierarchy.h"
 
-@implementation TATTestViewHierarchy
+@implementation TATFakeViewHierarchy
 
 - (instancetype)init
 {
