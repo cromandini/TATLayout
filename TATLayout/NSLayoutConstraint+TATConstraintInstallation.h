@@ -16,7 +16,7 @@
 
 /**
  Adds the constraint into the closest ancestor shared by the views participating.
- @throws An Exception if the container cannot be calculated.
+ @throws An Exception if the container cannot be computed.
  */
 - (void)tat_install;
 

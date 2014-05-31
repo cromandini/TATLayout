@@ -300,8 +300,7 @@
 				69F9892218D6A65D00AAF1EC /* TATFakeViewHierarchy.m */,
 				695A539F193A53E30014C782 /* TATFakeViewHierarchy.pdf */,
 			);
-			name = TATFakeViewHierarchy;
-			path = ViewHierarchy;
+			path = TATFakeViewHierarchy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
