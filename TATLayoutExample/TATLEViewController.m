@@ -19,7 +19,7 @@
 @property (strong, nonatomic) UISlider *volumeSlider;
 @property (strong, nonatomic) UIButton *repeatButton;
 @property (strong, nonatomic) UIButton *shuffleButton;
-@property (strong, nonatomic) NSLayoutConstraint *phoneLandscapeConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *iPhoneLandscapeConstraint;
 @end
 
 @implementation TATLEViewController
@@ -29,10 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.view.tintColor = [UIColor colorWithRed:0.988 green:0.192 blue:0.349 alpha:1.000];
     
-    NSDictionary *metrics = @{@"playbackSpacing": @43,
+    NSDictionary *metrics = @{@"progressBarHeight": @15,
+                              @"playbackSpacing": @43,
                               @"playbackButtonsSize": @44,
                               @"timeSpacing": @8,
                               @"longPadding": @20,
@@ -56,73 +56,76 @@
                             @"repeat": self.repeatButton,
                             @"shuffle": self.shuffleButton};
     
-    [self.albumArt tat_constrainLayoutAttributeUsingEquationFormat:@"height == self.width"];
-    [self.progressBar tat_constrainLayoutAttributeUsingEquationFormat:@"height == 15"];
+    NSArray *formats = @[@"art.height == art.width",
+                         @"art.top == superview.top @highPriority",
+                         @"art.centerX == superview.centerX",
+                         @"art.width == superview.width @252",
+
+                         @"progress.height == progressBarHeight",
+                         @"progress.leading == volume.leading + progressToVolumeSpacing",
+                         @"progress.trailing == volume.trailing - progressToVolumeSpacing",
+                         
+                         @"timeElapsed.centerY == progress.centerY",
+                         @"timeElapsed.trailing == progress.leading - timeSpacing",
+                         @"timeRemaining.centerY == progress.centerY",
+                         @"timeRemaining.leading == progress.trailing + timeSpacing",
+                         
+                         @"songTitle.leading == superview.leading + longPadding",
+                         @"songTitle.trailing == superview.trailing - longPadding",
+                         
+                         @"albumTitle.leading == superview.leading + longPadding",
+                         @"albumTitle.trailing == superview.trailing - longPadding",
+                         
+                         @"play.width == playbackButtonsSize",
+                         @"play.height == playbackButtonsSize",
+                         @"play.centerX == superview.centerX",
+                         @"play.bottom == volume.top + 3",
+                         
+                         @"prev.width == playbackButtonsSize",
+                         @"prev.height == playbackButtonsSize",
+                         @"prev.centerY == play.centerY",
+                         @"prev.trailing == play.leading - playbackSpacing",
+                         
+                         @"next.width == playbackButtonsSize",
+                         @"next.height == playbackButtonsSize",
+                         @"next.centerY == play.centerY",
+                         @"next.leading == play.trailing + playbackSpacing",
+                         
+                         @"volume.centerX == superview.centerX",
+                         @"volume.leading >= superview.leading + longPadding @highPriority",
+                         @"volume.trailing >= superview.trailing - longPadding @highPriority"];
     
-    for (UIButton *button in @[self.playButton, self.prevButton, self.nextButton]) {
-        [button tat_constrainLayoutAttributesUsingEquationFormats:@[@"width == playbackButtonsSize",
-                                                                    @"height == self.width"] metrics:metrics views:nil];
-    }
+    [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
     
-    NSArray *sharedFormats = @[@"art.top == superview.top @highPriority",
-                               @"art.centerX == superview.centerX",
-                               @"art.width == superview.width @252",
-                               @"progress.leading == volume.leading + progressToVolumeSpacing",
-                               @"progress.trailing == volume.trailing - progressToVolumeSpacing",
-                               @"timeElapsed.centerY == progress.centerY",
-                               @"timeElapsed.trailing == progress.leading - timeSpacing",
-                               @"timeRemaining.centerY == progress.centerY",
-                               @"timeRemaining.leading == progress.trailing + timeSpacing",
-                               @"songTitle.leading == superview.leading + longPadding",
-                               @"songTitle.trailing == superview.trailing - longPadding",
-                               @"albumTitle.leading == superview.leading + longPadding",
-                               @"albumTitle.trailing == superview.trailing - longPadding",
-                               @"play.centerX == superview.centerX",
-                               @"play.bottom == volume.top + 3",
-                               @"prev.centerY == play.centerY",
-                               @"prev.trailing == play.leading - playbackSpacing",
-                               @"next.centerY == play.centerY",
-                               @"next.leading == play.trailing + playbackSpacing",
-                               @"volume.centerX == superview.centerX",
-                               @"volume.leading >= superview.leading + longPadding @highPriority",
-                               @"volume.trailing >= superview.trailing - longPadding @highPriority"];
-    
-    for (NSString *format in sharedFormats) {
-        [self.view addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:format metrics:metrics views:views]];
-    }
-    
-    NSArray *deviceSpecificFormats;
-    
-    if (TATDeviceIsIPHONE) {
-        deviceSpecificFormats = @[@"art.bottom <= progress.top - shortPadding @highPriority",
-                                  @"progress.bottom == songTitle.top - 8",
-                                  @"songTitle.bottom == albumTitle.top - 2",
-                                  @"albumTitle.bottom == play.top - 9",
-                                  @"volume.bottom == superview.bottom - 38",
-                                  @"volume.width <= volumeMaxWidthPhone",
-                                  @"repeat.leading == volume.leading - shortPadding",
-                                  @"repeat.bottom == superview.bottom - 2",
-                                  @"shuffle.trailing == volume.trailing + shortPadding",
-                                  @"shuffle.bottom == repeat.bottom"];
+    if (TATDeviceIsIPHONE()) {
+        formats = @[@"art.bottom <= progress.top - shortPadding @highPriority",
+                    @"progress.bottom == songTitle.top - 8",
+                    @"songTitle.bottom == albumTitle.top - 2",
+                    @"albumTitle.bottom == play.top - 9",
+                    @"volume.bottom == superview.bottom - 38",
+                    @"volume.width <= volumeMaxWidthPhone",
+                    @"repeat.leading == volume.leading - shortPadding",
+                    @"repeat.bottom == superview.bottom - 2",
+                    @"shuffle.trailing == volume.trailing + shortPadding",
+                    @"shuffle.bottom == repeat.bottom"];
+        
+        [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
     } else {
-        deviceSpecificFormats = @[
-                                  @"songTitle.top == superview.top + 16",
-                                  @"albumTitle.top == songTitle.bottom + 4",
-                                  @"art.top == albumTitle.bottom + shortPadding",
-                                  @"art.bottom <= progress.top - 16",
-                                  @"progress.bottom == play.top - 12",
-                                  @"volume.width <= art.width * volumeMultiplierPad",
-                                  @"volume.centerY == repeat.centerY",
-                                  @"repeat.leading == art.leading @lowPriority",
-                                  @"repeat.leading >= superview.leading + longPadding",
-                                  @"repeat.bottom == superview.bottom - shortPadding",
-                                  @"shuffle.trailing == art.trailing @lowPriority",
-                                  @"shuffle.trailing <= superview.trailing - longPadding",
-                                  @"shuffle.centerY == repeat.centerY"];
-    }
-    
-    for (NSString *format in deviceSpecificFormats) {
-        [self.view addConstraint:[NSLayoutConstraint tat_constraintWithEquationFormat:format metrics:metrics views:views]];
+        formats = @[@"songTitle.top == superview.top + 16",
+                    @"albumTitle.top == songTitle.bottom + 4",
+                    @"art.top == albumTitle.bottom + shortPadding",
+                    @"art.bottom <= progress.top - 16",
+                    @"progress.bottom == play.top - 12",
+                    @"volume.width <= art.width * volumeMultiplierPad",
+                    @"volume.centerY == repeat.centerY",
+                    @"repeat.leading == art.leading @lowPriority",
+                    @"repeat.leading >= superview.leading + longPadding",
+                    @"repeat.bottom == superview.bottom - shortPadding",
+                    @"shuffle.trailing == art.trailing @lowPriority",
+                    @"shuffle.trailing <= superview.trailing - longPadding",
+                    @"shuffle.centerY == repeat.centerY"];
+        
+        [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
     }
 }
 
@@ -131,28 +134,28 @@
     if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         self.songTitle.font = [UIFont boldSystemFontOfSize:18];
         self.albumTitle.font = [UIFont systemFontOfSize:13];
-        if (TATDeviceIsIPHONE) {
-            [self.view addConstraint:self.phoneLandscapeConstraint];
+        if (TATDeviceIsIPHONE()) {
+            [self.iPhoneLandscapeConstraint tat_install];
         }
     } else {
         self.songTitle.font = [UIFont boldSystemFontOfSize:20];
         self.albumTitle.font = [UIFont systemFontOfSize:14];
-        if (TATDeviceIsIPHONE) {
-            [self.view removeConstraint:self.phoneLandscapeConstraint];
+        if (TATDeviceIsIPHONE()) {
+            [self.iPhoneLandscapeConstraint tat_uninstall];
         }
     }
 }
 
 #pragma mark - Dynamic Constraints
 
-- (NSLayoutConstraint *)phoneLandscapeConstraint
+- (NSLayoutConstraint *)iPhoneLandscapeConstraint
 {
-    if (!_phoneLandscapeConstraint) {
+    if (!_iPhoneLandscapeConstraint) {
+        NSString *format = @"art.top == superview.top + 14";
         NSDictionary *views = @{@"art": self.albumArt};
-        _phoneLandscapeConstraint = [NSLayoutConstraint tat_constraintWithEquationFormat:@"art.top == superview.top + 14"
-                                                                                 metrics:nil views:views];
+        _iPhoneLandscapeConstraint = [NSLayoutConstraint tat_constraintWithEquationFormat: format metrics:nil views:views];
     }
-    return _phoneLandscapeConstraint;
+    return _iPhoneLandscapeConstraint;
 }
 
 #pragma mark - UI Elements
@@ -301,8 +304,6 @@
     }
     return _shuffleButton;
 }
-
-#pragma mark - Helpers
 
 - (UIButton *)modeButtonWithTitle:(NSString *)title
 {

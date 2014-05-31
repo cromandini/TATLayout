@@ -1,5 +1,11 @@
 # TATLayout CHANGELOG
 
+## 0.3.0
+
+Constraint Installation implementation.
+
+- Simplified example: keeping one only view controller containing code examples of all APIs.
+
 ## 0.2.0
 
 View constraints implementation.
