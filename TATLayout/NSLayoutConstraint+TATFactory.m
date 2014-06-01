@@ -1,65 +1,65 @@
 //
-//  NSLayoutConstraint+TATConstraintFactory.m
+//  NSLayoutConstraint+TATFactory.m
 //  TATLayout
 //
 
-#import "NSLayoutConstraint+TATConstraintFactory.h"
+#import "NSLayoutConstraint+TATFactory.h"
 
-static NSString * const TATConstraintFactoryAttributes = @"left, right, top, bottom, leading, trailing, width, height, centerX, centerY or baseline.";
-static NSString * const TATConstraintFactoryErrorEmptyString = @" It's an empty string.";
-static NSString * const TATConstraintFactoryErrorExpectedARelation = @"Expected a relation. Relation must be one of <=, == or >=.";
-static NSString * const TATConstraintFactoryErrorExpectedAView = @"Expected a view. View names must start with a letter or an underscore, then contain letters, numbers, and underscores.";
-static NSString * const TATConstraintFactoryErrorExpectedAViewOrConstant = @"Expected a view or constant.";
-static NSString * const TATConstraintFactoryErrorExpectedEndOfEquation = @"Expected the end of the format string.";
-static NSString * const TATConstraintFactoryErrorPrefix = @"Unable to parse constraint format:";
-static NSString * const TATConstraintFactoryVisualErrorLocationMarker = @"^";
-static NSString * const TATConstraintFactoryVisualErrorLocationPrefix = @"\n(whitespace stripped)\n";
+static NSString * const TATFactoryAttributes = @"left, right, top, bottom, leading, trailing, width, height, centerX, centerY or baseline.";
+static NSString * const TATFactoryErrorEmptyString = @" It's an empty string.";
+static NSString * const TATFactoryErrorExpectedARelation = @"Expected a relation. Relation must be one of <=, == or >=.";
+static NSString * const TATFactoryErrorExpectedAView = @"Expected a view. View names must start with a letter or an underscore, then contain letters, numbers, and underscores.";
+static NSString * const TATFactoryErrorExpectedAViewOrConstant = @"Expected a view or constant.";
+static NSString * const TATFactoryErrorExpectedEndOfEquation = @"Expected the end of the format string.";
+static NSString * const TATFactoryErrorPrefix = @"Unable to parse constraint format:";
+static NSString * const TATFactoryVisualErrorLocationMarker = @"^";
+static NSString * const TATFactoryVisualErrorLocationPrefix = @"\n(whitespace stripped)\n";
 
-static NSString *TATConstraintFactoryErrorNotAKeyInViews(NSString *viewName) {
+static NSString *TATFactoryErrorNotAKeyInViews(NSString *viewName) {
     return [viewName stringByAppendingString:@" is not a key in the views dictionary."];
 }
 
-static NSString *TATConstraintFactoryErrorNotAKeyInMetrics(NSString *metricName) {
+static NSString *TATFactoryErrorNotAKeyInMetrics(NSString *metricName) {
     return [metricName stringByAppendingString:@" is not a key in the metrics dictionary."];
 }
 
-static NSString *TATConstraintFactoryErrorExpectedAnAttribute() {
-    return [@"Expected an attribute. Attribute names must start with a dot and be one of " stringByAppendingString:TATConstraintFactoryAttributes];
+static NSString *TATFactoryErrorExpectedAnAttribute() {
+    return [@"Expected an attribute. Attribute names must start with a dot and be one of " stringByAppendingString:TATFactoryAttributes];
 }
 
-static NSString *TATConstraintFactoryErrorNotAnAttribute(NSString *attributeName) {
-    return [attributeName stringByAppendingFormat:@" is not a valid attribute name. Attribute names must be one of %@", TATConstraintFactoryAttributes];
+static NSString *TATFactoryErrorNotAnAttribute(NSString *attributeName) {
+    return [attributeName stringByAppendingFormat:@" is not a valid attribute name. Attribute names must be one of %@", TATFactoryAttributes];
 }
 
-static NSString *TATConstraintFactoryErrorDoesNotHaveASuperview(NSString *viewName) {
+static NSString *TATFactoryErrorDoesNotHaveASuperview(NSString *viewName) {
     return [viewName stringByAppendingString:@" doesn't have a superview. When using superview as second item, the first view must be added to its superview before creating the constraint."];
 }
 
-static NSString *TATConstraintFactoryVisualErrorLocation(NSString *equation, NSRange matchRange) {
+static NSString *TATFactoryVisualErrorLocation(NSString *equation, NSRange matchRange) {
     return [NSString stringWithFormat:@"%@%@\n%*s%@",
-            TATConstraintFactoryVisualErrorLocationPrefix,
+            TATFactoryVisualErrorLocationPrefix,
             equation,
             (int)NSMaxRange(matchRange), "",
-            TATConstraintFactoryVisualErrorLocationMarker];
+            TATFactoryVisualErrorLocationMarker];
 }
 
-static NSException *TATConstraintFactoryException(NSString *description, NSString *equation, NSRange matchRange) {
+static NSException *TATFactoryException(NSString *description, NSString *equation, NSRange matchRange) {
     NSString *reason = [NSString stringWithFormat:@"%@%@%@%@",
-                        TATConstraintFactoryErrorPrefix,
+                        TATFactoryErrorPrefix,
                         equation ? @"\n" : @"",
                         description,
-                        equation ? TATConstraintFactoryVisualErrorLocation(equation, matchRange) : @""];
+                        equation ? TATFactoryVisualErrorLocation(equation, matchRange) : @""];
     return [NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil];
 }
 
-@implementation NSLayoutConstraint (TATConstraintFactory)
+@implementation NSLayoutConstraint (TATFactory)
 
 #pragma mark - Creating Constraints with the Equation Format
 
 + (NSLayoutConstraint *)tat_constraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
     if (!format.length) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorEmptyString, nil, NSMakeRange(0, 0));
+        @throw TATFactoryException(TATFactoryErrorEmptyString, nil, NSMakeRange(0, 0));
     }
     
     id firstItem;
@@ -106,29 +106,29 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
     // First item
     NSRange firstItemRange = [match rangeAtIndex:1];
     if (firstItemRange.location == NSNotFound) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedAView, equation, NSMakeRange(0, 0));
+        @throw TATFactoryException(TATFactoryErrorExpectedAView, equation, NSMakeRange(0, 0));
     }
     NSString *firstItemName = [equation substringWithRange:firstItemRange];
 	firstItem = views[firstItemName];
     if (!firstItem) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInViews(firstItemName), equation, firstItemRange);
+        @throw TATFactoryException(TATFactoryErrorNotAKeyInViews(firstItemName), equation, firstItemRange);
     }
     
     // First attribute
     NSRange firstAttributeRange = [match rangeAtIndex:2];
     if (firstAttributeRange.location == NSNotFound) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedAnAttribute(), equation, [match range]);
+        @throw TATFactoryException(TATFactoryErrorExpectedAnAttribute(), equation, [match range]);
     }
     NSString *firstAttributeName = [equation substringWithRange:firstAttributeRange];
     firstAttribute = [attributes[firstAttributeName] intValue];
     if (!firstAttribute) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAnAttribute(firstAttributeName), equation, firstAttributeRange);
+        @throw TATFactoryException(TATFactoryErrorNotAnAttribute(firstAttributeName), equation, firstAttributeRange);
     }
     
     // Relation
     NSRange relationRange = [match rangeAtIndex:3];
     if (relationRange.location == NSNotFound) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedARelation, equation, firstAttributeRange);
+        @throw TATFactoryException(TATFactoryErrorExpectedARelation, equation, firstAttributeRange);
     }
     NSString *relationName = [equation substringWithRange:relationRange];
 	relation = [relations[relationName] intValue];
@@ -141,13 +141,13 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
             if ([firstItem isKindOfClass:[UIView class]]) {
                 secondItem = ((UIView *)firstItem).superview;
                 if (!secondItem) {
-                    @throw TATConstraintFactoryException(TATConstraintFactoryErrorDoesNotHaveASuperview(firstItemName), equation, secondItemRange);
+                    @throw TATFactoryException(TATFactoryErrorDoesNotHaveASuperview(firstItemName), equation, secondItemRange);
                 }
             }
         } else {
             secondItem = views[secondItemName];
             if (!secondItem) {
-                @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInViews(secondItemName), equation, secondItemRange);
+                @throw TATFactoryException(TATFactoryErrorNotAKeyInViews(secondItemName), equation, secondItemRange);
             }
         }
         
@@ -156,7 +156,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
         NSString *secondAttributeName = [equation substringWithRange:secondAttributeRange];
         secondAttribute = [attributes[secondAttributeName] intValue];
         if (!secondAttribute) {
-            @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAnAttribute(secondAttributeName), equation, secondAttributeRange);
+            @throw TATFactoryException(TATFactoryErrorNotAnAttribute(secondAttributeName), equation, secondAttributeRange);
         }
         
         // Multiplier
@@ -169,7 +169,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
             if (multiplierNameRange.location != NSNotFound) {
                 NSString *multiplierName = [equation substringWithRange:multiplierNameRange];
                 if (!metrics[multiplierName]) {
-                    @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInMetrics(multiplierName), equation, [match range]);
+                    @throw TATFactoryException(TATFactoryErrorNotAKeyInMetrics(multiplierName), equation, [match range]);
                 }
                 multiplier = [metrics[multiplierName] doubleValue];
             }
@@ -186,7 +186,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
                 NSRange constantNameRange = [match rangeAtIndex:10];
                 NSString *constantName = [equation substringWithRange:constantNameRange];
                 if (!metrics[constantName]) {
-                    @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInMetrics(constantName), equation, [match range]);
+                    @throw TATFactoryException(TATFactoryErrorNotAKeyInMetrics(constantName), equation, [match range]);
                 }
                 constant = [metrics[constantName] doubleValue];
             }
@@ -204,11 +204,11 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
         } else {
             NSRange constantNameRange = [match rangeAtIndex:12];
             if (constantNameRange.location == NSNotFound) {
-                @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedAViewOrConstant, equation, [match range]);
+                @throw TATFactoryException(TATFactoryErrorExpectedAViewOrConstant, equation, [match range]);
             }
             NSString *constantName = [equation substringWithRange:constantNameRange];
             if (!metrics[constantName]) {
-                @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInMetrics(constantName), equation, [match range]);
+                @throw TATFactoryException(TATFactoryErrorNotAKeyInMetrics(constantName), equation, [match range]);
             }
             constant = [metrics[constantName] doubleValue];
         }
@@ -224,7 +224,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
         if (priorityNameRange.location != NSNotFound) {
             NSString *priorityName = [equation substringWithRange:priorityNameRange];
             if (!metrics[priorityName]) {
-                @throw TATConstraintFactoryException(TATConstraintFactoryErrorNotAKeyInMetrics(priorityName), equation, [match range]);
+                @throw TATFactoryException(TATFactoryErrorNotAKeyInMetrics(priorityName), equation, [match range]);
             }
             priority = [metrics[priorityName] doubleValue];
         }
@@ -232,7 +232,7 @@ static NSException *TATConstraintFactoryException(NSString *description, NSStrin
     
     // Checking for extra characters at the end of the equation string because the regular expression is intentionally permissive in order to provide diagnostic messages (like the following).
     if ([match range].length < equation.length) {
-        @throw TATConstraintFactoryException(TATConstraintFactoryErrorExpectedEndOfEquation, equation, [match range]);
+        @throw TATFactoryException(TATFactoryErrorExpectedEndOfEquation, equation, [match range]);
     }
 
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:firstItem

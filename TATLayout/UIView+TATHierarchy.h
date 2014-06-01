@@ -1,5 +1,5 @@
 //
-//  UIView+TATViewHierarchy.h
+//  UIView+TATHierarchy.h
 //  TATLayout
 //
 
@@ -8,7 +8,7 @@
 /**
  This category in `UIView` provides support for inspecting the view hierarchy.
  */
-@interface UIView (TATViewHierarchy)
+@interface UIView (TATHierarchy)
 
 ///------------------------------------
 /// @name Inspecting the View Hierarchy

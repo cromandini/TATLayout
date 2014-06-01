@@ -1,13 +1,13 @@
 //
-//  NSLayoutConstraint+TATConstraintInstallationSpec.m
+//  NSLayoutConstraint+TATInstallationSpec.m
 //  TATLayoutTests
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATConstraintInstallation.h"
+#import "NSLayoutConstraint+TATInstallation.h"
 #import "TATFakeViewHierarchy.h"
 
-SPEC_BEGIN(NSLayoutConstraint_TATConstraintInstallationSpec)
+SPEC_BEGIN(NSLayoutConstraint_TATInstallationSpec)
 
 describe(@"Constraint", ^{
     

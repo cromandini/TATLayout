@@ -1,13 +1,13 @@
 //
-//  UIView+TATViewHierarchySpec.m
+//  UIView+TATHierarchySpec.m
 //  TATLayoutTests
 //
 
 #import "Kiwi.h"
-#import "UIView+TATViewHierarchy.h"
+#import "UIView+TATHierarchy.h"
 #import "TATFakeViewHierarchy.h"
 
-SPEC_BEGIN(UIView_TATViewHierarchySpec)
+SPEC_BEGIN(UIView_TATHierarchySpec)
 
 describe(@"View Hierarchy", ^{
     
