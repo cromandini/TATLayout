@@ -153,11 +153,13 @@ describe(@"Constraint", ^{
                     [NSLayoutConstraint stub:@selector(tat_constraintWithEquationFormat:metrics:views:) andReturn:constraintMock];
                     [constraintMock stub:@selector(tat_install)];
                     
-                    NSLayoutConstraint *value = [NSLayoutConstraint tat_installConstraintWithEquationFormat:format metrics:metrics views:views];
-                    [[value should] equal:constraintMock];
+                    NSLayoutConstraint *constraint = [NSLayoutConstraint tat_installConstraintWithEquationFormat:format
+                                                                                                         metrics:metrics
+                                                                                                           views:views];
+                    [[constraint should] equal:constraintMock];
                 });
             });
-            context(@"multiple constraints described by the equation format", ^{
+            context(@"constraints described by the equation format", ^{
                 NSArray *formats = @[format, @"other format"];
                 
                 it(@"creates the constraints", ^{
@@ -181,8 +183,8 @@ describe(@"Constraint", ^{
                     [NSLayoutConstraint stub:@selector(tat_constraintWithEquationFormat:metrics:views:) andReturn:constraintMock];
                     [constraintMock stub:@selector(tat_install)];
                     
-                    NSArray *value = [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
-                    [[value should] equal:@[constraintMock, constraintMock]];
+                    NSArray *constraints = [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
+                    [[constraints should] equal:@[constraintMock, constraintMock]];
                 });
                 context(@"if any object in formats is not a string", ^{
                     it(@"throws", ^{
@@ -190,6 +192,36 @@ describe(@"Constraint", ^{
                             [NSLayoutConstraint tat_installConstraintsWithEquationFormats:@[@1, format] metrics:nil views:nil];
                         }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [format isKindOfClass:[NSString class]]"];
                     });
+                });
+            });
+            context(@"constraints described by the visual format", ^{
+                NSLayoutFormatOptions options = NSLayoutFormatAlignAllCenterX;
+                
+                it(@"creates the constraints", ^{
+                    [constraintMock stub:@selector(tat_install)];
+                    [[NSLayoutConstraint should] receive:@selector(constraintsWithVisualFormat:options:metrics:views:)
+                                               andReturn:@[constraintMock, constraintMock]
+                                           withArguments:format, theValue(options), metrics, views];
+                    
+                    [NSLayoutConstraint tat_installConstraintsWithVisualFormat:format options:options metrics:metrics views:views];
+                });
+                it(@"installs the constraints", ^{
+                    [NSLayoutConstraint stub:@selector(constraintsWithVisualFormat:options:metrics:views:)
+                                   andReturn:@[constraintMock, constraintMock, constraintMock]];
+                    [[constraintMock should] receive:@selector(tat_install) withCount:3];
+                    
+                    [NSLayoutConstraint tat_installConstraintsWithVisualFormat:format options:options metrics:metrics views:views];
+                });
+                it(@"returns the constraints", ^{
+                    [NSLayoutConstraint stub:@selector(constraintsWithVisualFormat:options:metrics:views:)
+                                   andReturn:@[constraintMock]];
+                    [constraintMock stub:@selector(tat_install)];
+                    
+                    NSArray *constraints = [NSLayoutConstraint tat_installConstraintsWithVisualFormat:format
+                                                                                              options:options
+                                                                                              metrics:metrics
+                                                                                                views:views];
+                    [[constraints should] equal:@[constraintMock]];
                 });
             });
         });

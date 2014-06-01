@@ -54,7 +54,11 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
 
 + (NSArray *)tat_installConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
-    return nil;
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:format options:options metrics:metrics views:views];
+    for (NSLayoutConstraint *constraint in constraints) {
+        [constraint tat_install];
+    }
+    return constraints;
 }
 
 #pragma mark - Uninstalling Constraints
