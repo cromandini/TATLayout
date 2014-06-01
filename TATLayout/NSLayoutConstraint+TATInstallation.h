@@ -54,7 +54,7 @@
  @param options Options describing the attribute and the direction of layout for all objects in the visual format string.
  @param metrics A dictionary of constants that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be `NSNumber` objects.
  @param views A dictionary of views that appear in the visual format string. The keys must be the string values used in the visual format string, and the values must be the view objects.
- @return The constraints installed.
+ @return The newly created and installed constraints.
  */
 + (NSArray *)tat_installConstraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)options metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 
