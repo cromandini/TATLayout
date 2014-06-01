@@ -16,7 +16,7 @@
 
 /**
  Adds the constraint into the closest ancestor shared by the views participating.
- @throws An Exception if the container cannot be found.
+ @throws An Exception if the closest ancestor cannot be found.
  */
 - (void)tat_install;
 
@@ -60,7 +60,7 @@
 
 /**
  Removes the constraint from the closest ancestor shared by the views participating.
- @discussion If the constraint is not held by the closest shared ancestor this method has no effect.
+ @discussion Uninstalling a constraint not held by the closest ancestor has no effect.
  */
 - (void)tat_uninstall;
 

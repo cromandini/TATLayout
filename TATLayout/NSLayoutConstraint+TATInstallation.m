@@ -15,13 +15,13 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
 
 - (void)tat_install
 {
-    UIView *container = [self tat_closestAncestorSharedByItems];
-    if (!container) {
+    UIView *closestAncestor = [self tat_closestAncestorSharedByItems];
+    if (!closestAncestor) {
         NSString *reason = [NSString stringWithFormat:TATInstallationErrorClosestAncestorSharedByItemsNotFound,
                             self, self.firstItem, self.secondItem];
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:reason userInfo:nil];
     }
-    [container addConstraint:self];
+    [closestAncestor addConstraint:self];
 }
 
 + (void)tat_installConstraints:(NSArray *)constraints;
@@ -59,12 +59,8 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
 
 - (void)tat_uninstall
 {
-    UIView *closestAncestorSharedByItems = [self tat_closestAncestorSharedByItems];
-    if (!closestAncestorSharedByItems) {
-        NSString *reason = @"No closest Ancestor Shared By Items";
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:reason userInfo:nil];
-    }
-    [closestAncestorSharedByItems removeConstraint:self];
+    UIView *closestAncestor = [self tat_closestAncestorSharedByItems];
+    [closestAncestor removeConstraint:self];
 }
 
 + (void)tat_uninstallConstraints:(NSArray *)constraints
@@ -97,7 +93,7 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
 
 /**
  The closest ancestor shared by the views participating.
- @return The closest shared ancestor or `nil` if there’s no such object. Returns the first view if there's only one view participating.
+ @return The closest ancestor or `nil` if there’s no such object. Returns the first view if there's only one view participating.
  */
 - (UIView *)tat_closestAncestorSharedByItems
 {
