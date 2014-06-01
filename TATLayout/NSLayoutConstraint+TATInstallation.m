@@ -32,6 +32,8 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
     }
 }
 
+#pragma mark - Creating and Installing Constraints in the Same Operation
+
 + (NSLayoutConstraint *)tat_installConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views
 {
     NSLayoutConstraint *constraint = [self tat_constraintWithEquationFormat:format metrics:metrics views:views];
