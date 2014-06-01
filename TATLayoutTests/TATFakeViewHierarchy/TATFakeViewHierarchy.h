@@ -6,7 +6,7 @@
 @import UIKit;
 
 /**
- This class represents a view hierarchy stack used in some of the specs. See TATFakeViewHierarchy.pdf for visual reference.
+ This class creates a view hierarchy stack used in some of the specs. See TATFakeViewHierarchy.pdf for visual reference.
  */
 @interface TATFakeViewHierarchy : NSObject
 
