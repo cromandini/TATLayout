@@ -28,10 +28,10 @@
 
 /**
  Installs a constraint described by the equation format.
- @param format
- @param metrics
- @param views
- @return The constraint installed.
+ @param format The format specification for the constraint.
+ @param metrics A dictionary of constants that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be `NSNumber` objects.
+ @param views A dictionary of views that appear in the equation format string. The keys must be the string values used in the equation format string, and the values must be the view objects.
+ @return The newly created and installed constraint.
  */
 + (NSLayoutConstraint *)tat_installConstraintWithEquationFormat:(NSString *)format metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
 

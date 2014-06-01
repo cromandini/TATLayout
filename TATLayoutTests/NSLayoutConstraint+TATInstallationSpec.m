@@ -4,8 +4,9 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "NSLayoutConstraint+TATInstallation.h"
 #import "TATFakeViewHierarchy.h"
+#import "NSLayoutConstraint+TATInstallation.h"
+#import "NSLayoutConstraint+TATFactory.h"
 
 SPEC_BEGIN(NSLayoutConstraint_TATInstallationSpec)
 
@@ -96,6 +97,57 @@ describe(@"Constraint", ^{
                         [constraintWith1And7 tat_uninstall];
                     }) shouldNot] raise];
                 });
+            });
+        });
+    });
+    
+    describe(@"class", ^{
+        
+        it(@"installs arrays of contraints", ^{
+            [[constraints[0] should] receive:@selector(tat_install)];
+            [[constraints[1] should] receive:@selector(tat_install)];
+            [[constraints[2] should] receive:@selector(tat_install)];
+            [[constraints[3] should] receive:@selector(tat_install)];
+            
+            [NSLayoutConstraint tat_installConstraints:constraints];
+        });
+        context(@"when installing an array, if any of the objects is not a constraint", ^{
+            it(@"throws", ^{
+                [[theBlock(^{
+                    [NSLayoutConstraint tat_installConstraints:@[constraints[0], @1]];
+                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [constraint isKindOfClass:[NSLayoutConstraint class]]"];
+            });
+        });
+        context(@"when installing a constraint described by the equation format", ^{
+            NSString *format = @"the format";
+            NSDictionary *metrics = @{@"the": @"metrics"};
+            NSDictionary *views = @{@"the": @"views"};
+            __block NSLayoutConstraint *constraintMock;
+            
+            beforeEach(^{
+                constraintMock = [NSLayoutConstraint new];
+            });
+            
+            it(@"creates the constraint", ^{
+                [constraintMock stub:@selector(tat_install)];
+                [[NSLayoutConstraint should] receive:@selector(tat_constraintWithEquationFormat:metrics:views:)
+                                           andReturn:constraintMock
+                                       withArguments:format, metrics, views];
+                
+                [NSLayoutConstraint tat_installConstraintWithEquationFormat:format metrics:metrics views:views];
+            });
+            it(@"installs the constraint", ^{
+                [NSLayoutConstraint stub:@selector(tat_constraintWithEquationFormat:metrics:views:) andReturn:constraintMock];
+                [[constraintMock should] receive:@selector(tat_install)];
+                
+                [NSLayoutConstraint tat_installConstraintWithEquationFormat:format metrics:metrics views:views];
+            });
+            it(@"returns the constraint", ^{
+                [NSLayoutConstraint stub:@selector(tat_constraintWithEquationFormat:metrics:views:) andReturn:constraintMock];
+                [constraintMock stub:@selector(tat_install)];
+                
+                NSLayoutConstraint *c = [NSLayoutConstraint tat_installConstraintWithEquationFormat:format metrics:metrics views:views];
+                [[c should] equal:constraintMock];
             });
         });
     });

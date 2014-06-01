@@ -336,7 +336,7 @@ describe(@"When creating multiple constraints", ^{
         [[constraints[1] should] equal:c2];
         [[constraints[2] should] equal:c3];
     });
-    context(@"all objects in formats", ^{
+    context(@"all objects in formats array", ^{
         it(@"must be strings", ^{
             mockAndStubSingleConstraintFactory();
             NSArray *formatsIncludingNonString = [formats arrayByAddingObject:@[]];
