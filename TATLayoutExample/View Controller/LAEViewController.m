@@ -2,7 +2,6 @@
 //  LAEViewController.m
 //  TATLayoutExample
 //
-// TODO: Description of this example.
 
 #import "LAEViewController.h"
 #import "TATLayout.h"

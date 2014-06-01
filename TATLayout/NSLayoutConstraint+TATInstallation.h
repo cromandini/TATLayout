@@ -6,7 +6,9 @@
 @import UIKit;
 
 /**
- This category in `NSLayoutConstraint` adds support for installation and uninstallation (ie: adding/removing the constraint to/from the closest ancestor shared by the views participating). Notice that in order to find the closest ancestor the view hierarchy must be inspected, because of that, referenced views must be part of the view hierarchy before attempting to install constraints. Also notice that a view is ancestor of itself, then the closest ancestor in a constraint with only one view participating is the only view.
+ This category in `NSLayoutConstraint` adds support for installation and uninstallation (ie: adding/removing the constraint to/from the closest ancestor shared by the views participating). It also provides a few convenience methods to create and install constraints in the same opertaion, making the process a bit faster in some cases.
+ 
+ Notice that in order to find the closest ancestor the view hierarchy must be inspected. Because of that, referenced views must be part of the view hierarchy before attempting to install constraints. Also notice that a view is considered ancestor of itself, so the closest ancestor in a constraint with only one view participating is the only view.
 */
 @interface NSLayoutConstraint (TATInstallation)
 
