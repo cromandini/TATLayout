@@ -1,12 +1,12 @@
 //
-//  TATConstraintFactoryErrorSpec.m
+//  NSLayoutConstraint+TATConstraintFactoryErrorSpec.m
 //  TATLayoutTests
 //
 
 #import "Kiwi.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 
-SPEC_BEGIN(TATConstraintFactoryErrorSpec)
+SPEC_BEGIN(NSLayoutConstraint_TATConstraintFactoryErrorSpec)
 
 describe(@"Constraint Factory Error", ^{
 

@@ -1,12 +1,15 @@
 //
-//  TATLEViewController.m
+//  LAEViewController.m
 //  TATLayoutExample
 //
+// TODO: Description of this example.
 
-#import "TATLEViewController.h"
+#import "LAEViewController.h"
 #import "TATLayout.h"
 
-@interface TATLEViewController ()
+#define LAEDeviceIsIPHONE [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
+
+@interface LAEViewController ()
 @property (strong, nonatomic) UIImageView *albumArt;
 @property (strong, nonatomic) UIImageView *progressBar;
 @property (strong, nonatomic) UILabel *timeElapsed;
@@ -22,7 +25,7 @@
 @property (strong, nonatomic) NSLayoutConstraint *iPhoneLandscapeConstraint;
 @end
 
-@implementation TATLEViewController
+@implementation LAEViewController
 
 #pragma mark - Lifecycle
 
@@ -97,7 +100,7 @@
     
     [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
     
-    if (TATDeviceIsIPHONE()) {
+    if (LAEDeviceIsIPHONE) {
         formats = @[@"art.bottom <= progress.top - shortPadding @highPriority",
                     @"progress.bottom == songTitle.top - 8",
                     @"songTitle.bottom == albumTitle.top - 2",
@@ -134,13 +137,13 @@
     if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         self.songTitle.font = [UIFont boldSystemFontOfSize:18];
         self.albumTitle.font = [UIFont systemFontOfSize:13];
-        if (TATDeviceIsIPHONE()) {
+        if (LAEDeviceIsIPHONE) {
             [self.iPhoneLandscapeConstraint tat_install];
         }
     } else {
         self.songTitle.font = [UIFont boldSystemFontOfSize:20];
         self.albumTitle.font = [UIFont systemFontOfSize:14];
-        if (TATDeviceIsIPHONE()) {
+        if (LAEDeviceIsIPHONE) {
             [self.iPhoneLandscapeConstraint tat_uninstall];
         }
     }

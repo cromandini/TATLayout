@@ -3,7 +3,7 @@
 //  TATLayoutTests
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 /**
  This class represents a view hierarchy stack used in some of the specs. See TATFakeViewHierarchy.pdf for visual reference.

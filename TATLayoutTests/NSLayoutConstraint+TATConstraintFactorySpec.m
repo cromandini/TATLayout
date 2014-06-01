@@ -1,12 +1,12 @@
 //
-//  TATConstraintFactorySpec.m
+//  NSLayoutConstraint+TATConstraintFactorySpec.m
 //  TATLayoutTests
 //
 
 #import "Kiwi.h"
 #import "NSLayoutConstraint+TATConstraintFactory.h"
 
-SPEC_BEGIN(TATConstraintFactorySpec)
+SPEC_BEGIN(NSLayoutConstraint_TATConstraintFactorySpec)
 
 describe(@"Equation Format", ^{
     __block NSString *equation;

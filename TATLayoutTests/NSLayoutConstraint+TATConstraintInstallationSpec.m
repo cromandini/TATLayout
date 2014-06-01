@@ -1,5 +1,5 @@
 //
-//  TATConstraintInstallationSpec.m
+//  NSLayoutConstraint+TATConstraintInstallationSpec.m
 //  TATLayoutTests
 //
 
@@ -7,7 +7,7 @@
 #import "NSLayoutConstraint+TATConstraintInstallation.h"
 #import "TATFakeViewHierarchy.h"
 
-SPEC_BEGIN(TATConstraintInstallationSpec)
+SPEC_BEGIN(NSLayoutConstraint_TATConstraintInstallationSpec)
 
 describe(@"Constraint", ^{
     

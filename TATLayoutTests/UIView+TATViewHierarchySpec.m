@@ -1,5 +1,5 @@
 //
-//  TATViewHierarchySpec.m
+//  UIView+TATViewHierarchySpec.m
 //  TATLayoutTests
 //
 
@@ -7,7 +7,7 @@
 #import "UIView+TATViewHierarchy.h"
 #import "TATFakeViewHierarchy.h"
 
-SPEC_BEGIN(TATViewHierarchySpec)
+SPEC_BEGIN(UIView_TATViewHierarchySpec)
 
 describe(@"View Hierarchy", ^{
     
