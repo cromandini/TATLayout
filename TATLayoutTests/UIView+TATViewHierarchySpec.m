@@ -16,79 +16,79 @@ describe(@"View Hierarchy", ^{
     describe(@"ancestor of view", ^{
         describe(@"nil", ^{
             it(@"is not ancestor of any view", ^{
-                [[@([vh.view1 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view2 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view4 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view5 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view6 tat_isAncestorOfView:nil]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view1 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view4 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view5 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view6 tat_isAncestorOfView:nil]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:nil]) should] beNo];
             });
         });
         describe(@"every view", ^{
             it(@"is ancestor of itself", ^{
-                [[@([vh.view1 tat_isAncestorOfView:vh.view1]) should] beYes];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view2]) should] beYes];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view3]) should] beYes];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view7]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view1]) should] beYes];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view2]) should] beYes];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view3]) should] beYes];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view7]) should] beYes];
             });
         });
         describe(@"view1", ^{
             it(@"is ancestor of views 2, 3, 4, 5 and 6", ^{
-                [[@([vh.view1 tat_isAncestorOfView:vh.view2]) should] beYes];
-                [[@([vh.view1 tat_isAncestorOfView:vh.view3]) should] beYes];
-                [[@([vh.view1 tat_isAncestorOfView:vh.view4]) should] beYes];
-                [[@([vh.view1 tat_isAncestorOfView:vh.view5]) should] beYes];
-                [[@([vh.view1 tat_isAncestorOfView:vh.view6]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view2]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view3]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view4]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view5]) should] beYes];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view6]) should] beYes];
             });
             it(@"is not ancestor of view 7", ^{
-                [[@([vh.view1 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view7]) should] beNo];
             });
         });
         describe(@"view2", ^{
             it(@"is ancestor of views 3, 4 and 5", ^{
-                [[@([vh.view2 tat_isAncestorOfView:vh.view3]) should] beYes];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view4]) should] beYes];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view5]) should] beYes];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view1]) should] beNo];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view6]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view3]) should] beYes];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view4]) should] beYes];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view5]) should] beYes];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view1]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view6]) should] beNo];
             });
             it(@"is not ancestor of views 1, 6 and 7", ^{
-                [[@([vh.view2 tat_isAncestorOfView:vh.view1]) should] beNo];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view6]) should] beNo];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view1]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view6]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view7]) should] beNo];
             });
         });
         describe(@"view3", ^{
             it(@"is ancestor of view 4", ^{
-                [[@([vh.view3 tat_isAncestorOfView:vh.view4]) should] beYes];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view4]) should] beYes];
             });
             it(@"is not ancestor of views 1, 2, 5, 6 and 7", ^{
-                [[@([vh.view3 tat_isAncestorOfView:vh.view1]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view2]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view5]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view6]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view1]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view2]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view5]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view6]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view7]) should] beNo];
             });
         });
         describe(@"view7", ^{
             it(@"is not ancestor of any view", ^{
-                [[@([vh.view7 tat_isAncestorOfView:vh.view1]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view2]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view3]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view4]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view5]) should] beNo];
-                [[@([vh.view7 tat_isAncestorOfView:vh.view6]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view1]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view2]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view3]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view4]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view5]) should] beNo];
+                [[theValue([vh.view7 tat_isAncestorOfView:vh.view6]) should] beNo];
             });
         });
         describe(@"no view", ^{
             it(@"is ancestor of view 7", ^{
-                [[@([vh.view1 tat_isAncestorOfView:vh.view7]) should] beNo];
-                [[@([vh.view2 tat_isAncestorOfView:vh.view7]) should] beNo];
-                [[@([vh.view3 tat_isAncestorOfView:vh.view7]) should] beNo];
-                [[@([vh.view4 tat_isAncestorOfView:vh.view7]) should] beNo];
-                [[@([vh.view5 tat_isAncestorOfView:vh.view7]) should] beNo];
-                [[@([vh.view6 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view1 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view2 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view3 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view4 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view5 tat_isAncestorOfView:vh.view7]) should] beNo];
+                [[theValue([vh.view6 tat_isAncestorOfView:vh.view7]) should] beNo];
             });
         });
     });
