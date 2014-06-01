@@ -203,7 +203,7 @@
 			children = (
 				6948821D190B070F00DA1EEC /* LAEAppDelegate.h */,
 				6948821E190B070F00DA1EEC /* LAEAppDelegate.m */,
-				69447985193AC61E003AFAD4 /* ViewController */,
+				69447985193AC61E003AFAD4 /* View Controller */,
 				69447989193AC625003AFAD4 /* Resources */,
 				6913AED318A062EF000C1F5C /* Supporting Files */,
 			);
@@ -229,8 +229,8 @@
 				69035F2218D512640001259A /* NSLayoutConstraint+TATInstallationSpec.m */,
 				690364CE18DCC95B00B5CB8C /* TATLayoutHelperSpec.m */,
 				696CC4FE18D39658000F6597 /* UIView+TATHierarchySpec.m */,
-				69F9891F18D6A5ED00AAF1EC /* TATFakeViewHierarchy */,
 				691789C618A08E53003592DB /* Supporting Files */,
+				69F9891F18D6A5ED00AAF1EC /* TATFakeViewHierarchy */,
 			);
 			path = TATLayoutTests;
 			sourceTree = "<group>";
@@ -245,13 +245,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		69447985193AC61E003AFAD4 /* ViewController */ = {
+		69447985193AC61E003AFAD4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				69447986193AC61E003AFAD4 /* LAEViewController.h */,
 				69447987193AC61E003AFAD4 /* LAEViewController.m */,
 			);
-			path = ViewController;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		69447989193AC625003AFAD4 /* Resources */ = {
