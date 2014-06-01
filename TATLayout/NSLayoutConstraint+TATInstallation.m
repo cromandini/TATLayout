@@ -73,7 +73,7 @@ static NSString * const TATInstallationErrorClosestAncestorSharedByItemsNotFound
 {
     for (id constraint in constraints) {
         NSCParameterAssert([constraint isKindOfClass:[NSLayoutConstraint class]]);
-        [(NSLayoutConstraint *)constraint tat_uninstall];
+        [constraint tat_uninstall];
     }
 }
 

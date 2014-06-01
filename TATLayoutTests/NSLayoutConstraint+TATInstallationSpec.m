@@ -120,7 +120,19 @@ describe(@"Constraint", ^{
         });
         
         it(@"uninstalls arrays of constraints", ^{
+            [[constraints[0] should] receive:@selector(tat_uninstall)];
+            [[constraints[1] should] receive:@selector(tat_uninstall)];
+            [[constraints[2] should] receive:@selector(tat_uninstall)];
+            [[constraints[3] should] receive:@selector(tat_uninstall)];
             
+            [NSLayoutConstraint tat_uninstallConstraints:constraints];
+        });
+        context(@"when uninstalling an array of constraints, if any object is not a constraint", ^{
+            it(@"throws", ^{
+                [[theBlock(^{
+                    [NSLayoutConstraint tat_uninstallConstraints:@[constraints[0], @1]];
+                }) should] raiseWithName:NSInternalInconsistencyException reason:@"Invalid parameter not satisfying: [constraint isKindOfClass:[NSLayoutConstraint class]]"];
+            });
         });
         
         describe(@"when creating and installing in the same operation", ^{
