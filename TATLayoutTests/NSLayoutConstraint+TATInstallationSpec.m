@@ -4,9 +4,9 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "TATFakeViewHierarchy.h"
 #import "NSLayoutConstraint+TATInstallation.h"
 #import "NSLayoutConstraint+TATFactory.h"
+#import "TATFakeViewHierarchy.h"
 
 SPEC_BEGIN(NSLayoutConstraint_TATInstallationSpec)
 
@@ -15,7 +15,7 @@ describe(@"Constraint", ^{
     __block TATFakeViewHierarchy *vh;
     __block NSDictionary *views;
     __block NSArray *constraints;
-    __block NSLayoutConstraint *constraintWith1And7;
+    __block NSLayoutConstraint *constraintWithViews1And7;
     
     beforeEach(^{
         vh = [TATFakeViewHierarchy new];
@@ -27,13 +27,13 @@ describe(@"Constraint", ^{
                   @"view6": vh.view6,
                   @"view7": vh.view7};
         constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view6][view3][view4(==250)]" options:0 metrics:nil views:views];
-        constraintWith1And7 = [NSLayoutConstraint constraintWithItem:vh.view1
-                                                           attribute:NSLayoutAttributeWidth
-                                                           relatedBy:NSLayoutRelationEqual
-                                                              toItem:vh.view7
-                                                           attribute:NSLayoutAttributeWidth
-                                                          multiplier:1
-                                                            constant:0];
+        constraintWithViews1And7 = [NSLayoutConstraint constraintWithItem:vh.view1
+                                                                attribute:NSLayoutAttributeWidth
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:vh.view7
+                                                                attribute:NSLayoutAttributeWidth
+                                                               multiplier:1
+                                                                 constant:0];
     });
     
     describe(@"instance", ^{
@@ -57,8 +57,8 @@ describe(@"Constraint", ^{
             context(@"if the closest ancestor cannot be found", ^{
                 it(@"throws", ^{
                     [[theBlock(^{
-                        [constraintWith1And7 tat_install];
-                    }) should] raiseWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the same view hierarchy before attempting to install the constraint:\n%@\n%@", constraintWith1And7, vh.view1, vh.view7]];
+                        [constraintWithViews1And7 tat_install];
+                    }) should] raiseWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Unable to install constraint: %@\nCannot find the closest ancestor shared by the views participating. Please ensure the following views are part of the same view hierarchy before attempting to install the constraint:\n%@\n%@", constraintWithViews1And7, vh.view1, vh.view7]];
                 });
             });
         });
@@ -94,7 +94,7 @@ describe(@"Constraint", ^{
             context(@"if the closest ancestor cannot be found", ^{
                 it(@"has no effect", ^{
                     [[theBlock(^{
-                        [constraintWith1And7 tat_uninstall];
+                        [constraintWithViews1And7 tat_uninstall];
                     }) shouldNot] raise];
                 });
             });
