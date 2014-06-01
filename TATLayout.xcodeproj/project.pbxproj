@@ -227,10 +227,10 @@
 				6929D97E18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m */,
 				695F9EF018B0932500D66622 /* NSLayoutConstraint+TATFactorySpec.m */,
 				69035F2218D512640001259A /* NSLayoutConstraint+TATInstallationSpec.m */,
+				69F9891F18D6A5ED00AAF1EC /* TATFakeViewHierarchy */,
 				690364CE18DCC95B00B5CB8C /* TATLayoutHelperSpec.m */,
 				696CC4FE18D39658000F6597 /* UIView+TATHierarchySpec.m */,
 				691789C618A08E53003592DB /* Supporting Files */,
-				69F9891F18D6A5ED00AAF1EC /* TATFakeViewHierarchy */,
 			);
 			path = TATLayoutTests;
 			sourceTree = "<group>";
