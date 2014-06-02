@@ -6,6 +6,7 @@
 #import <Kiwi/Kiwi.h>
 #import "NSLayoutConstraint+TATInstallation.h"
 #import "NSLayoutConstraint+TATFactory.h"
+#import "NSLayoutConstraint+TATContainer.h"
 #import "TATFakeViewHierarchy.h"
 
 SPEC_BEGIN(NSLayoutConstraint_TATInstallationSpec)
@@ -96,6 +97,18 @@ describe(@"Constraint", ^{
                     [[theBlock(^{
                         [constraintWithViews1And7 tat_uninstall];
                     }) shouldNot] raise];
+                });
+            });
+        });
+        context(@"when installed and uninstalled multiple times", ^{
+            describe(@"the view hierarchy", ^{
+                it(@"is inspected only the first time the constraint is installed", ^{
+                    [[constraints[0] should] receive:@selector(tat_closestAncestorSharedByItems) andReturn:vh.view1 withCount:1];
+                    
+                    [constraints[0] tat_install];
+                    [constraints[0] tat_uninstall];
+                    [constraints[0] tat_install];
+                    [constraints[0] tat_uninstall];
                 });
             });
         });
