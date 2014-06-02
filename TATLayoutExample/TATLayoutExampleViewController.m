@@ -1,21 +1,21 @@
 //
-//  LAEViewController.m
+//  TATLayoutExampleViewController.m
 //  TATLayoutExample
 //
 
-#import "LAEViewController.h"
+#import "TATLayoutExampleViewController.h"
 #import "TATLayout.h"
 
-#define LAEDeviceIsIPHONE [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
+#define TATLayoutExampleDeviceIsIPHONE [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone
 
-@interface LAEViewController ()
+@interface TATLayoutExampleViewController ()
 @property (strong, nonatomic) UILabel *songTitle;
 @property (strong, nonatomic) UILabel *albumTitle;
 @property (strong, nonatomic) UIImageView *albumArt;
 @property (strong, nonatomic) NSLayoutConstraint *iPhoneLandscapeConstraint;
 @end
 
-@implementation LAEViewController
+@implementation TATLayoutExampleViewController
 
 #pragma mark - Lifecycle
 
@@ -136,7 +136,7 @@
                          @"volumeSlider.trailing >= superview.trailing - longPadding @highPriority"];
     [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
     
-    if (LAEDeviceIsIPHONE) {
+    if (TATLayoutExampleDeviceIsIPHONE) {
         formats = @[@"albumArt.bottom        <= progressBar.top - shortPadding @highPriority",
                     @"progressBar.bottom     == songTitle.top - 8",
                     @"songTitle.bottom       == albumTitle.top - 2",
@@ -175,13 +175,13 @@
     if (UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.songTitle.font = [UIFont boldSystemFontOfSize:18];
         self.albumTitle.font = [UIFont systemFontOfSize:13];
-        if (LAEDeviceIsIPHONE) {
+        if (TATLayoutExampleDeviceIsIPHONE) {
             [self.iPhoneLandscapeConstraint tat_install];
         }
     } else {
         self.songTitle.font = [UIFont boldSystemFontOfSize:20];
         self.albumTitle.font = [UIFont systemFontOfSize:14];
-        if (LAEDeviceIsIPHONE) {
+        if (TATLayoutExampleDeviceIsIPHONE) {
             [self.iPhoneLandscapeConstraint tat_uninstall];
         }
     }

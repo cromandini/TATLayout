@@ -1,11 +1,11 @@
 //
-//  LAEAppDelegate.m
+//  TATLayoutExampleAppDelegate.m
 //  TATLayoutExample
 //
 
-#import "LAEAppDelegate.h"
+#import "TATLayoutExampleAppDelegate.h"
 
-@implementation LAEAppDelegate
+@implementation TATLayoutExampleAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

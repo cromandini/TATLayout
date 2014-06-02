@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - TATLayout Example-->
+        <!--Layout Example View Controller - TATLayout Example-->
         <scene sceneID="9Hu-Db-ewJ">
             <objects>
-                <viewController id="d7h-iC-MI3" customClass="LAEViewController" sceneMemberID="viewController">
+                <viewController id="d7h-iC-MI3" customClass="TATLayoutExampleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Ps-x7-y4k"/>
                         <viewControllerLayoutGuide type="bottom" id="D0r-xt-UjY"/>
