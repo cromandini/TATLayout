@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		6921899118C14594000F345C /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 6921899418C14594000F345C /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				692DAB2318C8061D00254A3B /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
 		695C22AB18C98DE300882B74 /* Framework */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 695C22AC18C98DE300882B74 /* Build configuration list for PBXAggregateTarget "Framework" */;
@@ -378,7 +367,6 @@
 				6913AE9F18A0625B000C1F5C /* TATLayout */,
 				691789C018A08E53003592DB /* TATLayoutTests */,
 				6913AECC18A062EF000C1F5C /* TATLayoutExample */,
-				6921899118C14594000F345C /* Documentation */,
 				695C22AB18C98DE300882B74 /* Framework */,
 			);
 		};
@@ -421,19 +409,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-TATLayoutTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		692DAB2318C8061D00254A3B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "DOCUMENTATION_DIR=\"${PROJECT_DIR}/Documentation\"\nDOCUMENTATION_INDEX_FILE=\"/tmp/TATLayout-README.md\"\nCOMPANY=\"Claudio Romandini\";\nCOMPANY_ID=\"me.cromandini\";\nCOMPANY_URL=\"http://cromandini.me\";\nTARGET=\"iphoneos\";\n\n# Create documentation directory (destructive)\nrm -rf \"${DOCUMENTATION_DIR}\"\nmkdir \"${DOCUMENTATION_DIR}\"\n\n# Create documentation index file from README by removing the language identifiers from code examples.\nOUTPUT=\"\"\nINDENT=\"NO\"\nwhile read LINE\ndo\n    if [ \"${INDENT}\" == \"YES\" ] ; then\n        if (echo \"${LINE}\" | grep \"^\\`\\`\\`$\" > /dev/null) ; then\n            OUTPUT=\"${OUTPUT}\\n\"\n            INDENT=\"NO\"\n        else\n            OUTPUT=\"${OUTPUT}\\t${LINE}\\n\"\n        fi\n    elif (echo \"${LINE}\" | grep \"^\\`\\`\\`.*$\" > /dev/null) ; then\n        OUTPUT=\"${OUTPUT}\\n\"\n        INDENT=\"YES\"\n    else\n        OUTPUT=\"${OUTPUT}${LINE}\\n\"\n    fi\ndone < \"${PROJECT_DIR}/README.md\"\necho -e \"${OUTPUT}\" > \"${DOCUMENTATION_INDEX_FILE}\"\n\n# Generate the documentation\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${COMPANY}\" \\\n--company-id \"${COMPANY_ID}\" \\\n--docset-atom-filename \"${PROJECT_NAME}.atom\" \\\n--docset-feed-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${COMPANY_URL}/${PROJECT_NAME}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${COMPANY_URL}/${PROJECT_NAME}\" \\\n--output \"${DOCUMENTATION_DIR}\" \\\n--publish-docset \\\n--install-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--merge-categories \\\n--docset-platform-family \"${TARGET}\" \\\n--exit-threshold 2 \\\n--index-desc \"${DOCUMENTATION_INDEX_FILE}\" \\\n--ignore \"*.m\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}\"";
 		};
 		695C22AF18C98DEA00882B74 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -735,20 +710,6 @@
 			};
 			name = Release;
 		};
-		6921899218C14594000F345C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		6921899318C14594000F345C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		695C22AD18C98DE300882B74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -798,15 +759,6 @@
 			buildConfigurations = (
 				691789D118A08E53003592DB /* Debug */,
 				691789D218A08E53003592DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6921899418C14594000F345C /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6921899218C14594000F345C /* Debug */,
-				6921899318C14594000F345C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

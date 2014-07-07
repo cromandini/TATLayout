@@ -4,7 +4,9 @@
 
 Constraint Installation implementation.
 
-- Simplified example: keeping one only view controller containing code examples of all APIs.
+- Implemented NSLayoutConstraint+TATInstallation category.
+- Simplified example app: keeping one only view controller containing code examples of almost all APIs.
+- Removed local documentation target (CocoaDocs is awesome so we don't need to create the documentation manually)
 
 ## 0.2.0
 

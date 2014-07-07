@@ -1,13 +1,14 @@
 ## An expressive, simple yet powerful way for coding layout constraints in iOS.
 
-TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints without compromising performance. It provides a higher level API to layout constraints that makes your layouts easier to read, mantain and modify dynamically.
+TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints in iOS. It provides a high level API to layout constraints that makes your layouts easier to read, mantain and modify dynamically.
 
 #### Features:
 - Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
-- Category in `UIView` providing methods for constraining layout attributes.
+- Category in `NSLayoutConstraint ` providing methods for auto installation and uninstallation.
+- A couple of helper methods useful for working with layouts.
 
 #### Next steps:
-- Create a Layout Manager that supports constraints creation, installation, uninstallation and retrieval (for editing).
+- Create a real iOS Framework and use Swift programming language, of course!
 
 ## Requirements
 iOS 6.0+
@@ -108,8 +109,8 @@ c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerX == view
                                                  metrics:nil views:views];
 ```
 
-## Examples app
-Try out the examples app by opening __TATLayout.xcworkspace__ and running __TATLayoutExamples__ scheme. If you haven't cloned the project you can use CocoaPods `try` command:
+## Example app
+Try out the example app by opening __TATLayout.xcworkspace__ and running __TATLayoutExample__ scheme. If you haven't cloned the project you can use CocoaPods `try` command:
 ```bash
 $ pod try TATLayout
 ```
@@ -121,10 +122,10 @@ TATLayout is intensively unit tested. In order to run the tests, you must instal
 $ pod install
 ```
 
-Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExamples__ scheme and hit command+U.
+Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExample__ scheme and hit command+U.
 
 ## Documentation
-The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org). Alternatively, if you want to contribute/modify the code, you can build the __Documentation__ scheme which includes the private APIs. Once builded, the documentation is available in Xcode's Documentation and API Reference. Also, a folder named "Documentation" is created in the project containing the documentation.
+The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Credits
 Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
