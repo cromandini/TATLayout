@@ -19,94 +19,75 @@ TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static
 ## Usage
 Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
 
-#### Constraining layout attributes:
 ```objective-c
-UIView *view1 = [UIView new];
-view1.translatesAutoresizingMaskIntoConstraints = NO;
-[self.view addSubview:view1];
+#import <TATLayout/TATLayout.h>
 
-// Single attribute
-[view1 tat_constrainLayoutAttributeWithEquationFormat:@"width == 300"];
-
-// Multiple attributes
-[view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == superview.width * 0.5",
-                                                          @"height == superview.height * 0.5",
-                                                          @"centerX == superview.centerX",
-                                                          @"centerY == superview.centerY"]];
-
-// Using metrics and views
-UIView *view2 = [UIView new];
-view2.translatesAutoresizingMaskIntoConstraints = NO;
-[self.view addSubview:view2];
-NSDictionary *metrics = @{@"multiplier": @0.8, @"constant": @100, @"priority": @751};
-NSDictionary *views = NSDictionaryOfVariableBindings(view2);
-
-[view1 tat_constrainLayoutAttributeWithEquationFormat:@"leading == view2.leading + constant"
-                                              metrics:metrics views:views];
-[view1 tat_constrainLayoutAttributesWithEquationFormats:@[@"width == view2.width * multiplier",
-                                                          @"height == view2.height * multiplier",
-                                                          @"centerX == superview.centerX @priority",
-                                                          @"centerY == superview.centerY @priority"]
-                                                metrics:metrics views:views];
-```
-
-#### Creating constraints with equation format strings:
-
-```objective-c
 UIView *view1 = [UIView new];
 UIView *view2 = [UIView new];
 UILabel *label = [UILabel new];
 NSDictionary *metrics = @{@"multiplier": @0.5, @"constant": @50, @"priority": @751};
 NSDictionary *views = NSDictionaryOfVariableBindings(view1, view2, label);
+
+TATDisableAutoresizingConstraintsInViews(view1, view2, label);
+
+
+// Creating constraints with equation format strings:
+
 NSLayoutConstraint *c;
 
 // view1 width is equal to 100 points
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.width == 100"
-                                                 metrics:nil views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.width == 100" metrics:nil views:views];
 
 // view1 height is equal to 2 times its width
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.height == view1.width * 2"
-                                                 metrics:nil views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.height == view1.width * 2" metrics:nil views:views];
 
 // view1 center x is equal to its superview's center x
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.centerX == superview.centerX"
-                                                 metrics:nil views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.centerX == superview.centerX" metrics:nil views:views];
 
 // view1 top is equal to its superview's top plus 50 points
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.top == superview.top + constant"
-                                                 metrics:metrics views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.top == superview.top + constant" metrics:metrics views:views];
 
 // view1 bottom is less than or equal to its superview's bottom with a priority of 251
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.bottom <= superview.bottom @251"
-                                                 metrics:nil views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.bottom <= superview.bottom @251" metrics:nil views:views];
 
 // view1 bottom is greater than or equal to view2's bottom with a priority of 751
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.bottom >= view2.bottom @priority"
-                                                 metrics:metrics views:views];
-
-// view2 leading is equal to view1's trailing
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view2.leading == view1.trailing"
-                                                 metrics:nil views:views];
-
-// view2 trailing is equal to its superview's trailing
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view2.trailing == superview.trailing"
-                                                 metrics:nil views:views];
-
-// view2 height is equal to half the view1's height
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view2.height == view1.height * multiplier"
-                                                 metrics:metrics views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view1.bottom >= view2.bottom @priority" metrics:metrics views:views];
 
 // view2 top is greater than or equal to three quarters of view1's top plus 50 points with a priority of 500
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view2.top >= view1.top * 0.75 + 50 @500"
-                                                 metrics:nil views:views];
+c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"view2.top >= view1.top * 0.75 + 50 @500" metrics:nil views:views];
 
-// label baseline is equal to view1's centerY
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"label.baseline == view1.centerY"
-                                                 metrics:nil views:views];
 
-// label is x centered with view1
-c = [NSLayoutConstraint tat_constraintWithEquationFormat:@"label.centerX == view1.centerX"
-                                                 metrics:nil views:views];
+// Multiple constraints can be created at once:
+
+NSArray *constraints = [tat_constraintsWithEquationFormats:@[@"view2.leading == view1.trailing" // view2 leading is equal to view1's trailing
+                                                             @"view2.trailing == superview.trailing" // view2 trailing is equal to its superview's trailing
+                                                             @"view2.height == view1.height * multiplier" // view2 height is equal to half the view1's height
+                                                             @"label.baseline == view1.centerY" // label baseline is equal to view1's centerY
+                                                             @"label.centerX == view1.centerX"] // label is x centered with view1
+                                                   metrics:metrics views:views];
+
+
+// Installing and uninstalling constraints:
+
+// Single
+[c tat_install];
+[c tat_uninstall];
+
+// Multiple
+[NSLayoutConstraint tat_installConstraints:constraints];
+[NSLayoutConstraint tat_uninstallConstraints:constraints];
+
+
+// Creating and installing constraints in the same operation:
+
+[NSLayoutConstraint tat_installConstraintWithEquationFormat:@"label.leading == view1.trailing" metrics:metrics views:views];
+
+[NSLayoutConstraint tat_installConstraintsWithEquationFormats:@[@"label.leading == view1.trailing"
+                                                                @"label.trailing == view2.leading",
+                                                                @"label.baseline == view1.centerY"]
+                                                      metrics:metrics views:views];
+
+[NSLayoutConstraint tat_installConstraintsWithVisualFormat:@"H:|[view1][label][view2]|" options:NSLayoutFormatAlignAllTop metrics:metrics views:views];
 ```
 
 ## Example app
