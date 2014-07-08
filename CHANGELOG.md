@@ -1,5 +1,11 @@
 # TATLayout CHANGELOG
 
+## 0.3.1
+
+Attempt to fix documentation generation.
+
+- Updated README
+
 ## 0.3.0
 
 Constraint Installation implementation.

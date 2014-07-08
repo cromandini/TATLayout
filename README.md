@@ -106,7 +106,7 @@ $ pod install
 Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExample__ scheme and hit command+U.
 
 ## Documentation
-The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org).
+The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0.3.1/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Credits
 Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
