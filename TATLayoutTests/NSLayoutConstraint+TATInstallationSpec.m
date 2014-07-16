@@ -40,7 +40,7 @@ describe(@"Constraint", ^{
     describe(@"instance", ^{
         
         context(@"when installed", ^{
-            it(@"is added to the closest ancestor shared by the views paricipating", ^{
+            it(@"is added to the closest ancestor shared by the views participating", ^{
                 [constraints[0] tat_install];
                 [constraints[1] tat_install];
                 [constraints[2] tat_install];
