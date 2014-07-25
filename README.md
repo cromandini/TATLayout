@@ -7,9 +7,6 @@ TATLayout aims to reduce considerably the amount of lines of code used when codi
 - Category in `NSLayoutConstraint ` providing methods for auto installation and uninstallation.
 - A couple of helper methods useful for working with layouts.
 
-#### Next steps:
-- Create a real iOS Framework and use Swift programming language, of course!
-
 ## Requirements
 iOS 6.0+
 
@@ -106,7 +103,7 @@ $ pod install
 Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExample__ scheme and hit command+U.
 
 ## Documentation
-The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0.3.1/) through [CocoaDocs](http://cocoadocs.org).
+The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0.3.2/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Credits
 Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
