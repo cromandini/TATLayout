@@ -108,6 +108,6 @@ The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0
 ## Credits
 Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
 
-TATLayout uses [Kiwi](https://github.com/allending/Kiwi) for unit testing.
+TATLayout uses [Kiwi](https://github.com/kiwi-bdd/Kiwi) for unit testing.
 
 Available under the MIT license. See the [LICENSE](https://github.com/cromandini/TATLayout/blob/master/LICENSE) file for more info.
