@@ -1,6 +1,6 @@
 ## An expressive, simple yet powerful way for coding layout constraints in iOS.
 
-TATLayout aims to reduce considerably the amount of lines of code used when coding layout constraints in iOS. It provides a high level API to layout constraints that makes your layout code easier to read, mantain and modify dynamically.
+__TATLayout__ aims to reduce considerably the amount of lines of code used when coding layout constraints in iOS. It provides a high level API to layout constraints that makes your layout code easier to read, mantain and modify dynamically.
 
 #### Features:
 - Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
