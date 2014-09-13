@@ -1,5 +1,5 @@
 platform :ios, "6.0"
 
 target :TATLayoutTests, :exclusive => true do
-    pod "Kiwi/XCTest"
+    pod 'Kiwi', '~> 2.3'
 end
