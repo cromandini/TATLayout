@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "TATLayout"
-  s.version               = "1.0.0"
+  s.version               = "1.0.1"
   s.license               = "MIT"
   s.summary               = "An expressive, simple yet powerful way for coding layout constraints in iOS."
   s.description           = <<-DESC

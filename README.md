@@ -11,10 +11,10 @@ __TATLayout__ aims to reduce considerably the amount of lines of code used when 
 iOS 6.0+
 
 ## Getting it
-TATLayout is available through [CocoaPods](http://cocoapods.org) and as a static library. Check out the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
+__TATLayout__ is available through [CocoaPods](http://cocoapods.org) and as a static library. Check out the [Wiki](https://github.com/cromandini/TATLayout/wiki) for detailed installation steps.
 
 ## Usage
-Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in TATLayout.
+Check out the [documentation](http://cocoadocs.org/docsets/TATLayout/) for a comprehensive look at all of the APIs available in __TATLayout__.
 
 ```objective-c
 #import <TATLayout/TATLayout.h>
@@ -103,9 +103,9 @@ $ pod install
 Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode, make sure you have selected __TATLayoutExample__ scheme and hit command+U.
 
 ## Documentation
-The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0.3.2/) through [CocoaDocs](http://cocoadocs.org).
+The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Credits
-TATLayout uses [Kiwi](https://github.com/kiwi-bdd/Kiwi) for unit testing.
+__TATLayout__ uses [Kiwi](https://github.com/kiwi-bdd/Kiwi) for unit testing.
 
 This project is under the MIT license.

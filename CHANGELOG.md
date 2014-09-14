@@ -1,5 +1,12 @@
 # TATLayout CHANGELOG
 
+## 1.0.1
+
+Some updates.
+
+- Fixed documentation link in the README.
+- Removed warnings in the deprecated methods test file.
+
 ## 1.0.0
 
 TATLayout is mature enough for version 1!

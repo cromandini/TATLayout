@@ -7,6 +7,9 @@
 #import "NSLayoutConstraint+TATInstallation.h"
 #import "NSLayoutConstraint+TATActivation.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 SPEC_BEGIN(NSLayoutConstraint_TATInstallationSpec)
 
 describe(@"Installation Category", ^{
@@ -72,5 +75,7 @@ describe(@"Installation Category", ^{
         });
     });
 });
+
+#pragma clang diagnostic pop
 
 SPEC_END
