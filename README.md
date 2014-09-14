@@ -4,7 +4,7 @@ __TATLayout__ aims to reduce considerably the amount of lines of code used when 
 
 #### Features:
 - Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
-- Category in `NSLayoutConstraint ` providing methods for auto installation and uninstallation.
+- Category in `NSLayoutConstraint ` providing methods for activation and deactivation that can be used in iOS 6+ but uses iOS 8 when available.
 - A couple of helper methods useful for working with layouts.
 
 ## Requirements
@@ -64,27 +64,27 @@ NSArray *constraints = [tat_constraintsWithEquationFormats:@[@"view2.leading == 
                                                    metrics:metrics views:views];
 
 
-// Installing and uninstalling constraints:
+// Activating and deactivating constraints:
 
-// Single
-[c tat_install];
-[c tat_uninstall];
+// Single (uses iOS 8 when available)
+c.tat_active = YES;
+c.tat_active = NO;
 
-// Multiple
-[NSLayoutConstraint tat_installConstraints:constraints];
-[NSLayoutConstraint tat_uninstallConstraints:constraints];
+// Multiple (uses iOS 8 when available)
+[NSLayoutConstraint tat_activateConstraints:constraints];
+[NSLayoutConstraint tat_deactivateConstraints:constraints];
 
 
-// Creating and installing constraints in the same operation:
+// Creating and activating constraints in the same operation:
 
-[NSLayoutConstraint tat_installConstraintWithEquationFormat:@"label.leading == view1.trailing" metrics:metrics views:views];
+[NSLayoutConstraint tat_activateConstraintWithEquationFormat:@"label.leading == view1.trailing" metrics:metrics views:views];
 
-[NSLayoutConstraint tat_installConstraintsWithEquationFormats:@[@"label.leading == view1.trailing"
+[NSLayoutConstraint tat_activateConstraintsWithEquationFormats:@[@"label.leading == view1.trailing"
                                                                 @"label.trailing == view2.leading",
                                                                 @"label.baseline == view1.centerY"]
                                                       metrics:metrics views:views];
 
-[NSLayoutConstraint tat_installConstraintsWithVisualFormat:@"H:|[view1][label][view2]|" options:NSLayoutFormatAlignAllTop metrics:metrics views:views];
+[NSLayoutConstraint tat_activateConstraintsWithVisualFormat:@"H:|[view1][label][view2]|" options:NSLayoutFormatAlignAllTop metrics:metrics views:views];
 ```
 
 ## Example app
@@ -94,7 +94,7 @@ $ pod try TATLayout
 ```
 
 ## Unit Tests
-TATLayout is intensively unit tested. In order to run the tests, you must install the testing dependencies via CocoaPods:
+__TATLayout__ is driven by unit testing. In order to run the tests, you must install the testing dependencies via CocoaPods:
 
 ```bash
 $ pod install
@@ -106,8 +106,6 @@ Once testing dependencies are installed, open __TATLayout.xcworkspace__ in Xcode
 The documentation is available [online](http://cocoadocs.org/docsets/TATLayout/0.3.2/) through [CocoaDocs](http://cocoadocs.org).
 
 ## Credits
-Copyright (c) 2014 Claudio Romandini <[cromandini@me.com](mailto:cromandini@me.com)>
-
 TATLayout uses [Kiwi](https://github.com/kiwi-bdd/Kiwi) for unit testing.
 
-Available under the MIT license. See the [LICENSE](https://github.com/cromandini/TATLayout/blob/master/LICENSE) file for more info.
+This project is under the MIT license.

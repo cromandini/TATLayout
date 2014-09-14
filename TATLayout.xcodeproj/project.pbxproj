@@ -22,10 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		69035F2018D511490001259A /* NSLayoutConstraint+TATInstallation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69035F1F18D511490001259A /* NSLayoutConstraint+TATInstallation.m */; };
-		69035F2118D511490001259A /* NSLayoutConstraint+TATInstallation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69035F1F18D511490001259A /* NSLayoutConstraint+TATInstallation.m */; };
 		69035F2318D512640001259A /* NSLayoutConstraint+TATInstallationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 69035F2218D512640001259A /* NSLayoutConstraint+TATInstallationSpec.m */; };
 		690364CC18DCC4C700B5CB8C /* TATLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 690364CB18DCC4C700B5CB8C /* TATLayoutHelper.m */; };
-		690364CD18DCC4C700B5CB8C /* TATLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 690364CB18DCC4C700B5CB8C /* TATLayoutHelper.m */; };
 		690364CF18DCC95B00B5CB8C /* TATLayoutHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 690364CE18DCC95B00B5CB8C /* TATLayoutHelperSpec.m */; };
 		690DA511193CBBA000B8C0AE /* TATLayoutExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690DA510193CBBA000B8C0AE /* TATLayoutExampleViewController.m */; };
 		6913AECE18A062EF000C1F5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6913AEA318A0625B000C1F5C /* Foundation.framework */; };
@@ -40,8 +38,9 @@
 		691789C418A08E53003592DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6990BAA418A0713200A34232 /* UIKit.framework */; };
 		691789CA18A08E53003592DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 691789C818A08E53003592DB /* InfoPlist.strings */; };
 		6929D97C18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m */; };
-		6929D97D18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m */; };
 		6929D97F18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97E18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m */; };
+		6941773419C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6941773319C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m */; };
+		6941773619C4E3EA0065C544 /* NSLayoutConstraint+TATActivation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6941773219C4D0A30065C544 /* NSLayoutConstraint+TATActivation.h */; };
 		6948821F190B070F00DA1EEC /* TATLayoutExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948821E190B070F00DA1EEC /* TATLayoutExampleAppDelegate.m */; };
 		69559247191913B400BEA22E /* NSLayoutConstraint+TATInstallation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69035F1E18D511490001259A /* NSLayoutConstraint+TATInstallation.h */; };
 		69559248191913D100BEA22E /* TATLayoutHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 690364CA18DCC4C700B5CB8C /* TATLayoutHelper.h */; };
@@ -49,11 +48,16 @@
 		69652BE218C8D565009BE294 /* TATLayout.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69848D9018A09479002B6898 /* TATLayout.h */; };
 		69652BE418C8D56C009BE294 /* NSLayoutConstraint+TATFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATFactory.h */; };
 		696AF994193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 696AF993193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m */; };
-		696AF995193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 696AF993193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m */; };
 		696AF997193BFF6100DCBDE3 /* NSLayoutConstraint+TATContainerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 696AF996193BFF6100DCBDE3 /* NSLayoutConstraint+TATContainerSpec.m */; };
 		696CC4FB18D39586000F6597 /* UIView+TATHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CC4FA18D39586000F6597 /* UIView+TATHierarchy.m */; };
-		696CC4FC18D39586000F6597 /* UIView+TATHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CC4FA18D39586000F6597 /* UIView+TATHierarchy.m */; };
 		696CC4FF18D39658000F6597 /* UIView+TATHierarchySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CC4FE18D39658000F6597 /* UIView+TATHierarchySpec.m */; };
+		69DEE49519C4E64400AEEEA8 /* NSLayoutConstraint+TATContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 696AF993193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m */; };
+		69DEE49619C4E64400AEEEA8 /* NSLayoutConstraint+TATFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m */; };
+		69DEE49719C4E64400AEEEA8 /* NSLayoutConstraint+TATActivation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6941773319C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m */; };
+		69DEE49819C4E64400AEEEA8 /* NSLayoutConstraint+TATInstallation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69035F1F18D511490001259A /* NSLayoutConstraint+TATInstallation.m */; };
+		69DEE49919C4E64400AEEEA8 /* TATLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 690364CB18DCC4C700B5CB8C /* TATLayoutHelper.m */; };
+		69DEE49A19C4E64400AEEEA8 /* UIView+TATHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CC4FA18D39586000F6597 /* UIView+TATHierarchy.m */; };
+		69DEE49C19C4F3F200AEEEA8 /* NSLayoutConstraint+TATActivationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DEE49B19C4F3F200AEEEA8 /* NSLayoutConstraint+TATActivationSpec.m */; };
 		69F9892318D6A65D00AAF1EC /* TATFakeViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F9892218D6A65D00AAF1EC /* TATFakeViewHierarchy.m */; };
 		771FB2F13B924159BB51B0CC /* libPods-TATLayoutTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF29B5A6F2946E08C535A37 /* libPods-TATLayoutTests.a */; };
 /* End PBXBuildFile section */
@@ -75,6 +79,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				6941773619C4E3EA0065C544 /* NSLayoutConstraint+TATActivation.h in CopyFiles */,
 				69559248191913D100BEA22E /* TATLayoutHelper.h in CopyFiles */,
 				69559247191913B400BEA22E /* NSLayoutConstraint+TATInstallation.h in CopyFiles */,
 				69652BE218C8D565009BE294 /* TATLayout.h in CopyFiles */,
@@ -111,6 +116,8 @@
 		6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSLayoutConstraint+TATFactory.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6929D97B18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSLayoutConstraint+TATFactory.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6929D97E18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "NSLayoutConstraint+TATFactoryErrorSpec.m"; path = "TATLayoutTests/NSLayoutConstraint+TATFactoryErrorSpec.m"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6941773219C4D0A30065C544 /* NSLayoutConstraint+TATActivation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+TATActivation.h"; sourceTree = "<group>"; };
+		6941773319C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TATActivation.m"; sourceTree = "<group>"; };
 		6948821D190B070F00DA1EEC /* TATLayoutExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TATLayoutExampleAppDelegate.h; sourceTree = "<group>"; };
 		6948821E190B070F00DA1EEC /* TATLayoutExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TATLayoutExampleAppDelegate.m; sourceTree = "<group>"; };
 		6957DDA618B27F5D00AE074E /* TATLayoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TATLayoutTests-Info.plist"; sourceTree = "<group>"; };
@@ -124,6 +131,7 @@
 		696CC4FE18D39658000F6597 /* UIView+TATHierarchySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIView+TATHierarchySpec.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		69848D9018A09479002B6898 /* TATLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TATLayout.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6990BAA418A0713200A34232 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		69DEE49B19C4F3F200AEEEA8 /* NSLayoutConstraint+TATActivationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TATActivationSpec.m"; sourceTree = "<group>"; };
 		69F9892118D6A65D00AAF1EC /* TATFakeViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TATFakeViewHierarchy.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		69F9892218D6A65D00AAF1EC /* TATFakeViewHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TATFakeViewHierarchy.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7BF29B5A6F2946E08C535A37 /* libPods-TATLayoutTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TATLayoutTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +230,7 @@
 		691789C518A08E53003592DB /* TATLayoutTests */ = {
 			isa = PBXGroup;
 			children = (
+				69DEE49B19C4F3F200AEEEA8 /* NSLayoutConstraint+TATActivationSpec.m */,
 				696AF996193BFF6100DCBDE3 /* NSLayoutConstraint+TATContainerSpec.m */,
 				6929D97E18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m */,
 				695F9EF018B0932500D66622 /* NSLayoutConstraint+TATFactorySpec.m */,
@@ -247,6 +256,8 @@
 		69848D8F18A09464002B6898 /* TATLayout */ = {
 			isa = PBXGroup;
 			children = (
+				6941773219C4D0A30065C544 /* NSLayoutConstraint+TATActivation.h */,
+				6941773319C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m */,
 				696AF992193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.h */,
 				696AF993193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m */,
 				6929D97A18A87C04003195A4 /* NSLayoutConstraint+TATFactory.h */,
@@ -450,6 +461,7 @@
 				696AF994193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m in Sources */,
 				690364CC18DCC4C700B5CB8C /* TATLayoutHelper.m in Sources */,
 				6929D97C18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m in Sources */,
+				6941773419C4D0A30065C544 /* NSLayoutConstraint+TATActivation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,13 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69035F2118D511490001259A /* NSLayoutConstraint+TATInstallation.m in Sources */,
+				69DEE49519C4E64400AEEEA8 /* NSLayoutConstraint+TATContainer.m in Sources */,
+				69DEE49619C4E64400AEEEA8 /* NSLayoutConstraint+TATFactory.m in Sources */,
+				69DEE49719C4E64400AEEEA8 /* NSLayoutConstraint+TATActivation.m in Sources */,
+				69DEE49819C4E64400AEEEA8 /* NSLayoutConstraint+TATInstallation.m in Sources */,
+				69DEE49919C4E64400AEEEA8 /* TATLayoutHelper.m in Sources */,
+				69DEE49A19C4E64400AEEEA8 /* UIView+TATHierarchy.m in Sources */,
 				6913AED918A062EF000C1F5C /* main.m in Sources */,
-				6929D97D18A87C04003195A4 /* NSLayoutConstraint+TATFactory.m in Sources */,
 				6948821F190B070F00DA1EEC /* TATLayoutExampleAppDelegate.m in Sources */,
-				696AF995193BFD3E00DCBDE3 /* NSLayoutConstraint+TATContainer.m in Sources */,
-				696CC4FC18D39586000F6597 /* UIView+TATHierarchy.m in Sources */,
-				690364CD18DCC4C700B5CB8C /* TATLayoutHelper.m in Sources */,
 				690DA511193CBBA000B8C0AE /* TATLayoutExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +488,7 @@
 				695F9EF118B0932500D66622 /* NSLayoutConstraint+TATFactorySpec.m in Sources */,
 				696AF997193BFF6100DCBDE3 /* NSLayoutConstraint+TATContainerSpec.m in Sources */,
 				69035F2318D512640001259A /* NSLayoutConstraint+TATInstallationSpec.m in Sources */,
+				69DEE49C19C4F3F200AEEEA8 /* NSLayoutConstraint+TATActivationSpec.m in Sources */,
 				690364CF18DCC95B00B5CB8C /* TATLayoutHelperSpec.m in Sources */,
 				6929D97F18A87CAD003195A4 /* NSLayoutConstraint+TATFactoryErrorSpec.m in Sources */,
 				696CC4FF18D39658000F6597 /* UIView+TATHierarchySpec.m in Sources */,

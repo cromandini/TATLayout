@@ -26,5 +26,8 @@
 //
 
 #import "NSLayoutConstraint+TATFactory.h"
-#import "NSLayoutConstraint+TATInstallation.h"
+#import "NSLayoutConstraint+TATActivation.h"
 #import "TATLayoutHelper.h"
+
+// Deprecated
+#import "NSLayoutConstraint+TATInstallation.h"

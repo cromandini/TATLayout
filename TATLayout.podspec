@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "TATLayout"
-  s.version               = "0.3.2"
+  s.version               = "1.0.0"
   s.license               = "MIT"
   s.summary               = "An expressive, simple yet powerful way for coding layout constraints in iOS."
   s.description           = <<-DESC
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                             
                             Features:
                             * Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
-                            * Category in `NSLayoutConstraint ` providing methods for auto installation and uninstallation.
+                            * Category in `NSLayoutConstraint ` providing methods for activation and deactivation that can be used in iOS 6+ but uses iOS 8 when available.
                             * A couple of helper methods useful for working with layouts.
                             DESC
   s.homepage              = "https://github.com/cromandini/TATLayout"
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.platform              = :ios, "6.0"
   s.ios.deployment_target = "6.0"
   s.source_files          = "TATLayout/*.{h,m}"
-  s.public_header_files   = "TATLayout/{TATLayout,TATLayoutHelper,NSLayoutConstraint+TATFactory,NSLayoutConstraint+TATInstallation}.h"
+  s.public_header_files   = "TATLayout/{TATLayout,TATLayoutHelper,NSLayoutConstraint+TATFactory,NSLayoutConstraint+TATActivation,NSLayoutConstraint+TATInstallation}.h"
 end

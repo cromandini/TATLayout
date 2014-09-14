@@ -134,7 +134,7 @@
                          @"volumeSlider.centerX  == superview.centerX",
                          @"volumeSlider.leading  >= superview.leading + longPadding @highPriority",
                          @"volumeSlider.trailing >= superview.trailing - longPadding @highPriority"];
-    [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
+    [NSLayoutConstraint tat_activateConstraintsWithEquationFormats:formats metrics:metrics views:views];
     
     if (TATLayoutExampleDeviceIsIPHONE) {
         formats = @[@"albumArt.bottom        <= progressBar.top - shortPadding @highPriority",
@@ -162,7 +162,7 @@
                     @"shuffleButton.trailing <= superview.trailing - longPadding",
                     @"shuffleButton.centerY  == repeatButton.centerY"];
     }
-    [NSLayoutConstraint tat_installConstraintsWithEquationFormats:formats metrics:metrics views:views];
+    [NSLayoutConstraint tat_activateConstraintsWithEquationFormats:formats metrics:metrics views:views];
     
     self.songTitle = songTitle;
     self.albumTitle = albumTitle;
@@ -176,13 +176,13 @@
         self.songTitle.font = [UIFont boldSystemFontOfSize:18];
         self.albumTitle.font = [UIFont systemFontOfSize:13];
         if (TATLayoutExampleDeviceIsIPHONE) {
-            [self.iPhoneLandscapeConstraint tat_install];
+            self.iPhoneLandscapeConstraint.tat_active = YES;
         }
     } else {
         self.songTitle.font = [UIFont boldSystemFontOfSize:20];
         self.albumTitle.font = [UIFont systemFontOfSize:14];
         if (TATLayoutExampleDeviceIsIPHONE) {
-            [self.iPhoneLandscapeConstraint tat_uninstall];
+            self.iPhoneLandscapeConstraint.tat_active = NO;
         }
     }
 }

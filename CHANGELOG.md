@@ -1,5 +1,14 @@
 # TATLayout CHANGELOG
 
+## 1.0.0
+
+TATLayout is mature enough for version 1!
+
+- Implemented active/isActive property relying in iOS 8 when available.
+- Deprecated TATInstallation category but still providing the category for backwards compatibility.
+- Updated unit tests
+- Updated example app
+
 ## 0.3.2
 
 Attempt to fix documentation generation.
