@@ -4,7 +4,7 @@ __TATLayout__ aims to reduce considerably the amount of lines of code used when 
 
 #### Features:
 - Category in `NSLayoutConstraint` providing a factory method for creating constraints using a linear equation format string.
-- Category in `NSLayoutConstraint ` providing methods for activation and deactivation that can be used in iOS 6+ but uses iOS 8 when available.
+- Category in `NSLayoutConstraint ` providing methods for activation and deactivation that can be used in iOS 6+ but uses iOS 8 when available, using feature detection.
 - A couple of helper methods useful for working with layouts.
 
 ## Requirements
@@ -66,11 +66,11 @@ NSArray *constraints = [tat_constraintsWithEquationFormats:@[@"view2.leading == 
 
 // Activating and deactivating constraints:
 
-// Single (uses iOS 8 when available)
+// Single (uses iOS 8 built-in when available)
 c.tat_active = YES;
 c.tat_active = NO;
 
-// Multiple (uses iOS 8 when available)
+// Multiple (uses iOS 8 built-in when available)
 [NSLayoutConstraint tat_activateConstraints:constraints];
 [NSLayoutConstraint tat_deactivateConstraints:constraints];
 
