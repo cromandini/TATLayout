@@ -7,26 +7,26 @@
 #import "NSLayoutConstraint+TATContainer.h"
 #import "UIView+TATHierarchy.h"
 
-@interface TATInstallationWeakAssociator : NSObject
+@interface TATContainerWeakAssociator : NSObject
 @property (weak, nonatomic) id container;
 @end
 
-@implementation TATInstallationWeakAssociator
+@implementation TATContainerWeakAssociator
 @end
 
 @implementation NSLayoutConstraint (TATContainer)
 
 - (UIView *)tat_container
 {
-    TATInstallationWeakAssociator *weakAssociation = objc_getAssociatedObject(self, @selector(tat_container));
+    TATContainerWeakAssociator *weakAssociation = objc_getAssociatedObject(self, @selector(tat_container));
     return weakAssociation.container;
 }
 
 - (void)setTat_container:(UIView *)container
 {
-    TATInstallationWeakAssociator *weakAssociator = objc_getAssociatedObject(self, @selector(tat_container));;
+    TATContainerWeakAssociator *weakAssociator = objc_getAssociatedObject(self, @selector(tat_container));
     if (!weakAssociator) {
-        weakAssociator = [TATInstallationWeakAssociator new];
+        weakAssociator = [TATContainerWeakAssociator new];
         objc_setAssociatedObject(self, @selector(tat_container), weakAssociator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     weakAssociator.container = container;
